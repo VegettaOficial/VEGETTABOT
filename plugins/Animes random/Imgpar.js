@@ -11,6 +11,6 @@ let handler = async (m, { conn, command }) => {
 }
 handler.help = ['mitad']
 handler.tags = ['img']
-handler.command = /^(par|mitad)$/i
+handler.command = /^(par|mitad|gemelo)$/i
 handler.register = false
 export default handler
