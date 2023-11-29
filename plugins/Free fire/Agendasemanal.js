@@ -10,10 +10,6 @@ let texto = `📕 ¡LA #AGENDASEMANAL ESTÁ AQUÍ! 📕
 🪐 Además, emprende una Odisea Galáctica con la NUEVA TEMPORADA del Pase BOOYAH! y revoluciona tu arsenal con la velocidad de la M1887 y la katana Poder Esmeralda. 🟩
 
 💥 ¡Entra ahora! Poder y recompensas te esperan.
-
-
-
-
 `
 
 const fkontak = {
