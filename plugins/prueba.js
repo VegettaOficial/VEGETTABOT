@@ -1,25 +1,24 @@
-//import {spin} from "../lib/scrape.js";
-
-let handler = async (m, {conn, args, usedPrefix, command}) => {
-  if (!args[0])
-    throw `**Este comando para descargar videos de pinterest con enlace*\n\nejemplo:\n${
-      usedPrefix + command
-    } https://id.pinterest.com/pin/27162403992537372/*`;
-  if (!args[0].match(/https:\/\/.*pinterest.com\/pin|pin.it/gi))
-    throw `*¡Enlace incorrecto! Este comando para descargar videos de pinterest con enlace*\n\nejemplo:\n${
-      usedPrefix + command
-    } https://id.pinterest.com/pin/27162403992537372/*`;
- 
-    let pin = JSON.stringify(res);
-    let json = JSON.parse(res);
-    if (!json.status) throw `No se puede descargar`;
-    await conn.sendButton(m.chat, json.data.url, `*Mythia Batford*`, m);
-  });
+import {googleImage} from "@bochilteam/scraper";
+let handler = async (m, {conn}) => {
+  let shipost = "shipost";
+  const res = await googleImage(shipost);
+  let image = await res.getRandom();
+  let link = image;
+  let captionn = `👻 *IMAGEN DE: SHIPOST*`;
+  await await conn.sendButton(
+    m.chat,
+    captionn,
+    author,
+    link,
+    [
+      ["🔄 [SIGUIENTE]", `#shipost`],
+      ["🔷 [STICKER]", `#s`],
+    ],
+    m
+  );
 };
-handler.help = ["pinterestvideo"].map((v) => v + " <url>");
-handler.tags = ["downloader"];
-handler.command = /^pinterestvideo$/i;
-
-handler.limit = true;
-
+handler.help = ["shipost <query>", "shipost <query>"];
+handler.tags = ["internet", "tools"];
+handler.command = /^(shipost)$/i;
+handler.dolares = 0;
 export default handler;
