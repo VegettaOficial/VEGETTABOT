@@ -72,9 +72,9 @@ handler.limit = 0
 handler.help = ['instagram <link ig>']
 handler.tags = ['downloader']
 handler.command =/^(instagram|ig(dl)?)$/i
-handler.limit = 2
-handler.exp = 70
-handler.register = true
+handler.limit = 0
+handler.exp = 0
+handler.register = false
 export default handler
 async function savefrom(urlL) {
 let body = new URLSearchParams({ "sf_url": encodeURI(urlL), "sf_submit": "", "new": 2, "lang": "id", "app": "", "country": "id", "os": "Windows", "browser": "Chrome", "channel": " main", "sf-nomad": 1 });
