@@ -17,7 +17,7 @@ await conn.sendNyanCat( m.chat, global.wait, imagen2, `Descarga de Instagram`, n
 };
 handler.help = ["instagram *<link ig>*"];
 handler.tags = ["downloader"];
-handler.command = ["ig", "igdl", "instagram", "igimg", "igvid"];
+handler.command = ["ig", "igdl", "instagram", "insta", "igvid"];
 
 export default handler;
 
