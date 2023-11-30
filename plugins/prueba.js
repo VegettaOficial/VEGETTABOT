@@ -1,12 +1,19 @@
+//made by kanna
+//Dan gw ganti bbrp doang:v
 
-import fetch from 'node-fetch'
-import instagramGetUrl from 'fg-ig'
-let handler = async (m, { conn, args, usedPrefix, command }) => {
-if (!(args[0])) throw `*[❗𝐈𝐍𝐅𝐎❗] 𝙸𝙽𝙶𝚁𝙴𝚂𝙴 𝚄𝙽 𝙴𝙽𝙻𝙰𝙲𝙴 𝙳𝙴 𝙸𝙽𝚂𝚃𝙰𝙶𝚁𝙰𝙼, 𝙴𝙹𝙴𝙼𝙿𝙻𝙾: ${usedPrefix + command} https://www.instagram.com/reel/Cc0NuYBg8CR/?utm_source=ig_web_copy_link*`
-let results = (await instagramGetUrl(args[0])).url_list[0]
-let shortUrl = await (await fetch(`https://tinyurl.com/api-create.php?url=${results}`)).text()
-let txt = `🔗 *Url:* ${shortUrl}`.trim()
-await conn.sendFile(m.chat, results, 'error.mp4', txt, m)}
-handler.command =/^(instagram|ig(dl)?)$/i
-handler.dfail = null
-export default handler
+let fetch = require("node-fetch")
+
+let handler = async (m, { conn }) => {
+  let res = await fetch(global.API('LeysCoder', '/api/ppcouple', {}, 'apikey'))
+  conn.reply(m.chat, wait, m)
+  if (!res.ok) throw await res.text()
+  let json = await res.json()
+  if (!json.status) throw json
+  await conn.sendFile(m.chat, json.result.male, '', '*✅ Chico*', m)
+  await conn.sendFile(m.chat, json.result.female, '', '*✅ Chica*', m)
+}
+handler.help = ['par']
+handler.tags = ['images']
+handler.command = /^(jiji)$/i
+
+module.exports = handler
