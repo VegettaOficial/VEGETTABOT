@@ -11,7 +11,7 @@ let handler = async (m, {conn, args, usedPrefix, command}) => {
     } https://id.pinterest.com/pin/27162403992537372/*`;
   await spin(args[0]).then(async (res) => {
     let pin = JSON.stringify(res);
-    let json = JSON.parse(pin);
+    let json = JSON.parse(res);
     if (!json.status) throw `No se puede descargar`;
     await conn.sendButton(m.chat, json.data.url, `*Mythia Batford*`, m);
   });
