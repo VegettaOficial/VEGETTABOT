@@ -9,7 +9,7 @@ let handler = async (m, {conn, args, usedPrefix, command}) => {
     throw `*¡Enlace incorrecto! Este comando para descargar videos de pinterest con enlace*\n\nejemplo:\n${
       usedPrefix + command
     } https://id.pinterest.com/pin/27162403992537372/*`;
-  await spin(args[0]).then(async (res) => {
+ 
     let pin = JSON.stringify(res);
     let json = JSON.parse(res);
     if (!json.status) throw `No se puede descargar`;
