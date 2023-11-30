@@ -9,15 +9,7 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
     }* https://www.instagram.com/p/CYHeKxyMj-J/?igshid=YmMyMTA2M2Y=`;
   if (!args[0].match(/instagram/gi))
     throw `❎ Asegurese que el enlace sea de Instagram`;
-  await 
-    m.chat,
-    global.wait,
-    adnyancat,
-    addescargas,
-    null,
-    script,
-    m
-  );
+  
   let res = await igdl(args[0]);
   for (let result of res.data) {
     conn.sendFile(m.chat, result.url, "igdl.mp4", ``, m);
