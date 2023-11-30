@@ -13,7 +13,6 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
     m.chat,
     global.wait,
     null,
-    script,
     m
   );
   let res = await igdl(args[0]);
