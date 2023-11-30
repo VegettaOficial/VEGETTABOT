@@ -10,9 +10,7 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
   if (!args[0].match(/instagram/gi))
     throw `❎ Asegurese que el enlace sea de Instagram`;
   
-    m.chat,
    
-    null,
     m
   );
   let res = await igdl(args[0]);
