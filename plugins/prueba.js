@@ -15,7 +15,7 @@ const resultl = responsel.data
 for (const item of resultl.message) {
 const shortUrRRl = await (await fetch(`https://tinyurl.com/api-create.php?url=${item.thumbnail}`)).text()
 const tXXxt = `🍧 *Url:* ${shortUrRRl}`.trim()
-conn.sendFile(m.chat, item._url, null, tXXxt, fkontak, m)
+conn.sendFile(m.chat, item._url, null, tXXxt, m)
 await new Promise((resolve) => setTimeout(resolve, 10000))
 } 
 } catch { 
