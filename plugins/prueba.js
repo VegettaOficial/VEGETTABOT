@@ -9,7 +9,7 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
     }* https://www.instagram.com/p/CYHeKxyMj-J/?igshid=YmMyMTA2M2Y=`;
   if (!args[0].match(/instagram/gi))
     throw `❎ Asegurese que el enlace sea de Instagram`;
-  await 
+  
     m.chat,
     global.wait,
     null,
