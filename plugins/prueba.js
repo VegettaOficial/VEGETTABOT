@@ -11,7 +11,7 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
     throw `❎ Asegurese que el enlace sea de Instagram`;
   
     m.chat,
-    global.wait,
+   
     null,
     m
   );
