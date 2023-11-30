@@ -12,7 +12,6 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
   await conn.sendNyanCat(
     m.chat,
     global.wait,
-    addescargas,
     null,
     script,
     m
