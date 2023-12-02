@@ -6,6 +6,11 @@ let d = new Date(new Date + 3600000)
 let locale = 'es'
 let week = d.toLocaleDateString(locale, { weekday: 'long' })
 let date = d.toLocaleDateString(locale, { day: 'numeric', month: 'long', year: 'numeric' })
+let time = d.toLocaleTimeString(locale, {
+hour: 'numeric',
+minute: 'numeric',
+second: 'numeric'
+})
 let _uptime = process.uptime() * 1000
 let uptime = clockString(_uptime)
 let rtotalreg = Object.values(global.db.data.users).filter(user => user.registered == true).length 
