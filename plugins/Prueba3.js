@@ -13,5 +13,5 @@ let handler = async (m, {conn}) => {
     {quoted: m}
   );
 };
-handler.command = ["togifaud"];
+handler.command = ["togif"];
 export default handler;
