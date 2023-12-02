@@ -115,7 +115,7 @@ const audio10 = await tts(akuariapiresult1.text, idioma);
 await conn.sendMessage(m.chat, {audio: audio10, fileName: 'error.mp3', mimetype: 'audio/mpeg', ptt: true}, {quoted: m});                           
 } catch {
 }}}}}}}}}}}
-handler.command = /^(kevin)$/i;
+handler.command = /^(openaivoz|chatgptvoz|iavoz|robotvoz|openai2voz|chatgpt2voz|ia2voz|robot2voz|Mysticvoz|MysticBotvoz|gptvoz|ai_voz|ai_voce)$/i;
 export default handler;
 
 async function tts(text = 'error', lang = 'es') {
@@ -131,4 +131,5 @@ unlinkSync(filePath);
 reject(e);
 }
 });
-}
+    }
+                         
