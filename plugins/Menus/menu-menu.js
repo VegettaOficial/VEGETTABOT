@@ -432,7 +432,7 @@ let menu = `
 ╰━━━━━━⋆★⋆━━━━━━⬣
  `.trim()
     
-const vi = ['https://telegra.ph/file/d0d4255a4415b71242dc4.mp4',
+const vi = ['https://telegra.ph/file/8d10564c85f7ea3e3cd68.mp4',
            'https://telegra.ph/file/f392a06499e459b2da428.mp4']
 
 try {
