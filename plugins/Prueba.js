@@ -14,9 +14,9 @@ let readMore = more.repeat(850)
 let taguser = conn.getName(m.sender)
 let user = global.db.data.users[m.sender]
 let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }
-let menu = `
-¡Hola! ⭐ @${m.sender.split("@")[0]}
- \`\`\`${week}, ${date}\`\`\`
+let menu = `${lenguajeGB['smsConfi2']()} *${user.genero === 0 ? '👤' : user.genero == 'Ocultado 🕶️' ? `🕶️` : user.genero == 'Mujer 🚺' ? `🚺` : user.genero == 'Hombre 🚹' ? `🚹` : '⭐'} ${user.registered === true ? user.name : username}*${(conn.user.jid == global.conn.user.jid ? '' : `\n*SOY SUB BOT DE: https://wa.me/${global.conn.user.jid.split`@`[0]}*`) || ''}
+
+\`\`\`${horarioFecha}\`\`\`
 
 » 𝗔𝗨𝗗𝗜𝗢𝗦
 │┣ ඬ⃟🔊 𝘱𝘢𝘣𝘭𝘰
