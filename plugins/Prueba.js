@@ -19,7 +19,10 @@ let readMore = more.repeat(850)
 let taguser = conn.getName(m.sender)
 let user = global.db.data.users[m.sender]
 let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }
-let menu = `
+lugarFecha.locale('es', formatoFecha)
+const horarioFecha = lugarFecha.format('dddd,DD [de] MMMM [del] YYYY│[Hora:]HH:mm A').replace(/^\w/, (c) => c.toUpperCase())
+ 
+ let menu = `
 ¡Hola! 👋🏻 @${m.sender.split("@")[0]}
  \`\`\`${week}, ${date}\`\`\`
  
