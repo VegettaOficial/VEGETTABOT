@@ -30,6 +30,6 @@ ${letter.letra}`;
 handler.help = ["Lyrics"].map((v) => v + "");
 handler.tags = ["search"];
 handler.command = ["letraa", "lyrics", "letras"];
-handler.register = false;
+handler.register = true;
 
 export default handler;
