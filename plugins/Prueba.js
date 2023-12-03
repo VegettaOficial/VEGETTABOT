@@ -28,7 +28,7 @@ const handler = async (m, { conn, text }) => {
     throw '*[❗] Error, no se encontraron resultados.*';
   }
 };
-handler.command = /^(spotify|music)$/i;
+handler.command = /^(musi)$/i;
 export default handler;
 
 
