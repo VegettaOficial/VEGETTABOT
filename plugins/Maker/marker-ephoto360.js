@@ -187,6 +187,6 @@ if (command == 'imgdbz') {
 
    }
   }
-  
+};
 handler.command = /^imgcorazon|imghorror|imggrafiti3|imggrafiti4|imggrafiti5|imggrafiti6|imggrafiti7|imggrafiti8|imglogoneon|imgcalle|imgvidrio|imggrafiti|imggrafiti2|imgnavidad|imgcarta|imgretro|imgdbz|imgretro2|imgpareja|logoephoto360|logotextpro/i;
 export default handler;
