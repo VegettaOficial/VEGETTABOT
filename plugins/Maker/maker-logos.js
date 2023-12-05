@@ -14,7 +14,7 @@ const handler = async (m, {conn, args: [effect], text: txt, usedPrefix, command,
   const effectoSelect = effects.find((effectz) => new RegExp(effectz?.title, 'i').test(effect));
   const res = await maker(effectoSelect?.url, [...text]).catch(_ => { throw '[❗] 𝙁𝙖𝙡𝙩𝙖 𝙚𝙡 𝙩𝙚𝙭𝙩𝙤 𝙖𝙡 𝙦𝙪𝙚 𝙨𝙚 𝙧𝙚𝙖𝙡𝙞𝙯𝙖𝙧𝙖 𝙚𝙡 𝙡𝙤𝙜𝙤' })
    if (typeof res == 'number') throw res == -1 ? `*[❗𝐈𝐍𝐅𝐎❗] 𝙴𝙻 𝙴𝙵𝙴𝙲𝚃𝙾 ${effect} 𝙽𝙾 𝙴𝚂𝚃𝙰 𝙴𝙽 𝙻𝙰 𝙻𝙸𝚂𝚃𝙰 𝙳𝙴 𝙴𝙵𝙴𝙲𝚃𝙾𝚂*` : `*[❗𝐈𝐍𝐅𝐎❗] 𝙴𝙻 𝚄𝚂𝙾 𝙲𝙾𝚁𝚁𝙴𝙲𝚃𝙾 𝙳𝙴𝙻 𝙲𝙾𝙼𝙰𝙽𝙳𝙾 𝙴𝚂 ${usedPrefix + command} ${effect} ${new Array(res).fill('texto').map((v, i) => v + (i ? i + 1 : '')).join('|')}*`;
-  await conn.sendMessage(m.chat, {image: {url: res.image}, caption: `¡𝙂𝙍𝘼𝘾𝙄𝘼𝙎 𝙋𝙊𝙍 𝙐𝙏𝙄𝙇𝙄𝙕𝘼𝙍 𝙀𝙇𝙄𝙏𝙀 𝘽𝙊𝙏!♥️\n𝙀𝙁𝙀𝘾𝙏𝙊 𝙐𝙏𝙄𝙇𝙄𝙕𝘼𝘿𝙊 : *${effect}*`}, {quoted: m});  
+  await conn.sendMessage(m.chat, {image: {url: res.image}, caption: `𝙀𝙇𝙄𝙏𝙀 𝘽𝙊𝙏\n𝙀𝙁𝙀𝘾𝙏𝙊 𝙐𝙏𝙄𝙇𝙄𝙕𝘼𝘿𝙊 : *${effect}*`}, {quoted: m});  
 };
 handler.help = ['logos'];
 handler.tags = ['nulis'];
@@ -285,10 +285,7 @@ var effects = [
   {
     'title': 'minion3d',
     'url': 'https://textpro.me/minion-text-effect-3d-online-978.html',
-  },
-  {
-    'title': 'Pornhub',
-    'url': 'https://textpro.me/pornhub-style-logo-online-generator-free-977.html',
+  
   },
   {
     'title': 'DoubleBlack',
@@ -395,10 +392,7 @@ var effects = [
     'url': 'https://textpro.me/metal-dark-gold-text-effect-online-939.html',
   },
   {
-    'title': 'Lion',
-    'url': 'https://textpro.me/create-lion-logo-mascot-online-938.html',
-  },
-  {
+    
     'title': 'Wolf',
     'url': 'https://textpro.me/create-wolf-logo-black-white-937.html',
   },
@@ -595,10 +589,7 @@ var effects = [
     'url': 'https://textpro.me/matrix-style-text-effect-online-884.html',
   },
   {
-    'title': 'Horror-Blood',
-    'url': 'https://textpro.me/horror-blood-text-effect-online-883.html',
-  },
-  {
+    
     'title': 'Neon-Light',
     'url': 'https://textpro.me/neon-light-text-effect-online-882.html',
   },
