@@ -177,7 +177,7 @@ if (command == 'imgdbz') {
 
    }
   }
-  if (command == 'imghorror') {
+  if (command == 'imgcalle2') {
     try {
       await conn.reply(m.chat, '𝘿𝘼𝙈𝙀 𝙐𝙉 𝙈𝙊𝙈𝙀𝙉𝙏𝙊, 𝙀𝙎𝙏𝙊𝙔 𝙀𝙇𝘼𝘽𝙊𝙍𝘼𝙉𝘿𝙊 𝙏𝙐 𝙄𝙈𝘼́𝙂𝙀𝙉 .♥️', m);
       const res = await new Maker().Ephoto360('https://en.ephoto360.com/create-pornhub-style-logos-online-free-549.html', [response[0]]);
