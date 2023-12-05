@@ -170,7 +170,7 @@ if (command == 'imgdbz') {
   if (command == 'imglogoneon') {
     try {
       await conn.reply(m.chat, '𝘿𝘼𝙈𝙀 𝙐𝙉 𝙈𝙊𝙈𝙀𝙉𝙏𝙊, 𝙀𝙎𝙏𝙊𝙔 𝙀𝙇𝘼𝘽𝙊𝙍𝘼𝙉𝘿𝙊 𝙏𝙐 𝙄𝙈𝘼́𝙂𝙀𝙉 .♥️', m);
-      const res = await new Maker().Ephoto360('https://en.ephoto360.com/create-blue-neon-logo-online-507.html', [response[0]]);
+      const res = await new Maker().Ephoto360('https://en.ephoto360.com/create-glowing-text-effects-online-706.html', [response[0]]);
       await conn.sendFile(m.chat, res.imageUrl, 'error.jpg', null, m);
     } catch {
    await conn.reply(m.chat, '*[❗𝐈𝐍𝐅𝐎❗] 𝙴𝚁𝚁𝙾𝚁, 𝙿𝙾𝚁 𝙵𝙰𝚅𝙾𝚁 𝚅𝚄𝙴𝙻𝚅𝙰 𝙰 𝙸𝙽𝚃𝙴𝙽𝚃𝙰𝚁𝙻𝙾*', m);
@@ -188,5 +188,5 @@ if (command == 'imgdbz') {
    }
   }
 };
-handler.command = /^imgcorazon|imghorror|imggrafiti3|imggrafiti4|imggrafiti5|imggrafiti6|imggrafiti7|imggrafiti8|imglogoneon|imgcalle|imgvidrio|imggrafiti|imggrafiti2|imgnavidad|imgcarta|imgretro|imgdbz|imgretro2|imgpareja|logoephoto360|logotextpro/i;
+handler.command = /^imgcorazon|imgcalle2|imggrafiti3|imggrafiti4|imggrafiti5|imggrafiti6|imggrafiti7|imggrafiti8|imglogoneon|imgcalle|imgvidrio|imggrafiti|imggrafiti2|imgnavidad|imgcarta|imgretro|imgdbz|imgretro2|imgpareja|logoephoto360|logotextpro/i;
 export default handler;
