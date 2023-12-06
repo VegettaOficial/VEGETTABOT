@@ -96,7 +96,6 @@ global.mods = [];
 /*************************/
 global.cheerio = cheerio;
 global.fs = fs;
-global.spin = spin;
 global.fetch = fetch;
 global.axios = axios;
 global.moment = moment;	
