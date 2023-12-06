@@ -46,10 +46,4 @@ async function cerpen(category) {
               lolos: $$('#content > article').text().split('Lolos moderasi pada: ')[1].split('\n')[0],
               cerita: $$('#content > article > p').text(),
             };
-            resolve(hasil);
-          });
-        });
-  });
-}
-
-];
+            
