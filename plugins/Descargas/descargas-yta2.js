@@ -45,11 +45,11 @@ const handler = async (m, {conn, args, usedPrefix, command}) => {
     const fileSizeInMB = fileSizeInKB / 1024;
     const roundedFileSizeInMB = fileSizeInMB.toFixed(2);
    if (fileSizeInMB > 100) {
-    await conn.sendMessage(m.chat, {document: buff, caption: `*▢ Titulo:* ${ttl_1}\n*▢ Peso Del Video:* ${roundedFileSizeInMB} MB`, fileName: ttl_1 + '.mp4', mimetype: 'video/mp4'}, {quoted: m});
+    await conn.sendMessage(m.chat, {document: buff, caption: `🌸 𝗧𝗜𝗧𝗨𝗟𝗢: ${ttl_1}\n✅ 𝗣𝗘𝗦𝗢 𝗗𝗘𝗟 𝗩𝗜𝗗𝗘𝗢: ${roundedFileSizeInMB} MB`, fileName: ttl_1 + '.mp4', mimetype: 'video/mp4'}, {quoted: m});
     await conn.sendMessage(m.chat, {text: `*[ ✅ ] Video descargado y enviado exitosamente.*\n\n*—◉ Se envío en formato de docuemnto debido a que el video pesa ${roundedFileSizeInMB} MB y supera el limite establecido por WhatsApp.*\n*◉ Titulo:* ${ttl_1}`, edit: key}, {quoted: m});
     enviando = false
    } else {
-    await conn.sendMessage(m.chat, {video: buff, caption: `*▢ Titulo:* ${ttl_1}\n*▢ Peso Del Video:* ${roundedFileSizeInMB} MB`, fileName: ttl_1 + '.mp4', mimetype: 'video/mp4'}, {quoted: m});
+    await conn.sendMessage(m.chat, {video: buff, caption: `🌸 𝗧𝗜𝗧𝗨𝗟𝗢: ${ttl_1}\n✅ 𝗣𝗘𝗦𝗢 𝗗𝗘𝗟 𝗩𝗜𝗗𝗘𝗢: ${roundedFileSizeInMB} MB`, fileName: ttl_1 + '.mp4', mimetype: 'video/mp4'}, {quoted: m});
     await conn.sendMessage(m.chat, {text: `*[ ✅ ] Video descargado exitosamente.*`, edit: key}, {quoted: m});
     enviando = false   
    }
