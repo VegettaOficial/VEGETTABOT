@@ -13,7 +13,7 @@ let handler = async (m, { conn, command }) => {
     m.reply(`*┏━━━━━━━━━━━━━━━━┓*\n*┠❧  ${frase}*\n*┗━━━━━━━━━━━━━━━━┚*`);
   }
 
-  if (command == "romantica") {
+  if (command == "fraseromantica") {
     let res = await fetch("https://api.popcat.xyz/pickuplines");
     let json = await res.json();
     let { pickupline } = json;
@@ -209,7 +209,7 @@ let handler = async (m, { conn, command }) => {
 handler.tags = ["frases"];
 handler.command = handler.help = [
   "consejo",
-  "romantica",
+  "fraseromantica",
   "frase",
   "dato",
   "frasesabia",
@@ -220,6 +220,6 @@ handler.command = handler.help = [
   "adivinanza",
   "famososfrase",
 ];
-handler.register = false;
+handler.register = true;
 
 export default handler;
