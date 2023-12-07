@@ -1,42 +1,73 @@
-import { createHash } from 'crypto' 
+import db from '../lib/database.js'
+import { canLevelUp, xpRange } from '../lib/levelling.js'
+import { createHash } from 'crypto'
 import PhoneNumber from 'awesome-phonenumber'
 import fetch from 'node-fetch'
-let handler = async (m, { conn, usedPrefix }) => {
-let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }
-let pp = gataMenu.getRandom()
-//const pp = await conn.profilePictureUrl(conn.user.jid).catch(_ => './src/avatar_contact.png')
-let user = global.db.data.users[m.sender]
-let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
-try {
-pp = await conn.getProfilePicture(who)         //pp = await conn.getProfilePicture(who)
-} catch (e) {
 
-} finally {
-let { name, limit, lastclaim, registered, regTime, age } = global.db.data.users[who]
-//let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
-let mentionedJid = [who]
-let username = conn.getName(who)
-let prem = global.prems.includes(who.split`@`[0])
-let sn = createHash('md5').update(who).digest('hex')
-let str =
-`┃ 𝙉𝙊𝙈𝘽𝙍𝙀 ${name} ${user.registered === true ? 'ͧͧͧͦꙶͣͤ✓ᚲᴳᴮ' : ''}
-┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
-┃ 𝙉𝙐𝙈𝙀𝙍𝙊 ${PhoneNumber('+' + who.replace('@s.whatsapp.net', '')).getNumber('international')}
-┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
-┃ 𝙀𝙉𝙇𝘼𝘾𝙀 wa.me/${who.split`@`[0]}${registered ?'\n┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈\n┃ 𝙀𝘿𝘼𝘿 ' + age + ' *años*' : ''}
-┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
-┃ 𝙇𝙄𝙈𝙄𝙏𝙀𝙎 *${limit}* 𝙙𝙚 𝙐𝙨𝙤𝙨
-┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
-┃ 𝙍𝙀𝙂𝙄𝙎𝙏𝙍𝘼𝘿𝙊(𝘼) ${registered ? '✅': '❎'}
-┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
-┃ 𝙋𝙍𝙀𝙈𝙄𝙐𝙈 ${prem ? '✅' : '❎'}
-┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
-┃ 𝙉𝙐𝙈𝙀𝙍𝙊 𝘿𝙀 𝙎𝙀𝙍𝙄𝙀
-┃ *${sn}*`.trim()
-    conn.sendFile(m.chat, pp, 'pp.jpg', str, fkontak, false, { contextInfo: { mentionedJid }}) 
-  }
+let handler = async (m, { conn, usedPrefix, command}) => {
+  let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
+  let bio = await conn.fetchStatus(who).catch(_ => 'undefined')
+  let biot = bio.status?.toString() || 'Sin Info'
+ // let biot = bio.Status(who).catch(_ => 'Sin Bio')
+  let user = global.db.data.users[who]
+  let pp = await conn.profilePictureUrl(who, 'image').catch(_ => './src/avatar_contact.png')
+  let { name, exp, cookie, lastclaim, registered, regTime, age, level, role } = global.db.data.users[who]
+  let { min, xp, max } = xpRange(user.level, global.multiplier)
+  let username = conn.getName(who)
+  let prem = global.prems.includes(who.split`@`[0])
+  let sn = createHash('md5').update(who).digest('hex')
+  let str = `\t\t\t\t\t*🌄  | •  _PERFIL INFO_  •*
+
+*🐢 • Nombre:* ${username}
+*🥀 • Bio:* ${biot}
+*📧 • Tag:* @${who.replace(/@.+/, '')}
+*#⃣ • Numero:* ${PhoneNumber('+' + who.replace('@s.whatsapp.net', '')).getNumber('international')}
+*🔗 • Link:* wa.me/${who.split`@`[0]}
+*🍪 • Galletas:* ${cookie}
+*📈 • Nivel:* ${level}
+*✨ • Exp:* ${exp}
+*🌟 • Exp nivel:* ${user.exp - min}/${xp}
+*🧙‍♂️ • Rango:* ${role}
+*🪪 • Premium:* ${prem ? 'Si' : 'No'}
+*💾 • Ultimo claim:* ${lastclaim > 0 ? `${formatDate(lastclaim)}` : '×'}
+
+*📇 • Registrado:* ${registered ? 'Si': 'No'}
+*🗓️ • Fecha:* ${registered ? `${formatDate(regTime)}` : '×'}
+*🕒 • Hora:* ${registered ? `${formatHour(regTime)}` : '×'}
+*🐱 • Nombre:* ${registered ? `${name}` : '×'}
+*👴 • Edad:* ${registered ? `${age} años` : '×'}
+`
+  let mentionedJid = [who]
+  conn.sendFile(m.chat, pp, 'Error.jpg', str, m, false, { contextInfo: { mentionedJid }})
 }
-handler.help = ['profile [@user]']
-handler.tags = ['xp']
-handler.command = /^perfil|profile?$/i
+
+handler.help = ['perfil', 'perfil *@user*']
+handler.tags = ['group']
+handler.command = /^(perfil|profile)$/i
+handler.register = true
+
 export default handler
+
+
+const more = String.fromCharCode(8206)
+const readMore = more.repeat(4001)
+
+function formatDate(n, locale = 'es-US') {
+  let d = new Date(n)
+  return d.toLocaleDateString(locale, {
+    weekday: 'long',
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric'
+  })
+}
+
+function formatHour(n, locale = 'en-US') {
+  let d = new Date(n)
+  return d.toLocaleString(locale, {
+    hour: 'numeric',
+    minute: 'numeric',
+    second: 'numeric',
+    hour12: true
+  })
+      }
