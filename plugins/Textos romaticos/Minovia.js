@@ -10,7 +10,7 @@ let handler = async (m, { conn, usedPrefix, command}) => {
   let biot = bio.status?.toString() || 'Sin Info'
  // let biot = bio.Status(who).catch(_ => 'Sin Bio')
   let user = global.db.data.users[who]
-  let pp = await conn.profilePictureUrl(who, 'image').catch(_ => './src/avatar_contact.png')
+  let pp = await conn.profilePictureUrl(who, 'image').catch(_ => './src/novios.jpg')
   let { name, exp, cookie, lastclaim, registered, regTime, age, level, role } = global.db.data.users[who]
   let { min, xp, max } = xpRange(user.level, global.multiplier)
   let username = conn.getName(who)
