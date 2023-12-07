@@ -16,26 +16,10 @@ let handler = async (m, { conn, usedPrefix, command}) => {
   let username = conn.getName(who)
   let prem = global.prems.includes(who.split`@`[0])
   let sn = createHash('md5').update(who).digest('hex')
-  let str = `\t\t\t\t\t*🌄  | •  _PERFIL INFO_  •*
+  let str = `
+𝙀𝙎𝙏𝙀 𝙀𝙎 𝙈𝙄 𝙉𝙊𝙑𝙄𝙊, *¿* 𝙀𝙎 𝙃𝙀𝙍𝙈𝙊𝙎𝙊 𝙑𝙀𝙍𝘿𝘼𝘿 *?* 😍
 
-*🐢 • Nombre:* ${username}
-*🥀 • Bio:* ${biot}
-*📧 • Tag:* @${who.replace(/@.+/, '')}
-*#⃣ • Numero:* ${PhoneNumber('+' + who.replace('@s.whatsapp.net', '')).getNumber('international')}
-*🔗 • Link:* wa.me/${who.split`@`[0]}
-*🍪 • Galletas:* ${cookie}
-*📈 • Nivel:* ${level}
-*✨ • Exp:* ${exp}
-*🌟 • Exp nivel:* ${user.exp - min}/${xp}
-*🧙‍♂️ • Rango:* ${role}
-*🪪 • Premium:* ${prem ? 'Si' : 'No'}
-*💾 • Ultimo claim:* ${lastclaim > 0 ? `${formatDate(lastclaim)}` : '×'}
-
-*📇 • Registrado:* ${registered ? 'Si': 'No'}
-*🗓️ • Fecha:* ${registered ? `${formatDate(regTime)}` : '×'}
-*🕒 • Hora:* ${registered ? `${formatHour(regTime)}` : '×'}
-*🐱 • Nombre:* ${registered ? `${name}` : '×'}
-*👴 • Edad:* ${registered ? `${age} años` : '×'}
+@${who.replace(/@.+/, '')} 𝙀𝙍𝙀𝙎 𝙀𝙇 𝙈𝙀𝙅𝙊𝙍 𝙉𝙊𝙑𝙄𝙊 𝘿𝙀𝙇 𝙈𝙐𝙉𝘿𝙊.🫶🏻♥️
 `
   let mentionedJid = [who]
   conn.sendFile(m.chat, pp, 'Error.jpg', str, m, false, { contextInfo: { mentionedJid }})
@@ -43,7 +27,7 @@ let handler = async (m, { conn, usedPrefix, command}) => {
 
 handler.help = ['perfil', 'perfil *@user*']
 handler.tags = ['group']
-handler.command = /^(perfil|profile)$/i
+handler.command = /^(minovio)$/i
 handler.register = false
 
 export default handler
