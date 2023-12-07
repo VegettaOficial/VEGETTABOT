@@ -8,7 +8,7 @@ let pp = await conn.profilePictureUrl(conn.user.jid).catch(_ => './src/novios.jp
 let user = global.db.data.users[m.sender]
 let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
 try {
-    let pp = await conn.getProfilePicture(who)
+  pp = await conn.getProfilePictureUrl(conn.user.jid).catch(_ => './src/novios.jpg')
 } catch (e) {
 
 } finally {
