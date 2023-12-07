@@ -13,15 +13,15 @@ if (command === 'play') {
 additionalText = '𝘼𝙐𝘿𝙄𝙊 🔊'
 } else if (command === 'play2') {
 additionalText = '𝙑𝙄𝘿𝙀𝙊 🎥'}
-let captionvid = `*⌈🔊 YOUTUBE PLAY 🔊⌋*
+let captionvid = `🔊 𝗬𝗢𝗨𝗧𝗨𝗕𝗘 𝗣𝗟𝗔𝗬 🔊
 
-📍 𝙏𝙄𝙏𝙐𝙇𝙊 | 𝙏𝙄𝙏𝙇𝙀
+📀 𝙏𝙄𝙏𝙐𝙇𝙊 | 𝙏𝙄𝙏𝙇𝙀
 »  ${yt_play[0].title}
 ﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘
-📍 𝙋𝙐𝘽𝙇𝙄𝘾𝘼𝘿𝙊 | 𝙋𝙐𝘽𝙇𝙄𝙎𝙃𝙀𝘿 
+📀 𝙋𝙐𝘽𝙇𝙄𝘾𝘼𝘿𝙊 | 𝙋𝙐𝘽𝙇𝙄𝙎𝙃𝙀𝘿 
 » ${yt_play[0].ago}
 ﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘
-📍 𝘿𝙐𝙍𝘼𝘾𝙄𝙊𝙉 | 𝘿𝙐𝙍𝘼𝙏𝙄𝙊𝙉 
+📀 𝘿𝙐𝙍𝘼𝘾𝙄𝙊𝙉 | 𝘿𝙐𝙍𝘼𝙏𝙄𝙊𝙉 
 » ${secondString(yt_play[0].duration.seconds)}
 ﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘
 👁️ 𝙑𝙄𝙎𝙏𝘼𝙎 | 𝙑𝙄𝙀𝙒𝙎
@@ -30,7 +30,8 @@ let captionvid = `*⌈🔊 YOUTUBE PLAY 🔊⌋*
 🌎 𝙐𝙍𝙇
 » ${yt_play[0].url}
 ﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘
-𝙀𝙉𝙑𝙄𝘼𝙉𝘿𝙊 ${additionalText}, 𝙀𝙎𝙋𝙀𝙍𝙀 𝙐𝙉 𝙈𝙊𝙈𝙀𝙉𝙏𝙊...
+𝙀𝙉𝙑𝙄𝘼𝙉𝘿𝙊 𝙏𝙐 𝘼𝙐𝘿𝙄𝙊, 𝙀𝙎𝙋𝙀𝙍𝙀 𝙐𝙉 𝙈𝙊𝙈𝙀𝙉𝙏𝙊...
+01:27 ━━━━⬤─────── 05:48
 *⇄ㅤ     ◁   ㅤ  ❚❚ㅤ     ▷ㅤ     ↻*`  
 await conn.sendMessage(m.chat, {
 text: captionvid,
