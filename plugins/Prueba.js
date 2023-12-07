@@ -44,7 +44,7 @@ let handler = async (m, { conn, usedPrefix, command}) => {
 handler.help = ['perfil', 'perfil *@user*']
 handler.tags = ['group']
 handler.command = /^(perfil|profile)$/i
-handler.register = true
+handler.register = false
 
 export default handler
 
