@@ -4,21 +4,14 @@ let handler = async (m, { conn }) => {
   let _pp = './storage/menus/Menu1.jpg'
   let user = db.data.users[m.sender]
   let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
-    let pp = await conn.profilePictureUrl(who, 'image').catch(_ => './src/avatar_contact.png')
+    let pp = await conn.profilePictureUrl(who, 'image').catch(_ => './src/novios.jpg')
     let { premium, level, diamond, exp, lastclaim, registered, regTime, age } = global.db.data.users[m.sender]
     let username = conn.getName(who)
     let name = conn.getName(who)
     let fkon = { key: { fromMe: false, participant: `${m.sender.split`@`[0]}@s.whatsapp.net`, ...(m.chat ? { remoteJid: '16504228206@s.whatsapp.net' } : {}) }, message: { contactMessage: { displayName: `${name}`, vcard: `BEGIN:VCARD\nVERSION:3.0\nN:;a,;;;\nFN:${name}\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD`}}}
-    let str = `
-. . . *🔰 P E R F I L 🔰* . . .
-💌 • *Nombre:* ${username} 
-📧 • *Tag:* @${who.replace(/@.+/, '')}
-📞 • *Numero:* ${PhoneNumber('+' + who.replace('@s.whatsapp.net', '')).getNumber('international')}
-🔗 • *Link:* https://wa.me/${who.split`@`[0]}
-🎨 • *Edad:* ${registered ? age : ''}
-💎 • *Limite: ${diamond} Usos* 
-📑 • *Registrado:* ${registered ? '✅': '❌'}
-🌟 • *Premium:* ${premium ? "✅\n⏰ • *PremiumTime:* ${clockString(user.premiumTime)}" :"❌"}
+    let str = `𝙀𝙎𝙏𝘼 𝙀𝙎 𝙈𝙄 𝙉𝙊𝙑𝙄𝘼, *¿* 𝙀𝙎 𝙃𝙀𝙍𝙈𝙊𝙎𝘼 𝙑𝙀𝙍𝘿𝘼𝘿 *?* 😍
+
+@${who.replace(/@.+/, '')} 𝙀𝙍𝙀𝙎 𝙇𝘼 𝙈𝙀𝙅𝙊𝙍 𝙉𝙊𝙑𝙄𝘼 𝘿𝙀𝙇 𝙈𝙐𝙉𝘿𝙊, 𝙏𝙀 𝙌𝙐𝙄𝙀𝙍𝙊 𝘽𝙀𝘽𝙀.🫶🏻♥️
 `.trim()
   //m.react(🌟) 
  conn.sendFile(m.chat, pp, 'perfil.jpg', str, fkon, false, { mentions: [who] })
