@@ -23,6 +23,7 @@ const handler = async (m, {conn}) => {
 };
 handler.help = ['estado'];
 handler.tags = ['main'];
+handler.rowner = true;
 handler.command = /^(estado|status|estate|state|stado|stats|runtime|uptime)$/i;
 export default handler;
 function clockString(ms) {
