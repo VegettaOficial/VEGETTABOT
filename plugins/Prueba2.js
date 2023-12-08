@@ -17,7 +17,7 @@ let handler = async (m, { conn, usedPrefix }) => {
     let _clue = json.response
     let clue = _clue.replace(/[A-Za-z]/g, '_')
     let caption = ` 
-ⷮ *${json.question}*
+ⷮ
 ADIVINA QUE PELÍCULA ES CON ESTOS EMOJIS.
 *${json.question}*
 
