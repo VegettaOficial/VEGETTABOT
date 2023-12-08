@@ -19,7 +19,7 @@ let handler = async (m, { conn, usedPrefix }) => {
     let caption = ` 
 ⷮ *${json.question}*
 ADIVINA QUE PELÍCULA ES CON ESTOS EMOJIS.
-
+*${json.question}*
 
 ✨ Responde a este mensaje con la palabra correcta ✨
 `.trim()
