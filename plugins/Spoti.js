@@ -1,77 +1,211 @@
 import fetch from 'node-fetch';
-import lyrics from '@fantox01/lyrics-scraper';
-import Spotify from 'spotifydl-x';
-import fs from 'fs';
-import SpottyDL from 'spottydl';
-import NodeID3 from 'node-id3';
-import axios from 'axios';
-
-const handler = async (m, {conn, text}) => {
-  if (!text) throw `⚠️ *_Ingrese el nombre de la música que desea descargar._*`;
+let data;
+let buff;
+let mimeType;
+let fileName;
+let apiUrl;
+let enviando = false;
+const handler = async (m, { command, usedPrefix, conn, text }) => {
+  if (!text) throw `_*< DESCARGAS - PLAY v2 />*_\n\n*[ ℹ️ ] Hace falta el título del video de YouTube.*\n\n*[ 💡 ] Ejemplo:* _${usedPrefix + command} Good Feeling - Flo Rida_\n\n*[ 💡 ] Ejemplo 2:* _${usedPrefix + command} https://youtu.be/JLWRZ8eWyZo?si=EmeS9fJvS_OkDk7p_`;
+if (enviando) return;
+    enviando = true
   try {
-    const resDL = await fetch(`https://api.lolhuman.xyz/api/spotifysearch?apikey=${lolkeysapi}&query=${text}`);
-    const jsonDL = await resDL.json();
-    const data = await SpottyDL.getTrack(`${jsonDL.result[0].link}`)
-    const linkDL = jsonDL.result[0].link;
-    const spty = await spotifydl(linkDL);
-    const result = await lyrics(`${data.title}`);
-    var _0x1ac0=["","\x6C\x79\x72\x69\x63\x73","\x44\x6F\x77\x6E\x6C\x6F\x61\x64\x65\x64\x20\x66\x72\x6F\x6D\x20\x41\x6C\x62\x65\x72\x74\x6F\x2E\x0A\x41\x71\x75\x69\x20\x61\x67\x72\x65\x67\x61\x20\x6C\x61\x20\x6C\x65\x74\x72\x61\x20\x64\x65\x20\x74\x75\x20\x63\x61\x6E\x63\x69\x6F\x6E\x2E"];const letra=`${_0x1ac0[0]}${result[_0x1ac0[1]]!== undefined?result[_0x1ac0[1]]:_0x1ac0[2]}${_0x1ac0[0]}`|| _0x1ac0[2] 
-    const getRandom = (ext) => {
-      return `${Math.floor(Math.random() * 10000)}${ext}`;
-    };
-    const randomName = getRandom('.mp3');
-    const filePath = `./tmp/${randomName}`;
-    fs.writeFileSync(filePath, spty.audio);
-    var _0x1b11=["","\x74\x69\x74\x6C\x65","\x2D","\x61\x72\x74\x69\x73\x74","\x61\x6C\x62\x75\x6D","\x79\x65\x61\x72","\x74\x72\x61\x63\x6B\x4E\x75\x6D\x62\x65\x72","\x4D\x75\x73\x69\x63","\x73\x70\x61","\x44\x6F\x77\x6E\x6C\x6F\x61\x64\x65\x64\x20\x66\x72\x6F\x6D\x20\x4E\x79\x61\x6E\x43\x61\x74\x42\x6F\x74","\x44\x6F\x77\x6E\x6C\x6F\x61\x64\x65\x64\x20\x66\x72\x6F\x6D\x20\x41\x6C\x62\x65\x72\x74\x6F\x2E\x0A\x41\x71\x75\x69\x20\x61\x67\x72\x65\x67\x61\x20\x6C\x61\x20\x6C\x65\x74\x72\x61\x20\x64\x65\x20\x74\x75\x20\x63\x61\x6E\x63\x69\x6F\x6E\x2E","\x69\x6D\x61\x67\x65\x2F\x6A\x70\x65\x67","\x66\x72\x6F\x6E\x74\x20\x63\x6F\x76\x65\x72","\x59\x6F\x75\x54\x75\x62\x65\x20\x54\x68\x75\x6D\x62\x6E\x61\x69\x6C","\x64\x61\x74\x61","\x62\x69\x6E\x61\x72\x79","\x66\x72\x6F\x6D","\x74\x68\x65\x6E","\x63\x6F\x76\x65\x72\x5F\x75\x72\x6C","\x61\x72\x72\x61\x79\x62\x75\x66\x66\x65\x72","\x67\x65\x74","\x43\x6F\x70\x79\x72\x69\x67\x68\x74\x20\x4E\x79\x61\x6E\x43\x61\x74\x42\x6F\x74\x20\xA9\x20\x32\x30\x32\x33"];const tags={title:`${_0x1b11[0]}${data[_0x1b11[1]]}${_0x1b11[0]}`|| _0x1b11[2],artist:`${_0x1b11[0]}${data[_0x1b11[3]]}${_0x1b11[0]}`|| _0x1b11[2],album:`${_0x1b11[0]}${data[_0x1b11[4]]}${_0x1b11[0]}`|| _0x1b11[2],year:`${_0x1b11[0]}${data[_0x1b11[5]]}${_0x1b11[0]}`|| _0x1b11[2],trackNumber:`${_0x1b11[0]}${data[_0x1b11[6]]}${_0x1b11[0]}`|| _0x1b11[2],genre:_0x1b11[7]|| _0x1b11[2],comment:{language:_0x1b11[8],text:_0x1b11[9]},unsynchronisedLyrics:{language:_0x1b11[8],text:letra|| _0x1b11[10]},image:{mime:_0x1b11[11],type:{id:3,name:_0x1b11[12]},description:_0x1b11[13],imageBuffer: await axios[_0x1b11[20]](`${_0x1b11[0]}${spty[_0x1b11[14]][_0x1b11[18]]}${_0x1b11[0]}`,{responseType:_0x1b11[19]})[_0x1b11[17]]((response)=>{return Buffer[_0x1b11[16]](response[_0x1b11[14]],_0x1b11[15])})},copyright:_0x1b11[21]}
-  await NodeID3.write(tags, filePath);
-       let img = await (await fetch(`${spty.data.cover_url}`)).buffer()
-       
-    let txt = `*• 💽 Spotify Download •*\n\n`
-         txt += `	◦  *Título* : ${data.title}\n`
-         txt += `	◦  *Artista* : ${data.artist}\n`
-         txt += `	◦  *N. Track* : ${data.trackNumber}\n`
-         txt += `	◦  *Album* : ${data.album}\n`                 
-         txt += `	◦  *Publicado* : ${data.year}\n\n`
-         txt += `El audio se esta enviando, Espere un momento.`
-      await conn.sendUrl(m.chat, txt, m, {
-         externalAdReply: {
-            mediaType: 1,
-            renderLargerThumbnail: true,
-            thumbnail: img,
-            thumbnailUrl: img,
-            title: botname,
-         }
-      });
-    await conn.sendMessage(m.chat, {audio: fs.readFileSync(`./tmp/${randomName}`), fileName: `${spty.data.name}.mp3`, mimetype: 'audio/mpeg'}, {quoted: m});
-    } catch {
-    throw `⚠️ _Error, no se encontro una música que coincida con:_ *${text}*\n_Asegúrese que escribio correctamente el nombre de su canción_`;
-    };
-};
-handler.command = /^(spotify|music)$/i;
-handler.help = ['music *nombre*']
-handler.tags = ['downloader']
-export default handler;
-handler.register = true
-handler.limit = true
+    const apiUrls = [
+      `https://api-brunosobrino.zipponodes.xyz/api/ytplay?text=${text}`,
+      `https://api-brunosobrino.onrender.com/api/ytplay?text=${text}`
+    ];
 
-const credentials = {clientId: 'acc6302297e040aeb6e4ac1fbdfd62c3', clientSecret: '0e8439a1280a43aba9a5bc0a16f3f009'};
-const spotify = new Spotify.default(credentials);
-async function spotifydl(url) {
-  return new Promise(async (resolve, reject) => {
-    const res = await spotify.getTrack(url).catch(() => {
-      return { error: 'Fallo la descarga' };
-    });
-    const timeoutPromise = new Promise((_, reject) => {
-      setTimeout(() => {
-        reject(new Error('Tiempo de espera agotado'));
-      }, 300000); 
-    });
-    try {
-      const audioPromise = spotify.downloadTrack(url);
-      const audio = await Promise.race([audioPromise, timeoutPromise]);
-      resolve({ data: res, audio });
-    } catch (error) {
-      reject(error);
+    for (const url of apiUrls) {
+      try {
+        const res = await fetch(url);
+        data = await res.json();
+        if (data.resultado && data.resultado.url) {
+          break;
+        }
+      } catch {}
     }
+
+    if (!data.resultado || !data.resultado.url) {
+      enviando = false;
+      throw `_*< DESCARGAS - PLAY V2 />*_\n\n*[ ℹ️ ] Ocurrió un error. Por favor, inténtalo de nuevo más tarde.*`;
+    } else {
+      try {
+        if (command === 'play.1') {
+              apiUrl = `https://api-brunosobrino.zipponodes.xyz/api/v1/ytmp3?url=${data.resultado.url}`;
+              mimeType = 'audio/mpeg';
+              fileName = 'error.mp3';
+              buff = await conn.getFile(apiUrl);
+            } else if (command === 'play.2') {
+              apiUrl = `https://api-brunosobrino.zipponodes.xyz/api/v1/ytmp4?url=${data.resultado.url}`;
+              mimeType = 'video/mp4';
+              fileName = 'error.mp4';
+              buff = await conn.getFile(apiUrl);
+        }
+      } catch {
+          try {
+            if (command === 'play.1') {
+              apiUrl = `https://api-brunosobrino.onrender.com/api/v1/ytmp3?url=${data.resultado.url}`;
+              mimeType = 'audio/mpeg';
+              fileName = 'error.mp3';
+              buff = await conn.getFile(apiUrl);
+            } else if (command === 'play.2') {
+              apiUrl = `https://api-brunosobrino.onrender.com/api/v1/ytmp4?url=${data.resultado.url}`;
+              mimeType = 'video/mp4';
+              fileName = 'error.mp4';
+              buff = await conn.getFile(apiUrl);
+            }
+          } catch {
+            enviando = false;
+            throw `_*< DESCARGAS - PLAY V2 />*_\n\n*[ ℹ️ ] Ocurrió un error. Por favor, inténtalo de nuevo más tarde.*`;
+          }
+       }
+    }
+
+    const dataMessage = `_*< DESCARGAS - PLAY V2 />*_\n\n▢ *Título:* ${data.resultado.title}\n\n▢ *Publicado:* ${data.resultado.publicDate}\n\n▢ *Canal:* ${data.resultado.channel}\n\n▢ *Vídeo URL:* ${data.resultado.url}`;
+    await conn.sendMessage(m.chat, { text: dataMessage }, { quoted: m });
+
+    if (buff) {
+      await conn.sendMessage(m.chat, {[mimeType.startsWith('audio') ? 'audio' : 'video']: buff.data, mimetype: mimeType, fileName: fileName}, {quoted: m});
+      enviando = false;
+    } else {
+      enviando = false;
+      throw `_*< DESCARGAS - PLAY V2 />*_\n\n*[ ℹ️ ] Ocurrió un error. Por favor, inténtalo de nuevo más tarde.*`;
+    }
+  } catch (error) {
+    enviando = false;
+    throw `_*< DESCARGAS - PLAY V2 />*_\n\n*[ ℹ️ ] Ocurrió un error. Por favor, inténtalo de nuevo más tarde.*`;
+  }
+};
+handler.command = ['play.1', 'play.2'];
+export default handler;
+
+
+/*import fetch from 'node-fetch';
+import yts from 'yt-search';
+import ytdl from 'ytdl-core';
+import axios from 'axios';
+const handler = async (m, {command, usedPrefix, conn, text}) => {
+  if (!text) throw `*[❗𝐈𝐍𝐅𝐎❗] 𝙽𝙾𝙼𝙱𝚁𝙴 𝙳𝙴 𝙻𝙰 𝙲𝙰𝙽𝙲𝙸𝙾𝙽 𝙵𝙰𝙻𝚃𝙰𝙽𝚃𝙴, 𝙿𝙾𝚁 𝙵𝙰𝚅𝙾𝚁 𝙸𝙽𝙶𝚁𝙴𝚂𝙴 𝙴𝙻 𝙲𝙾𝙼𝙰𝙽𝙳𝙾 𝙼𝙰𝚂 𝙴𝙻 𝙽𝙾𝙼𝙱𝚁𝙴/𝚃𝙸𝚃𝚄𝙻𝙾 𝙳𝙴 𝙰𝙻𝙶𝚄𝙽𝙰 𝙲𝙰𝙽𝙲𝙸𝙾𝙽 𝙾 𝚅𝙸𝙳𝙴𝙾 𝙳𝙴 𝚈𝙾𝚄𝚃𝚄𝙱𝙴*\n\n*—◉ 𝙴𝙹𝙴𝙼𝙿𝙻𝙾:*\n*${usedPrefix + command} Good Feeling - Flo Rida*`;
+  try {
+    if (command == 'play.1') {
+      conn.reply(m.chat, `*_⏳Sᴇ ᴇsᴛᴀ ᴘʀᴏᴄᴇsᴀɴᴅᴏ Sᴜ ᴀᴜᴅɪᴏ...⏳_*`, m);
+      try {
+        const mediaa = await ytPlay(text);
+        const audiocore = mediaa.result2?.[0]?.audio || mediaa.result2?.[1]?.audio || mediaa.result2?.[2]?.audio || null;
+        const aa = await conn.sendMessage(m.chat, {audio: {url: audiocore}, fileName: `error.mp3`, mimetype: 'audio/mpeg'}, {quoted: m});
+        if (!aa) {
+        throw new Error('*[❗] El primero metodo fallo, intentando otro...*');
+       }        
+      } catch {
+        const res = await fetch(`https://api.lolhuman.xyz/api/ytplay2?apikey=${lolkeysapi}&query=${text}`);
+        const json = await res.json();
+        const aa_1 = await conn.sendMessage(m.chat, {audio: {url: json.result.audio}, fileName: `error.mp3`, mimetype: 'audio/mpeg'}, {quoted: m});
+        if (!aa_1) aa_1 = await conn.sendFile(m.chat, json.result.audio, 'error.mp3', null, m, false, {mimetype: 'audio/mpeg'});
+      }
+    }
+    if (command == 'play.2') {
+      conn.reply(m.chat, `*_⏳Sᴇ ᴇsᴛᴀ ᴘʀᴏᴄᴇsᴀɴᴅᴏ Sᴜ ᴠɪᴅᴇᴏ...⏳_*`, m);
+      try {
+        const mediaa = await ytPlayVid(text);
+        const aa_2 = await conn.sendMessage(m.chat, {video: {url: mediaa.result}, fileName: `error.mp4`, caption: `_𝐓𝐡𝐞 𝐌𝐲𝐬𝐭𝐢𝐜 - 𝐁𝐨𝐭_`, thumbnail: mediaa.thumb, mimetype: 'video/mp4'}, {quoted: m});
+        if (!aa_2) {
+        throw new Error('*[❗] El primero metodo fallo, intentando otro...*');
+       }
+      } catch {
+        const res = await fetch(`https://api.lolhuman.xyz/api/ytplay2?apikey=${lolkeysapi}&query=${text}`);
+        const json = await res.json();
+        await conn.sendFile(m.chat, json.result.video, 'error.mp4', `_𝐓𝐡𝐞 𝐌𝐲𝐬𝐭𝐢𝐜 - 𝐁𝐨𝐭_`, m);
+      }
+    }
+  } catch {
+    throw '*[❗𝐈𝐍𝐅𝐎❗] 𝙴𝚁𝚁𝙾𝚁, 𝙿𝙾𝚁 𝙵𝙰𝚅𝙾𝚁 𝚅𝚄𝙴𝙻𝚅𝙰 𝙰 𝙸𝙽𝚃𝙴𝙽𝚃𝙰𝚁𝙻𝙾*';
+  }
+};
+handler.help = ['play.1', 'play.2'].map((v) => v + ' <texto>');
+handler.tags = ['downloader'];
+handler.command = ['play.1', 'play.2'];
+export default handler;
+
+function bytesToSize(bytes) {
+  return new Promise((resolve, reject) => {
+    const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
+    if (bytes === 0) return 'n/a';
+    const i = parseInt(Math.floor(Math.log(bytes) / Math.log(1024)), 10);
+    if (i === 0) resolve(`${bytes} ${sizes[i]}`);
+    resolve(`${(bytes / (1024 ** i)).toFixed(1)} ${sizes[i]}`);
   });
 }
+
+async function ytMp3(url) {
+  return new Promise((resolve, reject) => {
+    ytdl.getInfo(url).then(async (getUrl) => {
+      const result = [];
+      for (let i = 0; i < getUrl.formats.length; i++) {
+        const item = getUrl.formats[i];
+        if (item.mimeType == 'audio/webm; codecs=\"opus\"') {
+          const {contentLength} = item;
+          const bytes = await bytesToSize(contentLength);
+          result[i] = {audio: item.url, size: bytes};
+        }
+      }
+      const resultFix = result.filter((x) => x.audio != undefined && x.size != undefined);
+      const tiny = await axios.get(`https://tinyurl.com/api-create.php?url=${resultFix[0].audio}`);
+      const tinyUrl = tiny.data;
+      const title = getUrl.videoDetails.title;
+      const thumb = getUrl.player_response.microformat.playerMicroformatRenderer.thumbnail.thumbnails[0].url;
+      resolve({title, result: tinyUrl, result2: resultFix, thumb});
+    }).catch(reject);
+  });
+}
+
+async function ytMp4(url) {
+  return new Promise(async (resolve, reject) => {
+    ytdl.getInfo(url).then(async (getUrl) => {
+      const result = [];
+      for (let i = 0; i < getUrl.formats.length; i++) {
+        const item = getUrl.formats[i];
+        if (item.container == 'mp4' && item.hasVideo == true && item.hasAudio == true) {
+          const {qualityLabel, contentLength} = item;
+          const bytes = await bytesToSize(contentLength);
+          result[i] = {video: item.url, quality: qualityLabel, size: bytes};
+        }
+      }
+      const resultFix = result.filter((x) => x.video != undefined && x.size != undefined && x.quality != undefined);
+      const tiny = await axios.get(`https://tinyurl.com/api-create.php?url=${resultFix[0].video}`);
+      const tinyUrl = tiny.data;
+      const title = getUrl.videoDetails.title;
+      const thumb = getUrl.player_response.microformat.playerMicroformatRenderer.thumbnail.thumbnails[0].url;
+      resolve({title, result: tinyUrl, rersult2: resultFix[0].video, thumb});
+    }).catch(reject);
+  });
+}
+
+async function ytPlay(query) {
+  return new Promise((resolve, reject) => {
+    yts(query).then(async (getData) => {
+      const result = getData.videos.slice( 0, 5 );
+      const url = [];
+      for (let i = 0; i < result.length; i++) {
+        url.push(result[i].url);
+      }
+      const random = url[0];
+      const getAudio = await ytMp3(random);
+      resolve(getAudio);
+    }).catch(reject);
+  });
+}
+
+async function ytPlayVid(query) {
+  return new Promise((resolve, reject) => {
+    yts(query).then(async (getData) => {
+      const result = getData.videos.slice( 0, 5 );
+      const url = [];
+      for (let i = 0; i < result.length; i++) {
+        url.push(result[i].url);
+      }
+      const random = url[0];
+      const getVideo = await ytMp4(random);
+      resolve(getVideo);
+    }).catch(reject);
+  });
+}*/
