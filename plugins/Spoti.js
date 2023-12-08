@@ -14,7 +14,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
     const music = await conn.getFile(musics.url)
     const infos = await fetch(global.API('ApiEmpire', '/api/spotifyinfo?text=' + linkDL))
     
-    const spty = info.spty.resultado
+    
     const img = await (await fetch(`${spty.thumbnail}`)).buffer()  
     let spotifyi = ` _*< DESCARGAS - SPOTIFY />*_\n\n`
         spotifyi += ` ▢ *Título:* ${spty.title}\n\n`
