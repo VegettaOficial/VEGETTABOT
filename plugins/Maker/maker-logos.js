@@ -31,6 +31,14 @@ var effects = [
     'url': 'https://textpro.me/create-american-flag-3d-text-effect-online-1051.html',
   },
   {
+	  'title': 'horrorblood',
+    'url': 'https://textpro.me/horror-blood-text-effect-online-883.html',
+  },
+	{
+		'title': 'horrormanos',
+    'url': 'https://textpro.me/blood-text-on-the-frosted-glass-941.html',
+  },
+	{
     'title': '3dcifi',
     'url': 'https://textpro.me/create-3d-sci-fi-text-effect-online-1050.html',
   },
