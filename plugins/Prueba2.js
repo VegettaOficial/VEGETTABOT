@@ -16,7 +16,7 @@ let handler = async (m, { conn, usedPrefix }) => {
     let json = tekateki[Math.floor(Math.random() * tekateki.length)]
     let _clue = json.response
     let clue = _clue.replace(/[A-Za-z]/g, '_')
-    let caption = `*• ADIVINAN LA PELÍCULA CON EMOJIS •*\n\n
+    let caption = `
 ⷮ *${json.question}*
 
 *• Tiempo:* ${(timeout / 1000).toFixed(2)} segundos
