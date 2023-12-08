@@ -20,7 +20,7 @@ let handler = async (m, { conn, usedPrefix }) => {
 ⷮ • 𝗔𝗗𝗜𝗩𝗜𝗡𝗔 𝗟𝗔 𝗣𝗘𝗟𝗜́𝗖𝗨𝗟𝗔 𝗖𝗢𝗡 𝗘𝗠𝗢𝗝𝗜𝗦.
 *${json.question}*
 
-*• Tiempo:* ${(timeout / 1000).toFixed(2)} segundos
+ • 𝗧𝗶𝗲𝗺𝗽𝗼: ${(timeout / 1000).toFixed(2)} segundos
 
 ✨ Responde a este mensaje con la palabra correcta ✨
 `.trim()
