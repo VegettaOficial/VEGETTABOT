@@ -20,8 +20,6 @@ let handler = async (m, { conn, usedPrefix }) => {
 ⷮ *${json.question}*
 ADIVINA QUE PELÍCULA ES CON ESTOS EMOJIS.
 
-*• Tiempo:* ${(timeout / 1000).toFixed(2)} segundos
-*• Bono:* +${poin} Exp
 
 ✨ Responde a este mensaje con la palabra correcta ✨
 `.trim()
