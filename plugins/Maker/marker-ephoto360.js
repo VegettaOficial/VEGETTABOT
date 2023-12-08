@@ -268,7 +268,16 @@ if (command == 'imgdbz') {
 
    }
   }
-  
+  if (command == 'imghorror') {
+    try {
+      await conn.reply(m.chat, '𝘿𝘼𝙈𝙀 𝙐𝙉 𝙈𝙊𝙈𝙀𝙉𝙏𝙊, 𝙀𝙎𝙏𝙊𝙔 𝙀𝙇𝘼𝘽𝙊𝙍𝘼𝙉𝘿𝙊 𝙏𝙐 𝙄𝙈𝘼́𝙂𝙀𝙉 .♥️', m);
+      const res = await new Maker().Ephoto360('https://textpro.me/horror-blood-text-effect-online-883.html', [response[0]]);
+      await conn.sendFile(m.chat, res.imageUrl, 'error.jpg', null, m);
+    } catch {
+   await conn.reply(m.chat, '*[❗𝐈𝐍𝐅𝐎❗] 𝙴𝚁𝚁𝙾𝚁, 𝙿𝙾𝚁 𝙵𝙰𝚅𝙾𝚁 𝚅𝚄𝙴𝙻𝚅𝙰 𝙰 𝙸𝙽𝚃𝙴𝙽𝚃𝙰𝚁𝙻𝙾*', m);
+
+   }
+        }
   
 /* if (command == 'logoephoto360') {
 if (!response[0].includes('ephoto360')) throw `*[❗] 𝙸𝙽𝙶𝚁𝙴𝚂𝙰 𝚄𝙽 𝙴𝙽𝙻𝙰𝙲𝙴 𝙳𝙴 "𝙴𝙿𝙷𝙾𝚃𝙾𝟹𝟼0", 𝙼𝙰𝚂 𝙴𝙻 𝚃𝙴𝚇𝚃𝙾 𝚀𝚄𝙴 𝙳𝙴𝚂𝙴𝙴 𝙰𝙶𝚁𝙴𝙶𝙰𝚁*
@@ -291,5 +300,5 @@ await conn.sendFile(m.chat, res2.imageUrl, 'error.jpg', null, m)
 } catch {
 await conn.reply(m.chat, '*[❗𝐈𝐍𝐅𝐎❗] 𝙴𝚁𝚁𝙾𝚁, 𝙿𝙾𝚁 𝙵𝙰𝚅𝙾𝚁 𝚅𝚄𝙴𝙻𝚅𝙰 𝙰 𝙸𝙽𝚃𝙴𝙽𝚃𝙰𝚁𝙻𝙾*', m)}}*/
 };
-handler.command = /^imgcorazon|imgcumple|imgglobo|imgnube|imgretro3|imgvidrio2|imgcalle2|imglogo2|imglogo3|imglogo4|imggrafiti3|imggrafiti4|imggrafiti5|imggrafiti6|imggrafiti7|imggrafiti8|imglogo|imgcalle|imgvidrio|imggrafiti|imggrafiti2|imgnavidad|imgcarta|imgretro|imgdbz|imgretro2|imgpareja|logoephoto360|logotextpro/i;
+handler.command = /^imgcorazon|imgcumple|imghorror|imgglobo|imgnube|imgretro3|imgvidrio2|imgcalle2|imglogo2|imglogo3|imglogo4|imggrafiti3|imggrafiti4|imggrafiti5|imggrafiti6|imggrafiti7|imggrafiti8|imglogo|imgcalle|imgvidrio|imggrafiti|imggrafiti2|imgnavidad|imgcarta|imgretro|imgdbz|imgretro2|imgpareja|logoephoto360|logotextpro/i;
 export default handler;
