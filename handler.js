@@ -1017,7 +1017,7 @@ if (settings) {
 if (!('self' in settings)) settings.self = false
 if (!('autoread' in settings)) settings.autoread = true
 if (!('autoread2' in settings)) settings.autoread2 = true
-if (!('restrict' in settings)) settings.restrict = true
+if (!('restrict' in settings)) settings.restrict = false
 if (!('temporal' in settings)) settings.temporal = true
 if (!('antiPrivate' in settings)) settings.antiPrivate = true
 if (!('antiCall' in settings)) settings.antiCall = true
@@ -1028,7 +1028,7 @@ if (!('jadibotmd' in settings)) settings.jadibotmd = false
 self: false,
 autoread: true,
 autoread2: true,
-restrict: true,
+restrict: false,
 temporal: true,
 antiPrivate: true,
 antiCall: true,
