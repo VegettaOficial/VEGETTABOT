@@ -18,7 +18,7 @@ if (user.warn >= 4) {
 user.warn = 0
 await m.reply(`Te lo advertí varias veces\n@${who.split`@`[0]} ahora serás eliminado(o)`, false, { mentions: [who] })
 user.banned = true
-await conn.groupParticipantsUpdate(m.chat, [who], 'remove') //@${m.sender.split`@`[0]}
+await conn.groupParticipantsUpdate(m.chat, [who], 'remove') @${m.sender.split`@`[0]}
 }	
 return !1
 } catch (e) {
