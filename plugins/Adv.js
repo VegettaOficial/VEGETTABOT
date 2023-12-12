@@ -29,7 +29,4 @@ console.log(e)
 handler.help = ['profile [@user]']
 handler.tags = ['rg']
 handler.command = /^adv|pp$/i
-handler.group = true
-handler.admin = true
-handler.botAdmin = true
 export default handler
