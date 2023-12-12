@@ -10,7 +10,7 @@ let handler = async (m, { conn, text, args, groupMetadata, usedPrefix, command }
 let user = global.db.data.users[who]
         if (warn < war) {
             global.db.data.users[who].warn += 1
-m.reply(`⚠️ 𝐀𝐕𝐕𝐄𝐑𝐓𝐈𝐌𝐄𝐍𝐓𝐎 ${user.warn}`)
+m.reply(`⚠️ Advertencia 1/2 ${user.warn}`)
         } else if (warn == war) {
             global.db.data.users[who].warn = 0
             m.reply(`⛔ 𝐔𝐓𝐄𝐍𝐓𝐄 𝐑𝐈𝐌𝐎𝐒𝐒𝐎 𝐃𝐎𝐏𝐎 𝟑 𝐀𝐕𝐕𝐄𝐑𝐓𝐈𝐌𝐄𝐍𝐓𝐈`)
