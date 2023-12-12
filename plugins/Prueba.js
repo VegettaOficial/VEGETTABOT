@@ -1,19 +1,28 @@
 
 let handler = async (m, { conn, args, groupMetadata}) => {
-       let who = m.quoted ? m.quoted.sender : m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
-       if (!(who in global.db.data.users)) throw `✳️ hh`
+        let who
+        if (m.isGroup) who = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : false
+        else who = m.chat
+        if (!who) throw `✳️ ${mssg.noMention}`
+        if (!(who in global.db.data.users)) throw `✳️ ${mssg.userDb}`
        let warn = global.db.data.users[who].warn
-       let name = conn.getName(who)
-      m.reply(`
-   *${mssg.warns.toUpperCase()}*
+       if (warn > 0) {
+         global.db.data.users[who].warn -= 1
+         m.reply(`⚠️ *${mssg.delwarn.toUpperCase()}*
+         
+▢ ${mssg.warns}: *-1*
+▢ ${mssg.warns} ${mssg.total}: *${warn - 1}*`)
+         m.reply(`✳️ ${mssg.delWarnUser} *${warn - 1}*`, who)
+         } else if (warn == 0) {
+            m.reply(`✳️ ${mssg.warnNan}`)
+        }
 
-▢ *${mssg.name} :* ${name} 
-▢ *${mssg.warns} :* ${warn}`)
 }
-
-handler.help = ['warns']
+handler.help = ['delwarn @user']
 handler.tags = ['group']
-handler.command = ['warns'] 
+handler.command = ['delwarn', 'unwarn'] 
 handler.group = true
+handler.admin = true
+handler.botAdmin = true
 
 export default handler
