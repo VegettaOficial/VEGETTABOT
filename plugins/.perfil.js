@@ -33,7 +33,7 @@ let handler = async (m, { conn }) => {
 }
 handler.help = ['profile [@user]']
 handler.tags = ['rg']
-handler.command = /^minovio$/i
+handler.command = /^perfil$/i
 export default handler
 
 const more = String.fromCharCode(8206)
