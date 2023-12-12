@@ -26,7 +26,7 @@ await m.reply(m.chat, `Sucedió un error`, m)
 console.log(`❗ ${usedPrefix + command} ❗❗`)
 console.log(e)	
 }}
-handler.help = ['addprem <@user>']
+handler.help = ['addprem [@user]']
 handler.tags = ['owner']
 handler.command = /^(advertir|advertencia|Advertencias|warn|adv)$/i
 handler.group = true
