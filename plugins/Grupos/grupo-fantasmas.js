@@ -45,7 +45,7 @@ case "kickfantasmas":
        }
 break            
 }}
-handler.command = /^(fantasmas)$/i
+handler.command = /^(inactivo|inactivos|adorno|adornos)$/i
 handler.group = handler.botAdmin = handler.admin = true
 handler.fail = null
 export default handler
