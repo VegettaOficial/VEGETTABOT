@@ -10,17 +10,17 @@ let handler = async (m, { conn, text, args, groupMetadata, usedPrefix, command }
 let user = global.db.data.users[who]
         if (warn < war) {
             global.db.data.users[who].warn += 1
-m.reply(`⚠️ Advertencia 1/2 ${user.warn}`)
+m.reply(`⚠️ Advertencia ${user.warn}`)
         } else if (warn == war) {
             global.db.data.users[who].warn = 0
-            m.reply(`⛔ 𝐔𝐓𝐄𝐍𝐓𝐄 𝐑𝐈𝐌𝐎𝐒𝐒𝐎 𝐃𝐎𝐏𝐎 𝟑 𝐀𝐕𝐕𝐄𝐑𝐓𝐈𝐌𝐄𝐍𝐓𝐈`)
+            m.reply(`⛔ superaste el límite de advertencias, seras eliminado.`)
             await time(1000)
             await conn.groupParticipantsUpdate(m.chat, [who], 'remove')
         }
 }
 handler.help = ['warn @user']
 handler.tags = ['group']
-handler.command = /^(ammonisci|avvertimento|warn|warning)$/i
+handler.command = /^(ammonisci|avvertimento|adv|warning)$/i
 handler.group = true
 handler.admin = true
 handler.botAdmin = true
