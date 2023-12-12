@@ -21,10 +21,6 @@ total++
 sider.push(member[i])}}}
 const delay = time => new Promise(res=>setTimeout(res,time))
 switch (command) {
-case 'fantasmas': 
-if(total == 0) return conn.reply(m.chat, `*🌟 ESTE GRUPO ES ACTIVO, NO TIENE FANTASMAS*`, m) 
-m.reply(`*⚠️ REVISIÓN DE INACTIVOS ⚠️*\n\n*❕ Miembros del grupo:* ${sum}\n\n*👻 Lista de fantasmas 👻*\n${sider.map(v => '@' + v.replace(/@.+/, '')).join('\n')}\n\n*📝 NOTA:* Esto no es al 100% acertado, el bot inicia el conteo de mensajes a partir de que se active en este número`, null, { mentions: sider }) 
-break   
 case 'kickfantasmas':  
 if(total == 0) return conn.reply(m.chat, `*🌟 ESTE GRUPO ES ACTIVO NO TIENE FANTASMAS :D*`, m) 
 await m.reply(`*⚠️ ELIMINACIÓN DE INACTIVOS ⚠️*\n\n*Participantes: ${sum}*\n\n*👻 Fantasmas 👻*\n${sider.map(v => '@' + v.replace(/@.+/, '')).join('\n')}\n\n*❗ ᴇʟ ʙᴏᴛ ᴇʟɪᴍɪɴᴀʀᴀ ʟᴀ ʟɪsᴛᴀ ᴍᴇɴᴄɪᴏɴᴀᴅᴀ, ᴇᴍᴘᴇᴢᴀɴᴅᴏ ᴇɴ 20 sᴇɢᴜɴᴅᴏs, ʏ ᴄᴀᴅᴀ 10 sᴇɢᴜɴᴅᴏs ᴇʟɪᴍɪɴᴀʀᴀ ᴜɴ ɴᴜᴍᴇʀᴏ*`, null, { mentions: sider }) 
@@ -49,7 +45,7 @@ break
 
 }
 handler.tags = ['grupo']
-handler.command = /^(fantasmas|kickfantasmas)$/i
+handler.command = /^(kickfantasmas)$/i
 handler.group = true
 handler.botAdmin = true
 handler.admin = true
