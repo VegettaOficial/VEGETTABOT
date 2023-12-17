@@ -2,7 +2,7 @@ let handler = async (m, { isPrems, conn }) => {
 let time = global.db.data.users[m.sender].lastcofre + 0 // 36000000 10 Horas //86400000 24 Horas
 if (new Date - global.db.data.users[m.sender].lastcofre < 0) throw `[❗𝐈𝐍𝐅𝐎❗] 𝚈𝙰 𝚁𝙴𝙲𝙻𝙰𝙼𝙰𝚂𝚃𝙴 𝚃𝚄 𝙲𝙾𝙵𝚁𝙴\𝚗𝚅𝚄𝙴𝙻𝚅𝙴 𝙴𝙽 *${msToTime(time - new Date())}* 𝙿𝙰𝚁𝙰 𝚅𝙾𝙻𝚅𝙴𝚁 𝙰 𝚁𝙴𝙲𝙻𝙰𝙼𝙰𝚁`
 
-let img = 'https://telegra.ph/file/1d36c0161f5ffff7dcded.jpg' 
+let img = 'https://telegra.ph/file/821835c3308aa0796ad3e.jpg' 
 let texto = `📕 ¡LA #AGENDASEMANAL ESTÁ AQUÍ! 📕
 
 🚗💨 Evoluciona esta semana: ¡Los 7 niveles de la EVO AN94 está AQUÍ!
