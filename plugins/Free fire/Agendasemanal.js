@@ -5,11 +5,9 @@ if (new Date - global.db.data.users[m.sender].lastcofre < 0) throw `[❗𝐈𝐍
 let img = 'https://telegra.ph/file/821835c3308aa0796ad3e.jpg' 
 let texto = `📕 ¡LA #AGENDASEMANAL ESTÁ AQUÍ! 📕
 
-🚗💨 Evoluciona esta semana: ¡Los 7 niveles de la EVO AN94 está AQUÍ!
+👻 El NUEVO #CRIMINALESPECTRAL llega a lootear las cajas de botín este VIERNES junto con  su colección de objetos y el emote Lluvia de Dinero.
 
-💥🏎 Aduéñate del camino con #FreefireLamborghini y llévate todos los vehículos, pared gloo y el emote que no se detiene en movimiento. 🔥Además, enciende el Fuego Glacial con la granada y el ala delta especial.
-
-❓ ¿Qué objeto llevarás a la batalla?
+🤡 ¡Captúralo y conoce TODO sobre la colección AQUÍ! https://youtu.be/H7gBGmSlkDw?feature=shared
 `
 
 const fkontak = {
