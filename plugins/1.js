@@ -1,16 +1,7 @@
 var handler = async (m, { conn, text, usedPrefix, command }) => {
 
 let poin = 500
-let reseqv = `*🥌ᴘɪᴇᴅʀᴀ 📄ᴘᴀᴘᴇʟ o ✂️ᴛɪᴊᴇʀᴀ
-
-• ᴘᴜᴇᴅᴇ ᴜsᴀʀ ᴇsᴛᴏs ᴄᴏᴍᴀɴᴅᴏ:
-🥌 .ppt piedra
-📄 .ppt papel
-✂️ .ppt tijera
-
-• ᴜsᴇ ᴇɴ ᴍɪɴᴜsᴄᴜʟᴀs
-*Ejemplo:* .ppt papel`
-  
+let reseqv = `*⚠️ SELECCIONE PIEDRA/PAPEL/TIJERA*\n\n❕ EJEMPLO:\n*${usedPrefix + command}* papel`
 if (!text) throw reseqv
 var astro = Math.random()
 
@@ -58,17 +49,5 @@ handler.help = ['ppt']
 handler.tags = ['juegos']
 handler.command = ['ppt'] 
 handler.register = true
-
-export default handler
-}
-} else {
-throw reseqv
-}
-
-}
-handler.help = ['ppt']
-handler.tags = ['juegos']
-handler.command = ['ppt'] 
-handler.register = false
 
 export default handler
