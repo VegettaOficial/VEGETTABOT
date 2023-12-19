@@ -4,12 +4,12 @@ let poin = 500
 let reseqv = `🥌ᴘɪᴇᴅʀᴀ 📄ᴘᴀᴘᴇʟ o ✂️ᴛɪᴊᴇʀᴀ
 
 • ᴘᴜᴇᴅᴇ ᴜsᴀʀ ᴇsᴛᴏs ᴄᴏᴍᴀɴᴅᴏ:
-🥌 #ppt piedra
-📄 #ppt papel
-✂️ #ppt tijera
+🥌 .ppt piedra
+📄 .ppt papel
+✂️ .ppt tijera
 
 • ᴜsᴇ ᴇɴ ᴍɪɴᴜsᴄᴜʟᴀs
-*Ejemplo:* #ppt papel`
+*Ejemplo:* .ppt papel`
 if (!text) throw reseqv
 var astro = Math.random()
 
@@ -23,14 +23,14 @@ astro = 'papel'
 
 if (text == astro) {
 global.db.data.users[m.sender].exp += 100
-m.reply(`🤡 *EMPATE*\n\nTú : ${text}\nEl Bot : ${astro}\n\n🎁 Puntos (±)100 XP`)
+m.reply(`🔰 *EMPATE* 🔰\n\nTú : ${text}\nEl Bot : ${astro}\n\n🎁 Puntos (±)100 XP`)
 } else if (text == 'piedra') {
 if (astro == 'tijera') {
 global.db.data.users[m.sender].exp += 300
 m.reply(`🎊 *GANASTE* 🎊\n\nTú : ${text}\nEl Bot : ${astro}\n\n🎁 Puntos *+${poin} XP*`)
 } else {
 global.db.data.users[m.sender].exp -= 300
-m.reply(`🤯 *PERDISTE* 🤯\n\nTú : ${text}\nEl Bot : ${astro}\n\n Puntos *-${poin} XP*`)
+m.reply(`❌ *PERDISTE* ❌\n\nTú : ${text}\nEl Bot : ${astro}\n\n Puntos *-${poin} XP*`)
 }
 } else if (text == 'tijera') {
 if (astro == 'papel') {
@@ -38,7 +38,7 @@ global.db.data.users[m.sender].exp += 500
 m.reply(` 🎊 *GANASTE* 🎊\n\nTú : ${text}\nEl Bot : ${astro}\n\n🎁 Puntos *+${poin} XP*`)
 } else {
 global.db.data.users[m.sender].exp -= 150
-m.reply(`🤯 *PERDISTE* 🤯\n\nTú : ${text}\nEl Bot : ${astro}\n\nPuntos *-${poin} XP*`)
+m.reply(`❌ *PERDISTE* ❌\n\nTú : ${text}\nEl Bot : ${astro}\n\nPuntos *-${poin} XP*`)
 }
 } else if (text == 'papel') {
 if (astro == 'piedra') {
@@ -46,7 +46,7 @@ global.db.data.users[m.sender].exp += 600
 m.reply(`🎊 *GANASTE* 🎊\n\nTú : ${text}\nEl Bot : ${astro}\n\n🎁 Puntos *+${poin} XP*`)
 } else {
 global.db.data.users[m.sender].exp -= 300
-m.reply(`🤯 *PERDISTE* 🤯\n\nTú : ${text}\nEl Bot : ${astro}\n\nPuntos *-${poin} XP*`)
+m.reply(`❌ *PERDISTE* ❌\n\nTú : ${text}\nEl Bot : ${astro}\n\nPuntos *-${poin} XP*`)
 }
 } else {
 throw reseqv
