@@ -1,45 +1,43 @@
-import fetch from 'node-fetch'
+// Créditos a Katashi Fukushima
+// Créditos a Wilson Waoz
 
-var handler = async (m, {command, conn}) => {
+import fs from 'fs'
 
-if (command == 'china') {
-let china = await fetch(`https://aemt.me/colombia`)
-conn.sendMessage(m.chat, {image: china, caption: `*🇨🇳 China*`.trim()}, {quoted: m})
+let timeout = 10000
+let poin = 500
+
+let handler = async (m, { conn, usedPrefix }) => {
+    conn.tekateki = conn.tekateki ? conn.tekateki : {}
+    let id = m.chat
+    if (id in conn.tekateki) {
+        conn.reply(m.chat, 'Todavía hay una pregunta sin responder en este chat', conn.tekateki[id][0])
+        throw false
+    }
+    let tekateki = JSON.parse(fs.readFileSync(`./src/game/trivia.json`))
+    let json = tekateki[Math.floor(Math.random() * tekateki.length)]
+    let _clue = json.response
+    let clue = _clue.replace(/[A-Za-z]/g, '_')
+    let caption = `
+ⷮ *${json.question}*
+
+*• Tiempo:* ${(timeout / 1000).toFixed(2)} segundos
+*• Bono:* +${poin} Exp
+
+💫 Responde a este mensaje con la letra de la opción correcta ✅
+¡Tienes 10 segundos!
+`.trim()
+    conn.tekateki[id] = [
+       await conn.reply(m.chat, caption, m),
+        json, poin,
+        setTimeout(async () => {
+            if (conn.tekateki[id]) await conn.reply(m.chat, `Se acabó el tiempo!\n*La respuesta es la opción:* ${json.response}`, conn.tekateki[id][0])
+            delete conn.tekateki[id]
+        }, timeout)
+    ]
 }
 
-if (command == 'vietnamita') {
-let vietnamita = await fetch(`https://aemt.me/vietnam`)
-conn.sendMessage(m.chat, {image: vietnamita, caption: `*🇻🇳 Vietnamita*`.trim()}, {quoted: m})
-}
-
-if (command == 'tailandes') {
-let tailandes = await fetch(`https://aemt.me/thailand`)
-conn.sendMessage(m.chat, {image: tailandes, caption: `*🇹🇭 Tailandes*`.trim()}, {quoted: m})
-}
-
-if (command == 'indonesia') {
-let indonesia = await fetch(`https://aemt.me/indonesia`)
-conn.sendMessage(m.chat, {image: indonesia, caption: `*🇮🇩 Indonesia*`.trim()}, {quoted: m})
-}
-
-if (command == 'japones') {
-let japones = await fetch(`https://aemt.me/japan`)
-conn.sendMessage(m.chat, {image: japones, caption: `*🇯🇵 Japonés*`.trim()}, {quoted: m})
-}
-
-if (command == 'coreana') {
-let coreana = await fetch(`https://aemt.me/korea`)
-conn.sendMessage(m.chat, {image: coreana, caption: `*🇰🇷 Coreana*`.trim()}, {quoted: m})
-}
-
-if (command == 'malaya') {
-let malaya = await fetch(`https://aemt.me/malaysia`)
-conn.sendMessage(m.chat, {image: malaya, caption: `*🇲🇾 Malaya*`.trim()}, {quoted: m})
-}
-
-}
-handler.help = ['china', 'vietnamita', 'tailandes', 'indonesia', 'japones', 'coreana', 'malaya']
-handler.command = ['china', 'vietnamita', 'tailandes', 'indonesia', 'japones', 'coreana', 'malaya']
-handler.tags = ['nsfw']
+handler.help = ['trivia']
+handler.tags = ['game']
+handler.command = /^(trivia|triviador)$/i
 
 export default handler
