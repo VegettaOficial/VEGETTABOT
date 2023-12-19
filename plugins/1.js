@@ -23,30 +23,30 @@ astro = 'papel'
 
 if (text == astro) {
 global.db.data.users[m.sender].exp += 100
-m.reply(`🔰 *EMPATE* 🔰\n\nTú : ${text}\nEl Bot : ${astro}\n\n🎁 Puntos (±)100 XP`)
+m.reply(`🔰 𝗘𝗠𝗣𝗔𝗧𝗘 🔰\n\n👤 𝗧𝗨 : ${text}\n🔰 𝗘𝗟𝗜𝗧𝗘 𝗕𝗢𝗧 : ${astro}`)
 } else if (text == 'piedra') {
 if (astro == 'tijera') {
 global.db.data.users[m.sender].exp += 300
-m.reply(`🎊 *GANASTE* 🎊\n\nTú : ${text}\nEl Bot : ${astro}\n\n🎁 Puntos *+${poin} XP*`)
+m.reply(`🎊 𝗚𝗔𝗡𝗔𝗦𝗧𝗘 🎊\n\n👤 𝗧𝗨 : ${text}\n🔰 𝗘𝗟𝗜𝗧𝗘 𝗕𝗢𝗧 : ${astro}`)
 } else {
 global.db.data.users[m.sender].exp -= 300
-m.reply(`❌ *PERDISTE* ❌\n\nTú : ${text}\nEl Bot : ${astro}\n\n Puntos *-${poin} XP*`)
+m.reply(`❌ 𝗣𝗘𝗥𝗗𝗜𝗦𝗧𝗘 ❌\n\n👤 𝗧𝗨 : ${text}\n🔰 𝗘𝗟𝗜𝗧𝗘 𝗕𝗢𝗧 : ${astro}`)
 }
 } else if (text == 'tijera') {
 if (astro == 'papel') {
 global.db.data.users[m.sender].exp += 500
-m.reply(` 🎊 *GANASTE* 🎊\n\nTú : ${text}\nEl Bot : ${astro}\n\n🎁 Puntos *+${poin} XP*`)
+m.reply(` 🎊 𝗚𝗔𝗡𝗔𝗦𝗧𝗘 🎊\n\n👤 𝗧𝗨 : ${text}\n🔰 𝗘𝗟𝗜𝗧𝗘 𝗕𝗢𝗧 : ${astro}`)
 } else {
 global.db.data.users[m.sender].exp -= 150
-m.reply(`❌ *PERDISTE* ❌\n\nTú : ${text}\nEl Bot : ${astro}\n\nPuntos *-${poin} XP*`)
+m.reply(`❌ 𝗣𝗘𝗥𝗗𝗜𝗦𝗧𝗘 ❌\n\n👤 𝗧𝗨 : ${text}\n🔰 𝗘𝗟𝗜𝗧𝗘 𝗕𝗢𝗧 : ${astro}`)
 }
 } else if (text == 'papel') {
 if (astro == 'piedra') {
 global.db.data.users[m.sender].exp += 600
-m.reply(`🎊 *GANASTE* 🎊\n\nTú : ${text}\nEl Bot : ${astro}\n\n🎁 Puntos *+${poin} XP*`)
+m.reply(`🎊 𝗚𝗔𝗡𝗔𝗦𝗧𝗘 🎊\n\n👤 𝗧𝗨 : ${text}\n🔰 𝗘𝗟𝗜𝗧𝗘 𝗕𝗢𝗧 : ${astro}`)
 } else {
 global.db.data.users[m.sender].exp -= 300
-m.reply(`❌ *PERDISTE* ❌\n\nTú : ${text}\nEl Bot : ${astro}\n\nPuntos *-${poin} XP*`)
+m.reply(`❌ 𝗣𝗘𝗥𝗗𝗜𝗦𝗧𝗘 ❌\n\n👤 𝗧𝗨 : ${text}\n🔰 𝗘𝗟𝗜𝗧𝗘 𝗕𝗢𝗧 : ${astro}`)
 }
 } else {
 throw reseqv
