@@ -1,43 +1,31 @@
-import fetch from 'node-fetch'
-import axios from 'axios'
-import translate from '@vitalets/google-translate-api'
-import { Configuration, OpenAIApi } from 'openai'
+import fs from "fs"
+let handler = m => m
 
-const configuration = new Configuration({ organization: global.openai_org_id, apiKey: global.openai_key });
-const openaiii = new OpenAIApi(configuration)
-
-var handler = async (m, { conn, text, usedPrefix, command }) => {
-
-if (usedPrefix == 'a' || usedPrefix == 'A') return  
-if (!text) throw `*⚠️ INGRESE UN TEXTO*\n\n❕ EJEMPLO:\n${usedPrefix + command} Pasos para crear una página`
-
-try {
-
-conn.sendPresenceUpdate('composing', m.chat)  
-let syms = `Eres un asistente y tu nombre es CuriosityBot-MD, el nombre de tu dueño es Azami`
-let res = await gpt.ChatGpt(text, syms)
-await m.reply(res.text)
-
-} catch {
-try {
-
-let ia2 = await fetch(`https://aemt.me/openai?text=${text}`) //fetch(`https://api.ibeng.tech/api/info/openai?text=${text}&apikey=tamvan`)
-let resu2 = await ia2.json()
-m.reply(resu2.result)
-
-} catch {       
-try {
-
-let tioress = await fetch(`https://api.lolhuman.xyz/api/openai-turbo?apikey=${lolkeysapi}&text=${text}`)
-let hasill = await tioress.json()
-m.reply(`${hasill.result}`.trim())
-
-} catch {    
+handler.all = async function (m) {
+let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }
+let vn = './media/bot.mp3'
+let bot = `${pickRandom([`*¡𝑬𝒚! 𝑨𝒒𝒖í 𝒆𝒔𝒕𝒐𝒚. 𝒀𝒐 𝒑𝒖𝒆𝒅𝒐 𝒂𝒚𝒖𝒅𝒂𝒓 👉👈 𝑯𝒆𝒚! 𝑰'𝒎 𝒉𝒆𝒓𝒆. 𝑰 𝒄𝒂𝒏 𝒉𝒆𝒍𝒑 🙌*`, `Aqui estoy 😼`, `*Hola Aqui estoy yo puedo ayudar? 😸*`])}
+`.trim()
+const estilo = { key: {  fromMe: false, participant: `0@s.whatsapp.net`, ...(m.chat ? { remoteJid: "5219992095479-1625305606@g.us" } : {}) },
+message: { 
+orderMessage: { itemCount : -999999, status: 1, surface : 1, message: 'Super Bot WhatsApp', orderTitle: 'Bang', thumbnail: fs.readFileSync('./media/menus/Menu3.jpg'), sellerJid: '0@s.whatsapp.net'    
 }}}
+const estiloaudio = { key: {  fromMe: false, participant: `0@s.whatsapp.net`, ...(m.chat ? { remoteJid: "5219992095479-1625305606@g.us" } : {}) },
+message: { 
+"audioMessage": { "mimetype":"audio/ogg; codecs=opus", "seconds": "99569", "ptt": "true"   
+}}}  
 
+if (/^bot$/i.test(m.text)) {
+    
+conn.sendPresenceUpdate('recording', m.chat)    
+await conn.sendMessage(m.chat, {text: bot, mentions: [m.sender]}, {quoted: fkontak})
+//conn.sendButton(m.chat, `¡𝑬𝒚! 𝑨𝒒𝒖í 𝒆𝒔𝒕𝒐𝒚. 𝒀𝒐 𝒑𝒖𝒆𝒅𝒐 𝒂𝒚𝒖𝒅𝒂𝒓 👉👈 𝑯𝒆𝒚! 𝑰'𝒎 𝒉𝒆𝒓𝒆. 𝑰 𝒄𝒂𝒏 𝒉𝒆𝒍𝒑 🙌`, wm, [['𝙑𝙤𝙡𝙫𝙚𝙧 𝙖𝙡 𝙈𝙚𝙣𝙪́ | 𝘽𝙖𝙘𝙠 𝙩𝙤 𝙈𝙚𝙣𝙪 ☘️', `#menu`]], 'conversation', { sendEphemeral: true, quoted: estilo })
+conn.sendFile(m.chat, vn, 'bot.mp3', null, m, true, { type: 'audioMessage', ptt: true, sendEphemeral: true, quoted: estiloaudio })   
 }
-handler.help = ['ia']
-handler.tags = ['ai']
-handler.command = [ 'ia3']
-
+return !0
+}
 export default handler
+
+function pickRandom(list) {
+    return list[Math.floor(Math.random() * list.length)]
+}
