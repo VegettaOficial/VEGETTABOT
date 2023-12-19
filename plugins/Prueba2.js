@@ -3,7 +3,7 @@
 
 import fs from 'fs'
 
-let timeout = 10000
+let timeout = 15000
 let poin = 500
 
 let handler = async (m, { conn, usedPrefix }) => {
@@ -20,11 +20,10 @@ let handler = async (m, { conn, usedPrefix }) => {
     let caption = `
 ⷮ ${json.question}
 
-*• Tiempo:* ${(timeout / 1000).toFixed(2)} segundos
-*• Bono:* +${poin} Exp
+» 𝗧𝗶𝗲𝗺𝗽𝗼: ${(timeout / 1000).toFixed(2)} segundos
 
 💫 Responde a este mensaje con la letra de la opción correcta ✅
-¡Tienes 10 segundos!
+¡Tienes 15 segundos!
 `.trim()
     conn.tekateki[id] = [
        await conn.reply(m.chat, caption, m),
@@ -38,6 +37,6 @@ let handler = async (m, { conn, usedPrefix }) => {
 
 handler.help = ['trivia']
 handler.tags = ['game']
-handler.command = /^(trivia|triviador)$/i
+handler.command = /^(opcion|opción)$/i
 
 export default handler
