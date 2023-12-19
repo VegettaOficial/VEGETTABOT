@@ -1,32 +1,53 @@
-import fs from "fs"
-let handler = m => m
-
-handler.all = async function (m) {
-let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }
-let vn = './media/bot.mp3'
-let bot = `${pickRandom([`𝗛𝗼𝗹𝗮 𝘀𝗼𝘆 𝗘𝗹𝗶𝘁𝗲 𝗕𝗼𝘁, 𝗲𝗻 𝗾𝘂𝗲́ 𝘁𝗲 𝗽𝘂𝗲𝗱𝗼 𝗮𝘆𝘂𝗱𝗮𝗿?
-`, `Que paso aqui estoy`, `Dimeloow`])}
-`.trim()
-const estilo = { key: {  fromMe: false, participant: `0@s.whatsapp.net`, ...(m.chat ? { remoteJid: "5219992095479-1625305606@g.us" } : {}) },
-message: { 
-orderMessage: { itemCount : -999999, status: 1, surface : 1, message: 'Super Bot WhatsApp', orderTitle: 'Bang', thumbnail: fs.readFileSync('./media/menus/Menu3.jpg'), sellerJid: '0@s.whatsapp.net'    
-}}}
-const estiloaudio = { key: {  fromMe: false, participant: `0@s.whatsapp.net`, ...(m.chat ? { remoteJid: "5219992095479-1625305606@g.us" } : {}) },
-message: { 
-"audioMessage": { "mimetype":"audio/ogg; codecs=opus", "seconds": "99569", "ptt": "true"   
-}}}  
-
-if (/^bot$/i.test(m.text)) {
-    
-conn.sendPresenceUpdate('recording', m.chat)    
-await conn.sendMessage(m.chat, {text: bot, mentions: [m.sender]}, {quoted: fkontak})
-//conn.sendButton(m.chat, `¡𝑬𝒚! 𝑨𝒒𝒖í 𝒆𝒔𝒕𝒐𝒚. 𝒀𝒐 𝒑𝒖𝒆𝒅𝒐 𝒂𝒚𝒖𝒅𝒂𝒓 👉👈 𝑯𝒆𝒚! 𝑰'𝒎 𝒉𝒆𝒓𝒆. 𝑰 𝒄𝒂𝒏 𝒉𝒆𝒍𝒑 🙌`, wm, [['𝙑𝙤𝙡𝙫𝙚𝙧 𝙖𝙡 𝙈𝙚𝙣𝙪́ | 𝘽𝙖𝙘𝙠 𝙩𝙤 𝙈𝙚𝙣𝙪 ☘️', `#menu`]], 'conversation', { sendEphemeral: true, quoted: estilo })
-conn.sendFile(m.chat, vn, 'bot.mp3', null, m, true, { type: 'audioMessage', ptt: true, sendEphemeral: true, quoted: estiloaudio })   
+if (command == 'ppt' || command == 'suit') { 
+if (!text) return m.reply(`${lenguaje.juegos.text28}`) 
+var astro = Math.random()
+if (astro < 0.34) {
+astro = 'piedra' 
+} else if (astro > 0.34 && astro < 0.67) {
+astro = 'tijera' 
+} else {
+astro = 'papel'
 }
-return !0
+if (text == astro) {
+global.db.data.users[m.sender].exp += 500
+m.reply(`🔰 EMPATE! 🤝\n\n👉🏻 TU: ${text}\n👉🏻 EL BOT: ${astro}\n🎁 PREMIOS +500 XP`)
+} else if (text == 'papel') {
+if (astro == 'piedra') {
+global.db.data.users[m.sender].exp += 2000
+m.reply(`🥳 HA GANADO! 🎉\n\n👉🏻 TU: ${text}\n👉🏻 EL BOT: ${astro}\n🎁 PREMIO +2000 XP`)
+} else {
+global.db.data.users[m.sender].exp -= 300
+m.reply(`HA PERDIDO ! 🤡\n\n👉🏻 TU: ${text}\n👉🏻 EL BOT: ${astro}\n❌ PREMIO -300 XP`)
 }
-export default handler
-
-function pickRandom(list) {
-    return list[Math.floor(Math.random() * list.length)]
+} else if (text == 'tijera') {
+if (astro == 'papel') {
+global.db.data.users[m.sender].exp += 1000
+m.reply(`🥳 HA GANADO! 🎉\n\n👉🏻 TU: ${text}\n👉🏻 EL BOT: ${astro}\n🎁 PREMIO +1000 XP`)
+} else {
+global.db.data.users[m.sender].exp -= 300
+m.reply(`HA PERDIDO! 🤡\n\n👉🏻 TU: ${text}\n👉🏻 EL BOT: ${astro}\n❌ PREMIO -300 XP`)
 }
+} else if (text == 'tijera') {
+if (astro == 'papel') {
+global.db.data.users[m.sender].exp += 1000
+m.reply(`🥳 HA GANADO! 🎉\n\n👉🏻 TU: ${text}\n👉🏻 EL BOT: ${astro}\n🎁 PREMIO +1000 XP`)
+} else {
+global.db.data.users[m.sender].exp -= 300
+m.reply(`HA PERDIDO! 🤡\n\n👉🏻 TU: ${text}\n👉🏻 EL BOT: ${astro}\n❌ PREMIO -300 XP`)
+}
+} else if (text == 'papel') {
+if (astro == 'piedra') {
+global.db.data.users[m.sender].exp += 1000
+m.reply(`🥳 HA GANADO! 🎉\n\n👉🏻 TU: ${text}\n👉🏻 EL BOT: ${astro}\n🎁 PREMIO +1000 XP`)
+} else {
+global.db.data.users[m.sender].exp -= 300
+m.reply(`HA PERDIDO! 🤡\n\n👉🏻 TU: ${text}\n👉🏻 EL BOT: ${astro}\n❌ PREMIO -300 XP`)
+}
+} else if (text == 'piedra') {
+if (astro == 'tijera') {
+global.db.data.users[m.sender].exp += 1000
+m.reply(`🥳 HA GANADO! 🎉\n\n👉🏻 TU: ${text}\n👉🏻 EL BOT: ${astro}\n🎁 PREMIO +1000 XP`)
+} else {
+global.db.data.users[m.sender].exp -= 300
+m.reply(`HA PERDIDO! 🤡\n\n👉🏻 TU: ${text}\n👉🏻 EL BOT: ${astro}\n❌ PREMIO -300 XP`)
+}}}}
