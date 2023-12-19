@@ -3,7 +3,7 @@ import fetch from 'node-fetch'
 var handler = async (m, {command, conn}) => {
 
 if (command == 'china') {
-let china = await fetch(`https://aemt.me/china`)
+let china = await fetch(`https://aemt.me/colombia`)
 conn.sendMessage(m.chat, {image: china, caption: `*🇨🇳 China*`.trim()}, {quoted: m})
 }
 
