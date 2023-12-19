@@ -1,7 +1,16 @@
 var handler = async (m, { conn, text, usedPrefix, command }) => {
 
 let poin = 500
-let reseqv = `*⚠️ SELECCIONE PIEDRA/PAPEL/TIJERA*\n\n❕ EJEMPLO:\n*${usedPrefix + command}* papel`
+let reseqv = `*🥌ᴘɪᴇᴅʀᴀ 📄ᴘᴀᴘᴇʟ o ✂️ᴛɪᴊᴇʀᴀ
+
+• ᴘᴜᴇᴅᴇ ᴜsᴀʀ ᴇsᴛᴏs ᴄᴏᴍᴀɴᴅᴏ:
+🥌 .ppt piedra
+📄 .ppt papel
+✂️ .ppt tijera
+
+• ᴜsᴇ ᴇɴ ᴍɪɴᴜsᴄᴜʟᴀs
+*Ejemplo:* .ppt papel`
+  
 if (!text) throw reseqv
 var astro = Math.random()
 
