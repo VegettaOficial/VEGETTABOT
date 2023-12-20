@@ -2,12 +2,18 @@ let handler = async (m, { isPrems, conn }) => {
 let time = global.db.data.users[m.sender].lastcofre + 0 // 36000000 10 Horas //86400000 24 Horas
 if (new Date - global.db.data.users[m.sender].lastcofre < 0) throw `[❗𝐈𝐍𝐅𝐎❗] 𝚈𝙰 𝚁𝙴𝙲𝙻𝙰𝙼𝙰𝚂𝚃𝙴 𝚃𝚄 𝙲𝙾𝙵𝚁𝙴\𝚗𝚅𝚄𝙴𝙻𝚅𝙴 𝙴𝙽 *${msToTime(time - new Date())}* 𝙿𝙰𝚁𝙰 𝚅𝙾𝙻𝚅𝙴𝚁 𝙰 𝚁𝙴𝙲𝙻𝙰𝙼𝙰𝚁`
 
-let img = 'https://telegra.ph/file/821835c3308aa0796ad3e.jpg' 
+let img = 'https://telegra.ph/file/ebbcd98887a604312511b.png' 
 let texto = `📕 ¡LA #AGENDASEMANAL ESTÁ AQUÍ! 📕
 
-👻 El NUEVO #CRIMINALESPECTRAL llega a lootear las cajas de botín este VIERNES junto con  su colección de objetos y el emote Lluvia de Dinero.
+🎄 ESTA es la semana más heróica del año: 💪
 
-🤡 ¡Captúralo y conoce TODO sobre la colección AQUÍ! https://youtu.be/H7gBGmSlkDw?feature=shared
+✅ La espera terminó: EL OBJETO MÁS ESPERADO REGRESA a Bermuda. 
+✅ Transforma la batalla con el poder del nuevo aspecto legendario Fuego Glacial Polar.
+✅ 4 grandes aspectos vuelven sólo por 1 día.
+✅ Y corta al enemigo con una poderosa Katana congelada.
+
+🎁 ¡Prepara tu estrategia, llévatelo TODO y celebra las #FelicesFiestasFF!
+
 `
 
 const fkontak = {
