@@ -56,6 +56,6 @@ throw reseqv
 handler.help = ['ppt']
 handler.tags = ['juegos']
 handler.command = ['ppt'] 
-handler.register = true
+handler.register = false
 
 export default handler
