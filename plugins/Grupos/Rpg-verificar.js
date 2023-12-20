@@ -614,7 +614,7 @@ await m.reply('🍄 ```VERIFICANDO DATOS...```')
 await conn.reply(m.chat, `🍃 \`\`\`VERIFICACIÓN EXITOSA\`\`\` 🍃
 *- - - - - - - - - - - - - - - - - - - - - - - - - - - -*
 
-😼 *REGISTRADO POR*
+✅💻 *REGISTRADO POR*
 ❱❱ ${wm}
 
 📑 *TIPO DE REGISTRO* 
@@ -627,7 +627,7 @@ await conn.reply(m.chat, `🍃 \`\`\`VERIFICACIÓN EXITOSA\`\`\` 🍃
 ❱❱ ${sn}
 
 ✅ *INSIGNIA DE VERIFICACIÓN*
-❱❱   *${user.registered === true ? 'ͧͧͧͦꙶͣͤ✓ᚲᴳᴮ' : ''}*
+❱❱   *${user.registered === true ? 'ᴱᴮᴳ' : ''}*
 
 ✨ *NOMBRE* 
 ❱❱ ${user.name}
