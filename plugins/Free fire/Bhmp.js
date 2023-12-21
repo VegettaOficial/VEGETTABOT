@@ -22,6 +22,6 @@ const fkontak = {
 await conn.sendFile(m.chat, img, 'img.jpg', texto, fkontak)
 global.db.data.users[m.sender].lastcofre = new Date * 1
 }
-handler.command = ['bhmp'] 
+handler.command = ['bhmapa'] 
 handler.register = false 
 export default handlerhttps://telegra.ph/file/da9da8b6f606e8490cfcc.jpg
