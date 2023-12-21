@@ -3,9 +3,7 @@ let time = global.db.data.users[m.sender].lastcofre + 0 // 36000000 10 Horas //8
 if (new Date - global.db.data.users[m.sender].lastcofre < 0) throw `[❗𝐈𝐍𝐅𝐎❗] 𝚈𝙰 𝚁𝙴𝙲𝙻𝙰𝙼𝙰𝚂𝚃𝙴 𝚃𝚄 𝙲𝙾𝙵𝚁𝙴\𝚗𝚅𝚄𝙴𝙻𝚅𝙴 𝙴𝙽 *${msToTime(time - new Date())}* 𝙿𝙰𝚁𝙰 𝚅𝙾𝙻𝚅𝙴𝚁 𝙰 𝚁𝙴𝙲𝙻𝙰𝙼𝙰𝚁`
 
 let img = 'https://telegra.ph/file/1960f92dbb44a9842b611.jpg' 
-let texto = `» 𝘾𝙇𝘼𝙉 𝙒𝙃𝙄𝙏𝙀 𝙕𝙀𝙍𝙊 🔰
-
-`
+let texto = `» 𝘾𝙇𝘼𝙉 𝙒𝙃𝙄𝙏𝙀 𝙕𝙀𝙍𝙊 🔰`
 
 const fkontak = {
 	"key": {
