@@ -1,6 +1,6 @@
 let handler = async (m, { conn, participants, usedPrefix, command }) => {
-if (!global.db.data.settings[conn.user.jid].restrict) throw '*[ ⚠️ ] MI CREADOR TIENE DESACTIVADO ESTA FUNCIÓN, CONTÁCTATE CON EL A SU PRIVADO PARA QUE TE AYUDÉ.\n\n\n 💻 +593993370003'
-let kicktext = `*ETIQUETA A LA PERSONA O RESPONDE SU MENSAJE PARA ELIMINARLO DE ESTE GRUPO.*\n\n*EJEMPLO:*\n*${usedPrefix + command} @${global.suittag}*\n\n\n*`
+if (!global.db.data.settings[conn.user.jid].restrict) throw '*[ ⚠️ ] MI CREADOR TIENE DESACTIVADO ESTA FUNCIÓN, CONTÁCTATE CON EL A SU PRIVADO PARA QUE TE AYUDÉ.\n\ 💻 +593993370003'
+let kicktext = `⚠️ *ETIQUETA A LA PERSONA O RESPONDE SU MENSAJE PARA ELIMINARLO DE ESTE GRUPO.*`
 if (!m.mentionedJid[0] && !m.quoted) return m.reply(kicktext, m.chat, { mentions: conn.parseMention(kicktext)}) 
 let user = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted.sender
 let owr = m.chat.split`-`[0]
