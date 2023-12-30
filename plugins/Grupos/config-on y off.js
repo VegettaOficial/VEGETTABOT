@@ -93,14 +93,14 @@ break
     
 case 'detect': case 'avisos':
 if (!m.isGroup) {
-if (!isOwner) {
+if (!(isAdmin || isOwner)){
 global.dfail('group', m, conn)
 throw false
 }
 } else if (!isAdmin) {
 global.dfail('admin', m, conn)
 throw false
-}
+}}
 chat.detect = isEnable
 break
 		
