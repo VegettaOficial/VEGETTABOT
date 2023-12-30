@@ -92,12 +92,8 @@ chat.welcome = isEnable
 break
     
 case 'detect': case 'avisos':
-if (!m.isGroup) {
-if (!(isAdmin || isOwner)){
-global.dfail('group', m, conn)
-throw false
-}
-} else if (!isAdmin) {
+if (m.isGroup) {
+if (!(isAdmin || isOwner)) {
 global.dfail('admin', m, conn)
 throw false
 }}
