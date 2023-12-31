@@ -43,6 +43,6 @@ let info = `💖 *Infórmate sobre las Novedades y recuerda tener la última ver
 handler.help = ['animeinfo <anime>']
 handler.tags = ['internet']
 handler.command = /^(mangainfo)$/i
-handler.exp = 50
-handler.level = 4 
+handler.exp = 0
+handler.level = 0 
 export default handler
