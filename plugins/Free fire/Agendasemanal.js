@@ -2,14 +2,16 @@ let handler = async (m, { isPrems, conn }) => {
 let time = global.db.data.users[m.sender].lastcofre + 0 // 36000000 10 Horas //86400000 24 Horas
 if (new Date - global.db.data.users[m.sender].lastcofre < 0) throw `[❗𝐈𝐍𝐅𝐎❗] 𝚈𝙰 𝚁𝙴𝙲𝙻𝙰𝙼𝙰𝚂𝚃𝙴 𝚃𝚄 𝙲𝙾𝙵𝚁𝙴\𝚗𝚅𝚄𝙴𝙻𝚅𝙴 𝙴𝙽 *${msToTime(time - new Date())}* 𝙿𝙰𝚁𝙰 𝚅𝙾𝙻𝚅𝙴𝚁 𝙰 𝚁𝙴𝙲𝙻𝙰𝙼𝙰𝚁`
 
-let img = 'https://telegra.ph/file/555002c14496cd101a5cb.png' 
+let img = 'https://telegra.ph/file/91770b605ffa5c97ba06d.jpg' 
 let texto = `📕 ¡LA #AGENDASEMANAL ESTÁ AQUÍ! 📕
 
-🎉 3, 2, 1… Acaba 2023 a toda velocidad derrapando con el emote de la colaboración #FreeFireLamborghini 🚗, los poderosos puños Golpe Fuego Glacial 👊 y los heroicos aspectos de la Tienda Misteriosa ❄. 
+🌕 Prepárate para transformarte bajo la luna llena y recorrer Bermuda con estilo.
 
-Además, comienza el año con la electrizante nueva temporada del Pase Booyah. ⚡
+🔥 El Aventador Booyah! llega al garaje de FF esta semana para sellar con fuego la colaboración #FreeFireLamborghini. 🚗
 
-✨ ¡Equípate para rushear el 2024 hasta la victoria!
+🐺 Conviértete en lobo con el aspecto que cambia su apariencia en batalla y afila tus garras con la M4A1- Ráfaga Felina. 
+
+🌟 ¿Ya estás equipado para llegar a Gran Maestro este 2024?
 `
 
 const fkontak = {
