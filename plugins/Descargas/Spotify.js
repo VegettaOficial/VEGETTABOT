@@ -1,17 +1,18 @@
-/* Creditos de los tags a @darlyn1234 y diseño a @ALBERTO9883 */
+// TheMystic-Bot-MD@BrunoSobrino - descargas-spotify.js
+// Creditos de los tags a @darlyn1234 y diseño a @ALBERTO9883
 import fetch from 'node-fetch';
 import fs from 'fs';
 import axios from 'axios';
 
-const handler = async (m, { conn, text }) => {
- if (!text) throw `[❗] 𝙀𝙎𝘾𝙍𝙄𝘽𝘼 𝙀𝙇 𝙉𝙊𝙈𝘽𝙍𝙀 𝘿𝙀 𝘼𝙇𝙂𝙐𝙉𝘼 𝘾𝘼𝙉𝘾𝙄𝙊́𝙉 𝘿𝙀 𝙎𝙋𝙊𝙏𝙄𝙁𝙔 `;
+const handler = async (m, { conn, text, usedPrefix, command }) => {
+ if (!text) throw `_*< DESCARGAS - SPOTIFY />*_\n\n*[ ℹ️ ] Hace falta el título de la canción de Spotify.*\n\n*[ 💡 ] Ejemplo:* _${usedPrefix + command} Good Feeling - Flo Rida_`;
   try {
-    const res = await fetch(global.API('ApiEmpire', '/api/spotifysearch?text=' + text))
+    const res = await fetch(global.API('CFROSAPI', '/api/spotifysearch?text=' + text))
     const data = await res.json()
     const linkDL = data.spty.resultado[0].link;
-    const musics = await fetch(global.API('ApiEmpire', '/api/spotifydl?text=' + linkDL))
+    const musics = await fetch(global.API('CFROSAPI', '/api/spotifydl?text=' + linkDL))
     const music = await conn.getFile(musics.url)
-    const infos = await fetch(global.API('ApiEmpire', '/api/spotifyinfo?text=' + linkDL))
+    const infos = await fetch(global.API('CFROSAPI', '/api/spotifyinfo?text=' + linkDL))
     const info = await infos.json()
     const spty = info.spty.resultado
     const img = await (await fetch(`${spty.thumbnail}`)).buffer()  
