@@ -61,7 +61,7 @@ global.itsrose = ["4b146102c4d500809da9d1ff"];
 global.baileys = "@whiskeysockets/baileys";
 
 global.APIs = { 
-  ApiEmpire: 'https://api-ash.zipponodes.xyz',
+  CFROSAPI: 'https://api.cafirexos.com',
   xteam: 'https://api.xteam.xyz',
   dzx: 'https://api.dhamzxploit.my.id',
   lol: 'https://api.lolhuman.xyz',
