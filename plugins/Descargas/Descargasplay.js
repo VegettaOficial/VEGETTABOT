@@ -8,7 +8,7 @@ let q, v, yt, dl_url, ttl, size, lolhuman, lolh, n, n2, n3, n4, cap, qu, current
 if (!text) throw `¿𝙌𝙪𝙚 𝙘𝙖𝙣𝙘𝙞𝙤́𝙣 𝙙𝙚𝙨𝙘𝙖𝙧𝙜𝙤?
 
 » 𝘌𝘭 𝘶𝘴𝘰 𝘥𝘦𝘭 𝘤𝘰𝘮𝘢𝘯𝘥𝘰 𝘦𝘴 :
-${usedPrefix + command} 𝘧𝘦𝘪𝘥 𝘯𝘰𝘳𝘮𝘢𝘭`
+${usedPrefix + command} feid normal`
 try {
 await m.react('🕓')
 const yt_play = await search(args.join(" "))
