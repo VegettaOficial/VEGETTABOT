@@ -1,5 +1,5 @@
 var handler = async (m, { conn, participants, groupMetadata, args, text }) => {
- pp = await conn.profilePictureUrl(m.chat, 'image').catch(_ => null) || './src/novios.jpg'
+const = await conn.profilePictureUrl(m.chat, 'image').catch(_ => null) || './src/novios.jpg'
 const groupAdmins = participants.filter(p => p.admin)
 const listaAdmins = groupAdmins.map((v, i) => ``).join('\n')
 const owner = groupMetadata.owner || groupAdmins.find(p => p.admin === 'superadmin')?.id || m.chat.split`-`[0] + '@s.whatsapp.net'
