@@ -19,6 +19,6 @@ handler.help = ['admins <texto>'];
 handler.tags = ['group'];
 // regex detect A word without case sensitive
 handler.customPrefix = /a|@/i;
-handler.command = /^(2x2clk)$/i;
+handler.command = /^(3x3clk)$/i;
 handler.group = true;
 export default handler;
