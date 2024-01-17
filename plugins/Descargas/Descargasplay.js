@@ -11,13 +11,12 @@ await m.react('🕓')
 const yt_play = await search(args.join(" "))
 let additionalText = ''
 if (command === 'play') {
-additionalText = 'elitebot'
+additionalText = ''
 } else if (command === 'play2') {
 additionalText = 'video 🎥'}
 await conn.sendMessage(m.chat, {
-text: `*⇄ㅤ     ◁   ㅤ  ❚❚ㅤ     ▷ㅤ     ↻*
-
-*${additionalText}*`, 
+text: `*⇄ㅤ    ◁   ㅤ  ❚❚ㅤ     ▷ㅤ    ↻*
+`, 
 contextInfo: {
 externalAdReply: {
 title: yt_play[0].title,
