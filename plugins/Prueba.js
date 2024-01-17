@@ -1,5 +1,6 @@
 var handler = async (m, { conn, participants, groupMetadata, args, text }) => {
-const pp = await conn.profilePictureUrl(m.chat, 'image').catch(_ => null) || './src/novios.jpg'
+
+  let pp = await conn.profilePictureUrl(who, 'image').catch(_ => './src/novios.jpg')
 const groupAdmins = participants.filter(p => p.admin)
 const listaAdmins = groupAdmins.map((v, i) => ``).join('\n')
 const owner = groupMetadata.owner || groupAdmins.find(p => p.admin === 'superadmin')?.id || m.chat.split`-`[0] + '@s.whatsapp.net'
@@ -26,7 +27,8 @@ ${yo}
 
 *╰━* 𝙀𝙇𝙄𝙏𝙀 𝘽𝙊𝙏 𝙂𝙇𝙊𝘽𝘼𝙇
 ▌│█║▌║▌║║▌║▌║▌║█`.trim()
-conn.sendFile(m.chat, pp, 'perfil.jpg', texto, m, false, { mentions: [...groupAdmins.map(v => v.id), owner] })
+conn.sendFile(m.chat, pp, 'perfil.jpg', str, fkon, false, { mentions: [who] })
+}
 
 }
 handler.help = ['admins']
