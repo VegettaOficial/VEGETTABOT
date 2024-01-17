@@ -10,6 +10,7 @@ let mensaje = args.join` `
 let yo = `Hora: *${text}*`
 let texto = `4vs4 COMPE 
 Reglas : CLK
+${yo}
 
 𝐂𝐎𝐍𝐅𝐈𝐑𝐌𝐀𝐑 𝐀𝐒𝐈𝐒𝐓𝐄𝐍𝐂𝐈𝐀:
 🥷🏻|
