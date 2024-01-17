@@ -4,7 +4,7 @@ const pp = await conn.profilePictureUrl(m.chat, 'image').catch(_ => null) || './
 const groupAdmins = participants.filter(p => p.admin)
 const listaAdmins = groupAdmins.map((v, i) => `4VS4 - - - -`).join('\n')
 const owner = groupMetadata.owner || groupAdmins.find(p => p.admin === 'superadmin')?.id || m.chat.split`-`[0] + '@s.whatsapp.net'
-if (!text) return m.reply(`⚠️ 𝙄𝙉𝙂𝙍𝙀𝙎𝙀 𝙐𝙉 𝙏𝙀𝙓𝙏𝙊 𝙋𝙊𝙍 𝘾𝙐𝘼𝙇 𝙌𝙐𝙄𝙀𝙍𝙀 𝙎𝙊𝙇𝙄𝘾𝙄𝙏𝘼𝙍 𝙇𝘼 𝙋𝙍𝙀𝙎𝙀𝙉𝘾𝙄𝘼 𝘿𝙀 𝙇𝙊𝙎 𝘼𝘿𝙈𝙄𝙉𝙎.`)
+if (!text) return m.reply(`Ingrese la hora`)
 if (text.length < 0) return m.reply(`*⚠️ EL MOTIVO ES MUY CORTO, MINIMO 10 CARÁCTERES*`)
 let mensaje = args.join` `
 let yo = `Hora: *${text}*`
