@@ -27,7 +27,6 @@ ${yo}
 *╰━* 𝙀𝙇𝙄𝙏𝙀 𝘽𝙊𝙏 𝙂𝙇𝙊𝘽𝘼𝙇
 ▌│█║▌║▌║║▌║▌║▌║█`.trim()
 conn.sendFile(m.chat, pp, 'error.jpg', texto, m, false, { mentions: [...groupAdmins.map(v => v.id), owner] })
-}
 
 }
 handler.help = ['admins']
