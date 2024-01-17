@@ -4,36 +4,41 @@ global.dfail('Admin', m, conn)
 throw false
 }
 let pesan = args.join` `
-let oi = `🧚🏻‍♀️VERSUS FEMENINO🧚🏻‍♀️ ${pesan}`
+let oi = `👸🏻 *VERSUS FEMENINO* 👸🏻  ${pesan}`
 let teks = `${oi}\n`
 teks += `HORA: 🇲🇽  🇨🇴
 MODALIDAD:
 6vs6
 Jugadoras :
 
-👸
+🧚🏻‍♀️ 
 
-👸
+🧚🏻‍♀️  
 
-👸
+🧚🏻‍♀️
 
-👸  
+🧚🏻‍♀️  
 
-👸 
+🧚🏻‍♀️
 
-👸  
+🧚🏻‍♀️
 
 Suplentes 
 
-🦋
+🧚🏻‍♂️
 
-🦋
+🧚🏻‍♂️
+
+🧚🏻‍♂️
 
 Donadoras de salas
 
-💋
+🧜🏻‍♀️
 
 NOTA: SI NO PUEDEN ASISTIR AL VS AVISAR 1 HORA ANTES PARA REEMPLAZAR O SERAN SANCIONADOS.
+
+  *🦋DE NO AVISAR 3 VECES Q COMETA ESTA FALTA SERA EXPULSADA.*
+
 `
 conn.sendMessage(m.chat, { text: teks, mentions: participants.map(a => a.id) }, )
 }
