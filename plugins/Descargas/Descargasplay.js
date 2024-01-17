@@ -5,7 +5,10 @@ import axios from 'axios'
 import { youtubedl, youtubedlv2 } from '@bochilteam/scraper'
 let handler = async (m, { conn, command, args, text, usedPrefix }) => {
 let q, v, yt, dl_url, ttl, size, lolhuman, lolh, n, n2, n3, n4, cap, qu, currentQuality   
-if (!text) throw `[ ❗𝗘𝗥𝗥𝗢𝗥❗]\n\n𝙀𝙡 𝙪𝙨𝙤 𝙘𝙤𝙧𝙧𝙚𝙘𝙩𝙤 𝙙𝙚𝙡 𝙘𝙤𝙢𝙖𝙣𝙙𝙤 𝙚𝙨 🧸👇🏻\n\n» .𝗽𝗹𝗮𝘆 𝗠𝗮𝗿𝗴𝗮𝗿𝗲𝘁 - 𝗟𝗮𝗻𝗮 𝗗𝗲𝗹 𝗥𝗲𝘆`
+if (!text) throw `¿𝙌𝙪𝙚 𝙘𝙖𝙣𝙘𝙞𝙤́𝙣 𝙙𝙚𝙨𝙘𝙖𝙧𝙜𝙤?
+
+» 𝘌𝘭 𝘶𝘴𝘰 𝘥𝘦𝘭 𝘤𝘰𝘮𝘢𝘯𝘥𝘰 𝘦𝘴 :
+${usedPrefix + command} 𝘧𝘦𝘪𝘥 𝘯𝘰𝘳𝘮𝘢𝘭`
 try {
 await m.react('🕓')
 const yt_play = await search(args.join(" "))
@@ -15,7 +18,10 @@ additionalText = ''
 } else if (command === 'play2') {
 additionalText = 'video 🎥'}
 await conn.sendMessage(m.chat, {
-text: `*⇄ㅤ    ◁   ㅤ  ❚❚ㅤ     ▷ㅤ    ↻*
+  
+text: `01:27 ━━━━⬤─────── 05:48
+*⇄ㅤ   ◁   ㅤ  ❚❚ㅤ     ▷ㅤ   ↻*
+𝙀𝙇𝙄𝙏𝙀 𝘽𝙊𝙏 𝙂𝙇𝙊𝘽𝘼𝙇 
 `, 
 contextInfo: {
 externalAdReply: {
@@ -74,18 +80,18 @@ renderLargerThumbnail: true
 if (command == 'play2') {
 try {
 await m.react('✅')
-let qu = '360'
+let qu = '480'
 let q = qu + 'p'
 let v = yt_play[0].url
 const yt = await youtubedl(v).catch(async _ => await youtubedlv2(v))
 const dl_url = await yt.video[q].download()
 const ttl = await yt.title
 const size = await yt.video[q].fileSizeH
-await await conn.sendMessage(m.chat, { video: { url: dl_url }, fileName: `${ttl}.mp4`, mimetype: 'video/mp4', caption: `*🔰 Aqui esta tu video*\n*🔥 Titulo: ${ttl}`, thumbnail: await fetch(yt.thumbnail) }, { quoted: m })
+await await conn.sendMessage(m.chat, { video: { url: dl_url }, fileName: `${ttl}.mp4`, mimetype: 'video/mp4', caption: `𝙑𝙄𝘿𝙀𝙊 𝘿𝙀𝙎𝘾𝘼𝙍𝙂𝘼𝘿𝙊 [✅] `, thumbnail: await fetch(yt.thumbnail) }, { quoted: m })
 } catch {   
 try {  
 let mediaa = await ytMp4(yt_play[0].url)
-await conn.sendMessage(m.chat, { video: { url: mediaa.result }, fileName: `error.mp4`, caption: `_${wm}_`, thumbnail: mediaa.thumb, mimetype: 'video/mp4' }, { quoted: m })     
+await conn.sendMessage(m.chat, { video: { url: mediaa.result }, fileName: `error.mp4`, caption: `𝙑𝙄𝘿𝙀𝙊 𝘿𝙀𝙎𝘾𝘼𝙍𝙂𝘼𝘿𝙊 [✅] `, thumbnail: mediaa.thumb, mimetype: 'video/mp4' }, { quoted: m })     
 } catch {  
 try {
 let lolhuman = await fetch(`https://api.lolhuman.xyz/api/ytvideo2?apikey=${lolkeysapi}&url=${yt_play[0].url}`)    
@@ -94,7 +100,7 @@ let n = lolh.result.title || 'error'
 let n2 = lolh.result.link
 let n3 = lolh.result.size
 let n4 = lolh.result.thumbnail
-await conn.sendMessage(m.chat, { video: { url: n2 }, fileName: `${n}.mp4`, mimetype: 'video/mp4', caption: `*🔰 Aqui esta tu video*\n*🔥 Titulo: ${n}`, thumbnail: await fetch(n4) }, { quoted: m })
+await conn.sendMessage(m.chat, { video: { url: n2 }, fileName: `${n}.mp4`, mimetype: 'video/mp4', caption: `𝙑𝙄𝘿𝙀𝙊 𝘿𝙀𝙎𝘾𝘼𝙍𝙂𝘼𝘿𝙊 [✅] `, thumbnail: await fetch(n4) }, { quoted: m })
 } catch {
 }}}}} catch {
 }}
