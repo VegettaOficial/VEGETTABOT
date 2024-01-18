@@ -19,9 +19,7 @@ additionalText = ''
 additionalText = 'video 🎥'}
 await conn.sendMessage(m.chat, {
 text: `
-*⌈🎶 SPOTIFY PREMIUM 🎶⌋*
-📀 𝘼𝙇𝘽𝙐𝙈 | 𝘼𝙇𝘽𝙐𝙈
- » 
+*⌈📀 SPOTIFY PREMIUM 📀⌋*
 01:27 ━━━━━⬤──── 05:48
 *⇄ㅤ   ◁   ㅤ  ❚❚ㅤ     ▷ㅤ   ↻*
 𝙀𝙡𝙞𝙩𝙚 𝘽𝙤𝙩 𝙂𝙡𝙤𝙗𝙖𝙡`, 
