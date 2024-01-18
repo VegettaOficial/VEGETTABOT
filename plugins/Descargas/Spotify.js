@@ -18,8 +18,7 @@ additionalText = ''
 } else if (command === 'play8') {
 additionalText = 'video 🎥'}
 await conn.sendMessage(m.chat, {
-text: `
-*⌈📀 SPOTIFY PREMIUM 📀⌋*
+text: `*⌈📀 SPOTIFY PREMIUM 📀⌋*
 01:27 ━━━━━⬤──── 05:48
 *⇄ㅤ   ◁   ㅤ  ❚❚ㅤ     ▷ㅤ   ↻*
 𝙀𝙡𝙞𝙩𝙚 𝘽𝙤𝙩 𝙂𝙡𝙤𝙗𝙖𝙡`, 
