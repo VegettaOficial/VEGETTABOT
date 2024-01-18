@@ -4,7 +4,7 @@ const pp = './src/4vs4clk.png'
 const groupAdmins = participants.filter(p => p.admin)
 const listaAdmins = groupAdmins.map((v, i) => ``).join('\n')
 const owner = groupMetadata.owner || groupAdmins.find(p => p.admin === 'superadmin')?.id || m.chat.split`-`[0] + '@s.whatsapp.net'
-if (!text) return m.reply(`⚠️ 𝙄𝙉𝙂𝙍𝙀𝙎𝙀 𝙐𝙉 𝙃𝙊𝙍𝘼𝙍𝙄𝙊.\n𝙀𝙟𝙚𝙢𝙥𝙡𝙤:\n.4𝘷𝘴4𝘤𝘭𝘬 5𝘱𝘮 𝘌𝘤 / 4𝘱𝘮 𝘔𝘹`)
+if (!text) return m.reply(`🕓 𝗜𝗡𝗚𝗥𝗘𝗦𝗔 𝗨𝗡 𝗛𝗢𝗥𝗔𝗥𝗜𝗢.\n𝗘𝗷𝗲𝗺𝗽𝗹𝗼:\n.4vs4clk 4pm🇪🇨/3pm🇲🇽`)
 if (text.length < 0) return m.reply(`*⚠️ EL MOTIVO ES MUY CORTO, MINIMO 10 CARÁCTERES*`)
 let mensaje = args.join` `
 let yo = `🕓 𝗛𝗢𝗥𝗔: *${text}*`
