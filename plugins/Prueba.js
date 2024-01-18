@@ -1,43 +1,61 @@
-import fetch from 'node-fetch'
-import Spotify from "spotifydl-x"
-import fs from 'fs'
-let handler = async(m, { conn, usedPrefix, command, text }) => {
-let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }
-let frep = { contextInfo: { externalAdReply: {title: wm, body: author, sourceUrl: redesMenu.getRandom(), thumbnail: await(await fetch(redesMenu.getRandom())).buffer() }}}
-if (!text) return await conn.reply(m.chat, `${lenguajeGB.smsMalused2()} ⊱ *${usedPrefix + command} ozuna*`, fkontak, m)
-try {
-let resDL = await fetch(`https://api.lolhuman.xyz/api/spotifysearch?apikey=${lolkeysapi}&query=${text}`)
-let jsonDL = await resDL.json()
-let linkDL = jsonDL.result[0].link
-let spty = await spotifydl(linkDL)
-const getRandom = (ext) => {
-return `${Math.floor(Math.random() * 10000)}${ext}`}
-let randomName = getRandom(".mp3")
-const filePath = `./tmp/${randomName}`
-fs.writeFileSync(filePath, spty.audio)
-let spotifyi = `〔 *🎶 ＳＰＯＴＩＦＹ 🎶* 〕
+/* Codigo hecho por @Fabri115 y mejorado por BrunoSobrino */
+import { readdirSync, unlinkSync, existsSync, promises as fs, rmSync } from 'fs';
+import path from 'path';
 
-✨ *TITULO:* » *${spty.data.name}*
-🗣️ *ARTISTA:* » *${spty.data.artists}*
-🌐 *URL*: » *${linkDL}*
-
-🚀 *ᴱⁿᵛᶦᵃⁿᵈᵒ ᶜᵃⁿᶜᶦᵒ́ⁿ ᵃᵍᵘᵃʳᵈᵉ ᵘⁿ ᵐᵒᵐᵉⁿᵗᵒ....*`
-await conn.sendFile(m.chat, spty.data.cover_url, 'error.jpg', spotifyi, fkontak, m)
-await conn.sendMessage(m.chat, { audio: fs.readFileSync(`./tmp/${randomName}`), fileName: `${spty.data.name}.mp3`, mimetype: "audio/mp4", }, { quoted: m })    
-} catch (e) {
-await conn.reply(m.chat, `${lenguajeGB['smsMalError3']()}#report ${usedPrefix + command}\n\n${wm}`, fkontak, m)
-console.log(`❗❗ ${lenguajeGB['smsMensError2']()} ${usedPrefix + command} ❗❗`)
-console.log(e)
-handler.limit = false
-}}
-handler.command = /^(kevin)$/i
-handler.limit = 0
-handler.level = 0
-export default handler
-
-const credentials = { clientId: 'acc6302297e040aeb6e4ac1fbdfd62c3', clientSecret: '0e8439a1280a43aba9a5bc0a16f3f009' }
-const spotify = new Spotify.default(credentials)
-async function spotifydl(url) {
-const res = await spotify.getTrack(url).catch(() => {
-return { error: 'Fallo la descarga' }})
-return { data: res, audio: await spotify.downloadTrack(url) }}
+const handler = async (m, { conn, usedPrefix }) => {
+  if (global.conn.user.jid !== conn.user.jid) {
+    return conn.sendMessage(
+      m.chat,
+      { text: `${lenguajeGB['smsAvisoAG']()}𝙐𝙏𝙄𝙇𝙄𝙕𝘼 𝙀𝙎𝙏𝙀 𝘾𝙊𝙈𝘼𝙉𝘿𝙊 𝘿𝙄𝙍𝙀𝘾𝙏𝘼𝙈𝙀𝙉𝙏𝙀 𝙀𝙉 𝙀𝙇 𝙉𝙐́𝙈𝙀𝙍𝙊 𝙋𝙍𝙄𝙉𝘾𝙄𝙋𝘼𝙇 𝘿𝙀𝙇 𝘽𝙊𝙏` },
+      { quoted: m }
+    );
+  }
+ /* await conn.sendMessage(
+    m.chat,
+    { text: `${lenguajeGB['smsAvisoAG']()}𝙄𝙉𝙄𝘾𝙄𝘼𝙉𝘿𝙊 𝙋𝙍𝙊𝘾𝙀𝙎𝙊 𝘿𝙀 𝙀𝙇𝙄𝙈𝙄𝙉𝘼𝘾𝙄𝙊𝙉 𝘿𝙀 : ${filesDeleted} 𝘼𝙍𝘾𝙃𝙄𝙑𝙊 𝘿𝙀 𝙎𝙀𝙎𝙎𝙄𝙊𝙉, 𝙀𝙓𝘾𝙀𝙋𝙏𝙊 𝙀𝙇 𝘼𝙍𝘾𝙃𝙄𝙑𝙊 *(creds.json)*` },
+    { quoted: m }
+  );*/ 
+  const sessionPath = './MonkiBot/';
+  try {
+    if (!existsSync(sessionPath)) {
+      return await conn.sendMessage(
+        m.chat,
+        { text: `${lenguajeGB['smsAvisoFG']()} 𝙇𝘼 𝘾𝘼𝙍𝙋𝙀𝙏𝘼 (MonkiBot) 𝙉𝙊 𝙀𝙓𝙄𝙎𝙏𝙀 𝙊 𝙀𝙎𝙏𝘼 𝙑𝘼𝘾𝙄́𝘼.*` },
+        { quoted: m }
+      );
+    }
+    const files = await fs.readdir(sessionPath);
+    let filesDeleted = 0;
+    for (const file of files) {
+      if (file !== 'creds.json') {
+        await fs.unlink(path.join(sessionPath, file));
+        filesDeleted++;
+      }
+    }
+    if (filesDeleted === 0) {
+      await conn.sendMessage(
+        m.chat,
+        { text: `${lenguajeGB['smsAvisoFG']()}𝙉𝙊 𝙎𝙀 𝙀𝙉𝘾𝙊𝙉𝙏𝙍𝙊 𝙉𝙄𝙉𝙂𝙐𝙉 𝘼𝙍𝘾𝙃𝙄𝙑𝙊 𝙋𝘼𝙍𝘼 𝙀𝙇𝙄𝙈𝙄𝙉𝘼𝙍 𝙀𝙉 𝙇𝘼 𝘾𝘼𝙍𝙋𝙀𝙏𝘼 *(GataBotSession)*` },
+        { quoted: m }
+      );
+    } else {
+      await conn.sendMessage(
+        m.chat,
+        { text: `${lenguajeGB['smsAvisoAG']()}𝙄𝙉𝙄𝘾𝙄𝘼𝙉𝘿𝙊 𝙋𝙍𝙊𝘾𝙀𝙎𝙊 𝘿𝙀 𝙀𝙇𝙄𝙈𝙄𝙉𝘼𝘾𝙄𝙊𝙉 𝘿𝙀 : ${filesDeleted} 𝘼𝙍𝘾𝙃𝙄𝙑𝙊 𝘿𝙀 𝙎𝙀𝙎𝙎𝙄𝙊𝙉, 𝙀𝙓𝘾𝙀𝙋𝙏𝙊 𝙀𝙇 𝘼𝙍𝘾𝙃𝙄𝙑𝙊 *(creds.json)*` },
+        { quoted: m }
+      );
+    }
+  } catch (err) {
+    console.error('𝙀𝙍𝙍𝙊𝙍 𝘼𝙇 𝙇𝙀𝙀𝙍 𝙇𝘼 𝘾𝘼𝙍𝙋𝙀𝙏𝘼 𝙊 𝙇𝙊𝙎 𝘼𝙍𝘾𝙃𝙄𝙑𝙊𝙎 𝘿𝙀 𝙎𝙀𝙎𝙎𝙄𝙊𝙉:', err);
+    await conn.sendMessage(
+      m.chat,
+      { text: `${lenguajeGB['smsAvisoFG']()}𝙊𝘾𝙐𝙍𝙍𝙄𝙊́ 𝙐𝙉 𝙀𝙍𝙍𝙊𝙍 𝘼𝙇 𝙀𝙇𝙄𝙈𝙄𝙉𝘼𝙍 𝙇𝙊𝙎 𝘼𝙍𝘾𝙃𝙄𝙑𝙊 𝘿𝙀 𝙎𝙀𝙎𝙎𝙄𝙊𝙉` },
+      { quoted: m }
+    );
+  }
+  await conn.sendMessage(m.chat, {text: `${lenguajeGB['smsAvisoRG']()}🐈 𝙃𝙊𝙇𝘼 𝙔𝘼 𝙁𝙐𝙉𝘾𝙄𝙊𝙉𝘼\n𝙎𝙄 𝙀𝙇 𝘽𝙊𝙏 𝙉𝙊 𝙇𝙀 𝙍𝙀𝙎𝙋𝙊𝙉𝘿𝙀 𝘼 𝙎𝙐𝙎 𝘾𝙊𝙈𝘼𝙉𝘿𝙊 𝙋𝙊𝙍 𝙁𝘼𝙑𝙊𝙍 𝙃𝘼𝙂𝘼 𝙐𝙉 𝙋𝙀𝙌𝙐𝙀𝙉𝙊𝙎 𝙎𝙋𝘼𝙈\n\n*𝙀𝙅𝙀𝙈𝙋𝙇𝙊:*\n${usedPrefix}s\n${usedPrefix}s\n${usedPrefix}s`}, { quoted: m })}
+handler.help = ['del_reg_in_session_owner'];
+handler.tags = ['owner'];
+handler.command = /^(monkidel|dsowner|clearallsession|deleteloli)$/i;
+handler.rowner = true
+export default handler;
