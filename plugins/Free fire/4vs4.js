@@ -4,7 +4,7 @@ const pp = './src/4vs4clk.png'
 const groupAdmins = participants.filter(p => p.admin)
 const listaAdmins = groupAdmins.map((v, i) => ``).join('\n')
 const owner = groupMetadata.owner || groupAdmins.find(p => p.admin === 'superadmin')?.id || m.chat.split`-`[0] + '@s.whatsapp.net'
-if (!text) return m.reply(`🕓 𝗜𝗡𝗚𝗥𝗘𝗦𝗔 𝗨𝗡 𝗛𝗢𝗥𝗔𝗥𝗜𝗢.\n𝗘𝗷𝗲𝗺𝗽𝗹𝗼:\n.4vs4clk 4pm🇪🇨/3pm🇲🇽`)
+if (!text) return m.reply(`🕓 𝗜𝗡𝗚𝗥𝗘𝗦𝗔 𝗨𝗡 𝗛𝗢𝗥𝗔𝗥𝗜𝗢.\n𝗘𝗷𝗲𝗺𝗽𝗹𝗼:\n.4vs4 4pm🇪🇨/3pm🇲🇽`)
 if (text.length < 0) return m.reply(`⚙️ 𝗛𝗢𝗥𝗔𝗥𝗜𝗢 𝗠𝗔𝗟 𝗘𝗦𝗖𝗥𝗜𝗧𝗢, 𝗜𝗡𝗧𝗘𝗡𝗧𝗔 𝗗𝗘 𝗡𝗨𝗘𝗩𝗢.`)
 let mensaje = args.join` `
 let yo = `🕓 𝗛𝗢𝗥𝗔: *${text}*`
@@ -34,7 +34,7 @@ conn.sendFile(m.chat, pp, 'error.jpg', texto, m, false, { mentions: [...groupAdm
 }
 handler.help = ['admins']
 handler.tags = ['grupo']
-handler.command = /^(4x4clk|4vs4clk)$/i
+handler.command = /^(4x4|4vs4)$/i
 handler.group = true
 
 export default handler
