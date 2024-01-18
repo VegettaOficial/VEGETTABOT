@@ -10,7 +10,7 @@ if (!text) throw `⭐ 𝘐𝘯𝘨𝘳𝘦𝘴𝘢 𝘦𝘭 𝘵𝘪́𝘵𝘶�
 » 𝘌𝘫𝘦𝘮𝘱𝘭𝘰:
 ${usedPrefix + command} Cypher - Rich vagos `
 try {
-await m.react('🕓')
+await m.react('⚡')
 const yt_play = await search(args.join(" "))
 let additionalText = ''
 if (command === 'spotify') {
@@ -34,7 +34,7 @@ renderLargerThumbnail: true
 }}} , { quoted: m })
 if (command == 'spotify') {	
 try {
-await m.react('✅')
+await m.react('💯')
 let q = '320kbps'
 let v = yt_play[0].url
 const yt = await youtubedl(v).catch(async _ => await youtubedlv2(v))
