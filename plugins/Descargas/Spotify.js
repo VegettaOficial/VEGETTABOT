@@ -35,7 +35,7 @@ renderLargerThumbnail: true
 if (command == 'spotify') {	
 try {
 await m.react('💯')
-let q = '320kbps'
+let q = '128kbps'
 let v = yt_play[0].url
 const yt = await youtubedl(v).catch(async _ => await youtubedlv2(v))
 const dl_url = await yt.audio[q].download()
