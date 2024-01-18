@@ -1,24 +1,39 @@
-const handler = async (m, {conn, participants, groupMetadata, args}) => {
-  const pp = await conn.profilePictureUrl(m.chat, 'image').catch((_) => null) || './src/novios.jpg';
-  const groupAdmins = participants.filter((p) => p.admin);
-  const listAdmin = groupAdmins.map((v, i) => `${i + 1}. @${v.id.split('@')[0]}`).join('\n');
-  const owner = groupMetadata.owner || groupAdmins.find((p) => p.admin === 'superadmin')?.id || m.chat.split`-`[0] + '@s.whatsapp.net';
-  const pesan = args.join` `;
-  const oi = `*𝙼𝙴𝙽𝚂𝙰𝙹𝙴:* ${pesan}`;
-  const text = `*━「* 𝐈𝐍𝐕𝐎𝐂𝐀𝐍𝐃𝐎 𝐀𝐃𝐌𝐈𝐍𝐒 *」━*
+import fetch from 'node-fetch'
 
-${oi}
+let handler = async (m, { conn, text, args }) => {
+	if (!args[0]) throw `*[❗] 𝙄𝙣𝙜𝙧𝙚𝙨𝙚 𝙚𝙡 𝙣𝙤𝙢𝙗𝙧𝙚 𝙙𝙚 𝙡𝙖 𝘼𝙋𝙆 𝙦𝙪𝙚 𝙦𝙪𝙞𝙚𝙧𝙖 𝙗𝙪𝙨𝙘𝙖𝙧*`
+	let enc = encodeURIComponent(text)
+try {
+let json = await fetch(`https://latam-api.vercel.app/api/playstore?apikey=brunosobrino&q=${enc}`)
+let gPlay = await json.json()
+if (!gPlay.titulo) return m.reply(`[ ! ] Sin resultados`)
+conn.sendMessage(m.chat,{image:{url: gPlay.imagen},caption:`🔍 𝙍𝙚𝙨𝙪𝙡𝙩𝙖𝙙𝙤𝙨: ${gPlay.titulo}
+───────•••───────
+🧬 𝙄𝙙𝙚𝙣𝙩𝙞𝙛𝙞𝙘𝙖𝙙𝙤𝙧: ${gPlay.id}
+───────•••───────
+⛓️ 𝙇𝙞𝙣𝙠: ${gPlay.link}
+───────•••───────
+🖼️ 𝙄𝙢𝙖𝙜𝙚𝙣: ${gPlay.imagen}
+───────•••───────
+✍️ 𝘿𝙚𝙨𝙖𝙧𝙧𝙤𝙡𝙡𝙖𝙙𝙤𝙧: ${gPlay.desarrollador}
+───────•••───────
+📜 𝘿𝙚𝙨𝙘𝙧𝙞𝙥𝙘𝙞𝙤́𝙣: ${gPlay.descripcion}
+───────•••───────
+💲 𝙈𝙤𝙣𝙚𝙙𝙖: ${gPlay.moneda}
+───────•••───────
+🎭 𝙂𝙧𝙖𝙩𝙞𝙨?: ${gPlay.gratis}
+───────•••───────
+💸 𝙋𝙧𝙚𝙘𝙞𝙤: ${gPlay.precio}
+───────•••───────
+📈 𝙋𝙪𝙣𝙩𝙪𝙖𝙘𝙞𝙤́𝙣: ${gPlay.puntuacion}`},{quoted:m})
+} catch (e) {
+m.reply('𝙐𝙛 𝙚𝙧𝙧𝙤𝙧, 𝙨𝙚 𝙢𝙚 𝙘𝙖𝙮𝙤́ 𝙚𝙡 𝙨𝙚𝙧𝙫𝙞𝙙𝙤 🤡,  𝙫𝙪𝙚𝙡𝙫𝙖 𝙖 𝙞𝙣𝙩𝙚𝙣𝙩𝙖𝙧')
+console.log(e)
+}
+}
 
-*𝙰𝙳𝙼𝙸𝙽𝚂:*
-${listAdmin}
+handler.help = ['playstore <aplicacion>']
+handler.tags = ['internet']
+handler.command = /^(playstore)$/i
 
-*[ ⚠ ️] 𝚄𝚂𝙰𝚁 𝙴𝚂𝚃𝙴 𝙲𝙾𝙼𝙰𝙽𝙳𝙾 𝚂𝙾𝙻𝙾 𝙲𝚄𝙰𝙽𝙳𝙾 𝚂𝙴 𝚃𝚁𝙰𝚃𝙴 𝙳𝙴 𝚄𝙽𝙰 𝙴𝙼𝙴𝚁𝙶𝙴𝙽𝙲𝙸𝙰!!*`.trim();
-  conn.sendFile(m.chat, pp, 'error.jpg', text, m, false, {mentions: [...groupAdmins.map((v) => v.id), owner]});
-};
-handler.help = ['admins <texto>'];
-handler.tags = ['group'];
-// regex detect A word without case sensitive
-handler.customPrefix = /a|@/i;
-handler.command = /^(3x3clk)$/i;
-handler.group = true;
-export default handler;
+export default handler 
