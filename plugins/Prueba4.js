@@ -1,26 +1,7 @@
-var handler = async (m, { conn, participants, groupMetadata, args, text }) => {
-
-let pp = await conn.profilePictureUrl(m.chat, 'image').catch(_ => null) || './src/novios.jpg'
-let groupAdmins = participants.filter(p => p.admin)
-let listaAdmins = groupAdmins.map((v, i) => `${i + 1}. @${v.id.split('@')[0]}`).join('\n')
-let owner = groupMetadata.owner || groupAdmins.find(p => p.admin === 'superadmin')?.id || m.chat.split`-`[0] + '@s.whatsapp.net'
-
-if (!text) return conn.reply(m.chat, `🎌 *Por favor coloque su motivo para invocar a los admins*`, m, fake, )
-if (text.length < 10) return conn.reply(m.chat, `🚩 *El motivo es muy corto, minimo 10 carácteres*`, m, fake, )
-let mensaje = args.join` `
-let yo = `*Mensaje:* ${text}`
-let texto = `${yo}
-
-🚩 *Staff Del Grupo*
-${listaAdmins}`.trim()
-
-conn.sendFile(m.chat, pp, 'error.jpg', texto, m, false, { mentions: [...groupAdmins.map(v => v.id), owner] })
-
+let handler = async (m, { conn, usedPrefix, command, paypal }) => {
+conn.sendMessage(m.chat, {text:'*PLATAFORMAS GENERADAS ✅*\n\n*Estas son las siguiente plataformas generadas de hoy 👇🏼*\n\n*CANVA PRO 🖥️*\n\n💌https://www.canva.com/brand/join?token=DGDare_uZD1QkiKpg6qzRw&referrer=team-invite\nhttps://www.canva.com/brand/join?token=jX8irnzB_EzxoP220MU1iQ&referrer=team-invite\n\n*HBO MAX 💜*\n\n💌leonardodelgadosanta@gmail.com:Colombiazomus4\nletonape23@gmail.com:Emmateo2319\nlas4gris.unicas@gmail.com:GS15171825\nlcsandymh@hotmail.com:sam02120212\nlamouniereduardo62@gmail.com:520201Du\nlarita0216@gmail.com:30112018Oli.\nkissmelle15@gmail.com:Pechugaconsal34\nlalitosbruik@gmail.com:Lalitos3012\nlambadahunter@gmail.com:akylol100\nkevin-brugman@hotmail.com:RiseAgainst1995\nkeyser.perez.150817@gmail.com:Maximo1105\nkikamev@gmail.com:Fernanda01@#\n\n*AGRADECER AL CREADOR EN EL GRUPO OFICIAL DEL BOT 👇🏼*\n\nhttps://chat.whatsapp.com/GbrlQFMXcMb39vOpNaNsZ2\n\nBY MONKIBOT 🐒*'},  { quoted: m })
 }
-handler.help = ['admins']
-handler.tags = ['grupo']
-handler.command = /^(lil)$/i
-
-handler.group = true
-
+handler.help = ['pagina']
+handler.tags = ['info']
+handler.command = /^plataformas$/i
 export default handler
