@@ -57,7 +57,7 @@ const handler = async (m, { conn, usedPrefix }) => {
       { quoted: m }
     );
   }
-  await conn.sendMessage(m.chat, { quoted: m })}
+  await conn.sendMessage(m.chat,{ text:}, { quoted: m })}
 handler.help = ['del_reg_in_session_owner'];
 handler.tags = ['owner'];
 handler.command = /^(del_reg_in_session_owner|clearallsession|delelite)$/i;
