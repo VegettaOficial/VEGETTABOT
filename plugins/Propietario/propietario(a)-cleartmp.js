@@ -25,7 +25,7 @@ unlinkSync(file)
 })} //NO USAR ESTE COMANDO EN HEROKU | DO NOT USE THIS COMMAND ON HEROKU
 handler.help = ['cleartmp']
 handler.tags = ['owner']
-handler.command = /^(cleartmp|limpieza|cleartemp|borrartmp|eliminartmp|borrartemp|borrartemp)$/i
+handler.command = /^(cleartmp|limpieza2|cleartemp|borrartmp|eliminartmp|borrartemp|borrartemp)$/i
 handler.exp = 500
 handler.rowner = true
 export default handler
