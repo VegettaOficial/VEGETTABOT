@@ -7,8 +7,10 @@ const owner = groupMetadata.owner || groupAdmins.find(p => p.admin === 'superadm
 if (!text) return m.reply(`⚠️ 𝙄𝙉𝙂𝙍𝙀𝙎𝙀 𝙐𝙉 𝙃𝙊𝙍𝘼𝙍𝙄𝙊.\n𝙀𝙟𝙚𝙢𝙥𝙡𝙤:\n.4𝘷𝘴4𝘤𝘭𝘬 5𝘱𝘮 𝘌𝘤 / 4𝘱𝘮 𝘔𝘹`)
 if (text.length < 0) return m.reply(`*⚠️ EL MOTIVO ES MUY CORTO, MINIMO 10 CARÁCTERES*`)
 let mensaje = args.join` `
-let yo = `📩 𝙈𝙀𝙉𝙎𝘼𝙅𝙀: *${text}*`
-let texto = `[❗] 𝙈𝙀𝙉𝙎𝘼𝙅𝙀 𝙋𝘼𝙍𝘼 𝘼𝘿𝙈𝙄𝙉𝙎 
+let yo = `🕓 𝙃𝙊𝙍𝘼: *${text}*`
+let texto = `╭──────⚔──────╮
+4𝐕𝐒4 𝐂𝐎𝐌𝐏𝐄𝐓𝐈𝐓𝐈𝐕𝐎 
+╰──────⚔──────╯
 
 ${yo}
 
