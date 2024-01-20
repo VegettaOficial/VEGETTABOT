@@ -1,30 +1,28 @@
-let handler = m => m 
-handler.before = async function (m, { text, args, usedPrefix, command, conn } ) {
-let user = global.db.data.users[m.sender]
-if (user.afk > -1) {
-await conn.reply(m.chat, `${lenguajeGB['smsAvisoEG']()}✴️ *A F K* ✴️
-*▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔*
-*@${m.sender.split("@")[0]}* ${lenguajeGB['smsAfkM1']()}${user.afkReason ? `\n${lenguajeGB['smsAfkM2']()}👉 ` + user.afkReason : ''}
+export function before(m) {
+  const user = global.db.data.users[m.sender];
+  if (user.afk > -1) {
+    m.reply(
+      `
+    *🔷 DEJASTE DE ESTAR AFK ${user.afkReason ? ` MOTIVO:\n ${user.afkReason}` : ""}*
+    
+    *⏳ TIEMPO DE INACTIVIDAD AFK: ${(new Date() - user.afk).toTimeString()}*
+  `.trim()
+    );
+    user.afk = -1;
+    user.afkReason = "";
+  }
 
-${lenguajeGB['smsAfkM3']()}\n👉 *${(new Date - user.afk).toTimeString()}*`.trim(), m, { mentions: [m.sender] })
-user.afk = -1
-user.afkReason = ''
+  const jids = [...new Set([...m.mentionedJid, ...(m.quoted ? [m.quoted.sender] : [])])].filter(jid => global.db.data.users[jid]);
+  for (const jid of jids) {
+    const afkTime = user.afk;
+    if (!afkTime || afkTime < 0) continue;
+    const reason = user.afkReason || "";
+    m.reply(
+      `*❍ NO LO ETIQUETES, ESTA (INACTIVO) (𝙰𝙵𝙺)*      
+*❍ ${reason ? `MOTIVO (AFK): ${reason}` : "MOTIVO (AFK): _EL USUARIO NO ESPECIFICA UN MOTIVO_"}*
+*❍ TIEMPO INACTIVO (AFK): ${(new Date() - afkTime).toTimeString()}*
+  `.trim()
+    );
+  }
+  return true;
 }
-let jids = [...new Set([...(m.mentionedJid || []), ...(m.quoted ? [m.quoted.sender] : [])])]
-for (let jid of jids) {
-let user = global.db.data.users[jid]
-if (!user)
-continue
-let afkTime = user.afk
-if (!afkTime || afkTime < 0)
-continue
-let reason = user.afkReason || ''
-await conn.reply(m.chat, `${lenguajeGB['smsAvisoAG']()}✴️ *A F K* ✴️
-*▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔*
-😾 ${lenguajeGB['smsAfkM4']()}\n${reason ? `${lenguajeGB['smsAfkM5']()}` + '👉 ' + reason : `${lenguajeGB['smsAfkM6']()}`}
-
-${lenguajeGB['smsAfkM3']()}\n👉 *${(new Date - user.afk).toTimeString()}*`.trim(), m)
-}
-return true
-}
-export default handler
