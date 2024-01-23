@@ -1,17 +1,25 @@
-var handler = async (m, {command, conn, args, usedPrefix, text}) => {
-  if (command == "ytmp4" || command == "ytvmp4") {
-    let mp4 = `*_[🛑 hey alto ] este comando cambio, ahora es :_
-_${usedPrefix}videomp4_`.trim();
+import fetch from 'node-fetch'
+import fs from 'fs'
 
-    m.reply(mp4);
-  }
-
-  if (command == "cuentas") {
-    var play = `*[🟢 ACTUALIZANDO 🟢]*\n\n*Se actualizo con exito las cuenta de hoy*\n
-*${usedPrefix}recuerda que se actualiza las cuentas disponibles cada 24 horas*\n*Solicita las cuentas disponible con el siguiente comando 👇🏼*\n\n.plataformas\n\n*Disfruta de las cuentas 👋🏼*`.trim();
-    m.reply(play);
-  }
-};
-handler.command = ["ytmp4", "cuentas", "", ""];
-handler.tags = ["internet"];
+let handler = async (m, { conn, text, usedPrefix, command }) => {
+if (!text) throw `*Formato incorrecto*\n\nEjemplo:\n${usedPrefix + command} https://open.spotify.com/track/5QO79kh1waicV47BqGRL3g`
+try {
+let resDL = await fetch(`https://vihangayt.me/download/spotify?url=${encodeURIComponent(text)}`)
+let jsonDL = await resDL.json()
+if (!jsonDL.status)  throw `No se pudo encontrar la canción:/`
+let songInfo = `❒═════❬ *SPOTIFY* ❭═════╾❒
+├‣ *Nombre*: ${jsonDL.data.song}
+├‣ *Artista*: ${jsonDL.data.artist.join(', ')}
+├‣ *Álbum*: ${jsonDL.data.album_name}
+├‣ *Fecha de lanzamiento*: ${jsonDL.data.release_date}
+├‣ *Link*: ${text}
+❒═════════════════╾❒`
+conn.sendMessage(m.chat, { image: { url: jsonDL.data.cover_url }, caption: songInfo }, { quoted: m })
+let audioDL = await fetch(jsonDL.data.url)
+let buffer = await audioDL.buffer()
+fs.writeFileSync('./tmp/song.mp3', buffer)
+conn.sendMessage(m.chat, { audio: fs.readFileSync('./tmp/song.mp3'), fileName: `${jsonDL.data.song}.mp3`, mimetype: 'audio/mp4' }, { quoted: m })
+} catch (error) {
+}}
+handler.command = /^(spotifydl)$/i
 export default handler
