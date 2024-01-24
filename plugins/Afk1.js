@@ -5,11 +5,11 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
   try {
     if (!text) throw m.reply(`*Formato incorrecto*\n*Ejemplo:*\n\n${usedPrefix + command} Consolador Con forma del temach`);
     let res = await mercado(text);
-    let cap = `「 *M E R C A D O - L I B R E* 」\n\n`;
+    let cap = `「🛍️ 𝗠𝗘𝗥𝗖𝗔𝗗𝗢 𝗟𝗜𝗕𝗥𝗘 🛍️」\n\n`;
     const limit = 15;
     for (let i = 0; i < limit && i < res.length; i++) {
       let link = res[i].link.length > 30 ? res[i].link.substring(0, 30) + '...' : res[i].link;
-      cap += `*• Nombre:* ${res[i].title}\n*• Estado:* ${res[i].state}\n*• Link:* ${res[i].link}\n`;
+      cap += `📂 𝗡𝗼𝗺𝗯𝗿𝗲: ${res[i].title}\n📂 𝗘𝘀𝘁𝗮𝗱𝗼: ${res[i].state}\n📂 𝗟𝗶𝗻𝗸: ${res[i].link}\n`;
       cap += '\n' + '••••••••••••••••••••••••' + '\n';
     }
     m.reply(cap)
