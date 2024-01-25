@@ -23,7 +23,7 @@ const ads = '*🎋 • Bloqueador de anuncios recomendado:* Block This\n*🧃 Li
 conn.sendMessage(m.chat, {image: {url: img}, caption: ads + res}, {quoted: m})
 
 }
-handler.command = ['cuevana', 'pelisplus']
+handler.command = ['cuevana', 'cine', 'pelisplus']
 
 export default handler
 
