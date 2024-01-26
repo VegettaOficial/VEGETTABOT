@@ -3,8 +3,8 @@ handler.all = async function (m) {
 let chat = global.db.data.chats[m.chat]
 let name = conn.getName(m.sender)
 
-if (/^todo bien$/i.test(m.text) ) { //sem prefixo
-    conn.reply(m.chat, `𝑩𝒊𝒆𝒏 𝒄𝒂𝒑𝒐 😎 𝒚 𝒕𝒖`, m) //wm, null, [['Menu', '#menu']], m) botones :V
+if (/^bot$/i.test(m.text) ) { //sem prefixo
+    conn.reply(m.chat, `Hola soy Elite Bot, en que te puedo ayudar?`,`Aqui estoooy 😜`,`Hola Aqui estoy yo puedo ayudar?`m) //wm, null, [['Menu', '#menu']], m) botones :V
 }
 
 if (/^elite bot$/i.test(m.text) ) { //sem prefixo
