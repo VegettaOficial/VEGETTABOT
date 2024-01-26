@@ -27,7 +27,7 @@ text: `*乂  R E G I S T R O  乂*\n
 *Nombre 👤 :* ${name}\n
 *Edad 🈴 :* ${age} años\n
 *Bono 🧿 :*\n4 Diamantes 💎\n5000 XP\n
-manda *#menu* para ver el menu`, 
+manda *.menu* para ver el menu`, 
 contextInfo:{
 forwardingScore: 9999999,
 isForwarded: true, 
