@@ -4,7 +4,7 @@ let chat = global.db.data.chats[m.chat]
 let name = conn.getName(m.sender)
 
 if (/^bot$/i.test(m.text) ) { //sem prefixo
-    conn.reply(m.chat, `Hola soy Elite Bot, en que te puedo ayudar?`,`Aqui estoooy 😜`,`Hola Aqui estoy yo puedo ayudar?`m) //wm, null, [['Menu', '#menu']], m) botones :V
+    conn.reply(m.chat, `Hola soy Elite Bot, en que te puedo ayudar?`,`Aqui estoooy 😜`,`Hola Aqui estoy yo puedo ayudar?`,m) //wm, null, [['Menu', '#menu']], m) botones :V
 }
 
 if (/^elite bot$/i.test(m.text) ) { //sem prefixo
