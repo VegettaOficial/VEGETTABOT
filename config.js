@@ -179,10 +179,10 @@ global.exito = eg;
 
 global.wm = "𝙀́𝙇𝙄𝙏𝙀 𝘽𝙊𝙏 𝙂𝙇𝙊𝘽𝘼𝙇 ";
 global.igfg = "𝙀́𝙇𝙄𝙏𝙀 𝘽𝙊𝙏 𝙂𝙇𝙊𝘽𝘼𝙇 ";
-global.wait = "*⌛ _Cargando | Charging..._ ▬▭▭▭▭▭▭*";
-global.waitt = "*⌛ _Cargando | Charging..._ ▬▬▭▭▭*";
-global.waittt = "*⌛ _Cargando | Charging..._ ▬▬▬▬▭▭*";
-global.waitttt = "*⌛ _Cargando | Charging..._ ▬▬▬▬▬▬▭*";
+global.wait = "*🚀 P R O C E S A N D O*";
+global.waitt = "*🚀 P R O C E S A N D O*";
+global.waittt = "*🚀 P R O C E S A N D O*";
+global.waitttt = "*🚀 P R O C E S A N D O*";
 global.nomorown = "593993684821";
 global.pdoc = ["application/vnd.openxmlformats-officedocument.presentationml.presentation", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "application/vnd.openxmlformats-officedocument.wordprocessingml.document", "application/vnd.ms-excel", "application/msword", "application/pdf", "text/rtf"];
 
