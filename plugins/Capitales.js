@@ -1,6 +1,6 @@
 import fs from 'fs'
 
-let timeout = 30000
+let timeout = 15000
 let poin = 1000
 
 let handler = async (m, { conn, usedPrefix }) => {
