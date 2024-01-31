@@ -1,14 +1,9 @@
-import uploadImage from '../../lib/uploadImage.js';
-import fetch from 'node-fetch';
-const handler = async (m, {conn, text, usedPrefix, command}) => {
-  const q = m.quoted ? m.quoted : m;
-  const mime = (q.msg || q).mimetype || '';
-  if (!mime) throw '*[❗] 𝚁𝙴𝚂𝙿𝙾𝙽𝙳𝙰 / 𝙴𝚃𝙸𝚀𝚄𝙴𝚃𝙴 𝙰 𝚄𝙽𝙰 𝙸𝙼𝙰𝙶𝙴𝙽*';
-  const img = await q.download?.();
-  const url = await uploadImage(img);
-  const anu = await fetch(`https://api.lolhuman.xyz/api/read-qr?apikey=${lolkeysapi}&img=${url}`);
-  const json = await anu.json();
-  await m.reply(`*El Texto del Codigo QR Es:* ${json.result}`);
+import {toDataURL} from 'qrcode';
+const handler = async (m, {text, conn}) => {
+  if (!text) throw `*[❗𝐈𝐍𝐅𝐎❗] 𝙸𝙽𝙶𝚁𝙴𝚂𝙴 𝙴𝙻 𝚃𝙴𝚇𝚃𝙾 𝚀𝚄𝙴 𝚀𝚄𝙸𝙴𝚁𝙰 𝙲𝙾𝙽𝚅𝙴𝚁𝚃𝙸𝚁 𝙴𝙽 𝙲𝙾𝙳𝙸𝙶𝙾 𝚀𝚁*`;
+  conn.sendFile(m.chat, await toDataURL(text.slice(0, 2048), {scale: 8}), 'qrcode.png', '¯\\_(ツ)_/¯', m);
 };
-handler.command = /^(toqr)$/i;
+handler.help = ['', 'code'].map((v) => 'qr' + v + ' <teks>');
+handler.tags = ['tools'];
+handler.command = /^qr(code)?$/i;
 export default handler;
