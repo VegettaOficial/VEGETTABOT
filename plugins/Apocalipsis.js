@@ -14,7 +14,7 @@ let handler = async (m, { conn, text, usedPrefix, command, args }) => {
   }
 
   // Opción de "empezar apocalypto"
-  if (command == 'apocalypto') {
+  if (command == 'apocalipsis') {
 
     if (args[0] == "esperar") {
       m.reply(`Has decidido esperar a que se calme la ciudad, por ahora la ciudad tiene 10,000 contagiados de CioVirus, tu vida esta corriendo peligro en la ciudad. El departamento de salud recomienda irse a zonas apartadas de la ciudad para evitar riesgo de contagio.\n\n${usedPrefix + command} irse\n${usedPrefix + command} quedarse`)
