@@ -5,5 +5,5 @@ const handler = async (m, {text, conn}) => {
 };
 handler.help = ['', 'code'].map((v) => 'qr' + v + ' <teks>');
 handler.tags = ['tools'];
-handler.command = /^qr(code)?$/i;
+handler.command = /^to(qr)?$/i;
 export default handler;
