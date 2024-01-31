@@ -1,4 +1,4 @@
-import uploadImage from '../lib/uploadImage.js';
+import uploadImage from '../../lib/uploadImage.js';
 import {sticker} from '../lib/sticker.js';
 const handler = async (m, {conn, text}) => {
   try {
