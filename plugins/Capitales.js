@@ -18,9 +18,8 @@ let handler = async (m, { conn, usedPrefix }) => {
 ⷮ *Pais:* ${json.pais}
 
 *Tiempo:* ${(timeout / 1000).toFixed(2)} segundos
-*Bono:* +${poin} Exp
 
-*Responde con el nombre de la ciudad completo!*
+*Responde con el nombre de la ciudad* 🪄
 `.trim()
     conn.tekateki[id] = [
        await conn.reply(m.chat, caption, m),
