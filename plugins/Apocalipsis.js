@@ -8,7 +8,7 @@ let handler = async (m, { conn, text, usedPrefix, command, args }) => {
   let users = global.db.data.users[m.sender];
   let daño = 10;
 
-  if (command == 'empezarapocalypto') {
+  if (command == 'apocalipsis') {
     m.reply(`Hola ${username}, estas a punto de empezar a vivir un apocalipsis!`)
     throw `Segun los noticieros en la ciudad de "Brooksdale" esta en una crisis sanitaria debido a un virus llamado "CioVirus". Este virus es de contagio entre seres humanos y consiste en una enfermedad que te convierte en zombie, empezando un insomio, hambruna, ojos rojos. El estado recomienda  abandonar la ciudad cuanto antes.\n*Tienes dos opciones, irte de la ciudad o quedarte a esperar que la ciudad calme o empeore.*\n\n${usedPrefix}apocalypto irse\n${usedPrefix}apocalypto esperar`
   }
@@ -177,7 +177,7 @@ let handler = async (m, { conn, text, usedPrefix, command, args }) => {
   }
 }
 
-handler.help = handler.command = ['empezarapocalypto', 'apocalipsis']
+handler.help = handler.command = ['apocalipsis', 'apocalipsis']
 handler.tags = ['game']
 
 export default handler
