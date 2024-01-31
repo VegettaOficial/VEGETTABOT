@@ -1,9 +1,48 @@
-import {toDataURL} from 'qrcode';
-const handler = async (m, {text, conn}) => {
-  if (!text) throw `*[❗𝐈𝐍𝐅𝐎❗] 𝙸𝙽𝙶𝚁𝙴𝚂𝙴 𝙴𝙻 𝚃𝙴𝚇𝚃𝙾 𝚀𝚄𝙴 𝚀𝚄𝙸𝙴𝚁𝙰 𝙲𝙾𝙽𝚅𝙴𝚁𝚃𝙸𝚁 𝙴𝙽 𝙲𝙾𝙳𝙸𝙶𝙾 𝚀𝚁*`;
-  conn.sendFile(m.chat, await toDataURL(text.slice(0, 2048), {scale: 8}), 'qrcode.png', '¯\\_(ツ)_/¯', m);
+import fetch from 'node-fetch';
+
+const handler = async (m, { conn, text }) => {
+    if (!text) {
+        throw 'Ingrese el nombre de la canción';
+    }
+
+    try {
+        const apiUrl = `https://api.popcat.xyz/itunes?q=${encodeURIComponent(text)}`;
+        const response = await fetch(apiUrl);
+
+        if (!response.ok) {
+            throw new Error(`Error al buscar la canción en Apple Music`);
+        }
+
+        const json = await response.json();
+
+        m.react(rwait);
+
+        const songInfo =
+            `*${json.name}*\n\n` +
+            `*Nombre:* ${json.name}\n` +
+            `*Artista:* ${json.artist}\n` +
+            `*Álbum:* ${json.album}\n` +
+            `*Fecha de lanzamiento:* ${json.release_date}\n` +
+            `*Precio:* ${json.price}\n` +
+            `*Duración:* ${json.length}\n` +
+            `*Género:* ${json.genre}\n` +
+            `*Enlace:* ${json.url}`;
+
+        if (json.thumbnail) {
+            m.react(done);
+            await conn.sendFile(m.chat, json.thumbnail, 'thumbnail.jpg', songInfo, m);
+        } else {
+            m.reply(songInfo);
+        }
+
+    } catch (error) {
+        console.error(error);
+        throw `Ocurrió un error al procesar la solicitud: ${error.message}`;
+    }
 };
-handler.help = ['', 'code'].map((v) => 'qr' + v + ' <teks>');
-handler.tags = ['tools'];
-handler.command = /^qr(code)?$/i;
+
+handler.help = ['applemusic'];
+handler.tags = ['dl'];
+handler.command = /^(applemusic)$/i;
+
 export default handler;
