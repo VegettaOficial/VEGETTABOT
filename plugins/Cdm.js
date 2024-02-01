@@ -42,10 +42,7 @@ let menu = `
 ╰ ∙∙∙∙∙∙∙∙∙∙∙∙∙∙∙∙∙ ∙ ∙ ∙ ∙
 
  `.trim()
-    
-const img = ['https://telegra.ph/file/1a3942b4b996811d020e4.jpg']
-
-try {
+   
 await conn.sendMessage(m.chat, { video: { url: vi.getRandom() }, gifPlayback: true, caption: menu, mentions: [m.sender, global.conn.user.jid] }, { quoted: fkontak }) 
 } catch (error) {
 try {
