@@ -10,7 +10,7 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
     m.reply(`✅ 𝘌𝘯𝘵𝘦𝘯𝘥𝘪𝘥𝘰 𝘤𝘳𝘦𝘢𝘥𝘰𝘳 𝘴𝘦 𝘥𝘦𝘴𝘢𝘤𝘵𝘪𝘷𝘰 𝘦𝘭 𝘵𝘪𝘦𝘮𝘱𝘰 𝘥𝘦 𝘷𝘦𝘯𝘤𝘪𝘮𝘪𝘦𝘯𝘵𝘰 𝘥𝘦 𝘦𝘴𝘵𝘦 𝘨𝘳𝘶𝘱𝘰.`) 
         
 }
-handler.help = ['noexpirar']
+handler.help = ['sintiempo']
 handler.tags = ['owner']
 handler.command = /^(sintiempo)$/i
 handler.rowner = true
