@@ -44,7 +44,7 @@ if (isNaN(args[1])) return conn.sendButton( m.chat, wm, texto4, img1, [[`🍀 �
 if (args[1] < 3) return conn.sendButton( m.chat, wm, texto5, img2, [[`🍀 𝙈 𝙀 𝙉 𝙐`, `.menu`]], fkontak, m)
 if (args[1] > 3) return conn.sendButton( m.chat, wm, texto6, img2, [[`🍀 𝙈 𝙀 𝙉 𝙐`, `.menu`]], fkontak, m) //Solo ingresará si tiene 3 Token(s)
  
-await delay(3 * 3000)
+await delay(3 * 200)
 let res = await conn.groupAcceptInvite(code)
 await conn.reply(m.chat, texto7, fkontak, m) 
 //await conn.sendButton( m.chat, texto7, `${await conn.getName(res)} | ` + wm, null, [[`🍀 𝙈 𝙀 𝙉 𝙐`, `.menu`]], fkontak, m).then(async() => { 
@@ -55,7 +55,7 @@ var now = new Date() * 1
 if (now < global.db.data.chats[res].expired) global.db.data.chats[res].expired += jumlahHari
 else global.db.data.chats[res].expired = now + jumlahHari
 await conn.reply(res, `✅ ${gt} 𝙎𝙀 𝙃𝘼 𝙐𝙉𝙄𝘿𝙊 𝘼𝙇 𝙂𝙍𝙐𝙋𝙊!!!\n${await conn.getName(res)}\n\n𝙍𝙀𝘾𝙐𝙀𝙍𝘿𝙀 𝙌𝙐𝙀 𝙀𝙎 ⏳ 𝙏𝙀𝙈𝙋𝙊𝙍𝘼𝙇, 𝙐𝙎𝙀 𝙀𝙇 𝘾𝙊𝙈𝘼𝙉𝘿𝙊 *${usedPrefix}menu* 𝙋𝘼𝙍𝘼 𝙑𝙀𝙍 𝙀𝙇 𝙈𝙀𝙉𝙐\n\n🚪 𝙈𝙀 𝙎𝘼𝙇𝘿𝙍𝙀 𝘼𝙐𝙏𝙊𝙈𝘼𝙏𝙄𝘾𝘼𝙈𝙀𝙉𝙏𝙀 𝙀𝙉:\n${msToDate(global.db.data.chats[res].expired - now)}\n\n*${username}* 𝙇𝙀 𝙌𝙐𝙀𝘿𝘼 *${user.joincount}* 𝙏𝙊𝙆𝙀𝙉(𝙎)🪙\n\n❕ 𝙋𝙐𝙀𝘿𝙀 𝙐𝙎𝘼𝙍 𝙀𝙇 𝘾𝙊𝙈𝘼𝙉𝘿𝙊 *${usedPrefix + command}* 𝙏𝘼𝙈𝘽𝙄𝙀𝙉 𝙀𝙉 𝙀𝙇 𝙂𝙍𝙐𝙋𝙊 𝙈𝙄𝙀𝙉𝙏𝙍𝘼𝙎 𝙀𝙎𝙏𝙀 𝙔𝙊\n\n❕\n*${usedPrefix + command}*\n\n❕ 𝙋𝘼𝙍𝘼 𝙐𝙉𝘼 𝙈𝙀𝙅𝙊𝙍 𝙀𝙓𝙋𝙀𝙍𝙄𝙀𝙉𝘾𝙄𝘼, 𝘿𝙀𝘽𝙊 𝘿𝙀 𝙎𝙀𝙍 𝘼𝘿𝙈𝙄𝙉\n\n❗ 𝙀𝙉 𝘾𝘼𝙎𝙊 𝙌𝙐𝙀 𝙐𝙉 𝘼𝘿𝙈𝙄𝙉 𝙈𝙀 𝙀𝙇𝙄𝙈𝙄𝙉𝙀 𝘿𝙀𝙇 𝙂𝙍𝙐𝙋𝙊 𝙔 𝙌𝙐𝙄𝙀𝙍𝘼 𝙌𝙐𝙀 𝙑𝙐𝙀𝙇𝙑𝘼 𝙉𝙊 𝙎𝙀 𝙑𝘼 𝙋𝙊𝘿𝙀𝙍`, m)  
-await delay(2 * 2000)
+await delay(2 * 200)
 await conn.sendMessage(res, { text: lenguajeGB.smsJoin(user), mentions: (await conn.groupMetadata(`${res}`)).participants.map(v => v.id) }, [user], { quoted: fkontak })
 //for (let jid of global.owner.map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').filter(v => v != conn.user.jid)) {
 //let data = (await conn.onWhatsApp(jid))[0] || {}
@@ -71,7 +71,7 @@ if (user.joincount === 0 ) throw `${ag}*¡YA NO TIENES TOKENS! 🪙*\n\n*COMPRA 
  if (!args[1]) throw `${mg}*USE EL COMANDO COMO ESTE EJEMPLO*\n*${usedPrefix + command} enlace y Número de Token(s)*\n\n*EJEMPLO*\n*${usedPrefix + command} ${nn} 3*\n\n*3 TOKEN 🪙 = 30 MINUTOS*`
 if (!linkRegex.test(args[0])) throw `${fg}𝙀𝙉𝙇𝘼𝘾𝙀 𝙉𝙊 𝙑𝘼𝙇𝙄𝘿𝙊.` //Aquí 
 
-await delay(3 * 3000)
+await delay(3 * 200)
 let res = await conn.groupAcceptInvite(code) 
 conn.reply(m.chat, `${eg}😻 *SE HA UNIDO GATABOT AL GRUPO!!!*`, m).then(async() => { //Si el Owner se une al Grupo no habrá temporizador
 let img = 'https://i.imgur.com/8fK4h6F.jpg'
@@ -81,7 +81,7 @@ let img = 'https://i.imgur.com/8fK4h6F.jpg'
 else global.db.data.chats[res].expired = now + jumlahHari
 
 await conn.reply(res, `✅ ${gt} SE HA UNIDO AL GRUPO!!!\n${await conn.getName(res)}\n\n*RECUERDE QUE ES ⏳ TEMPORAL, USE EL COMANDO ${usedPrefix}menu PARA VER EL MENÚ*\n\n🚪 *ME SALDRÉ AUTOMÁTICAMENTE EN:*\n${msToDate(global.db.data.chats[res].expired - now)}\n\n${username} *LE QUEDA ${user.joincount} TOKEN(S) 🪙*\n\n❕ *PUEDE USAR EL COMANDO TAMBIÉN EN GRUPO MIENTRAS ESTE YO*\n\n❕ *SI QUIERE QUE ESTE POR MÁS TIEMPO AUMENTE EL NÚMERO DE TOKENS CUANDO USE EL COMANDO*\n*${usedPrefix + command}*\n\n❗ *EN CASO QUE UN ADMIN ME ELIMINE DEL GRUPO Y QUIERA QUE VUELVA NO SE VA PODER*`, fkontak, m)  
-await delay(2 * 2000)
+await delay(2 * 200)
 await conn.sendMessage(res, { text: lenguajeGB.smsJoin(user), mentions: (await conn.groupMetadata(`${res}`)).participants.map(v => v.id) }, [user], { quoted: fkontak })
 
 for (let jid of global.owner.map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').filter(v => v != m.sender)) {
