@@ -4,67 +4,27 @@ const groupAdmins = participants.filter(p => p.admin)
 const listAdmin = groupAdmins.map((v, i) => `${i + 1}. @${v.id.split('@')[0]}`).join('\n')
 const owner = groupMetadata.owner || groupAdmins.find(p => p.admin === 'superadmin')?.id || m.chat.split`-`[0] + '@s.whatsapp.net'
 let text = 
-       `╭──────>⋆☽⋆ ⋆☾⋆<──────╮
-ㅤ   GUERRA DE CLANES
-       ${groupMetadata.subject}
-╰──────>⋆☽⋆ ⋆☾⋆<──────╯
-╭──────────────╮
-│ㅤ⏱ 𝐇𝐎𝐑𝐀𝐑𝐈𝐎 
-│➥ 
-│➥ 𝐉𝐔𝐆𝐀𝐃𝐎𝐑𝐄𝐒:
-│
-│     𝗘𝗦𝗖𝗨𝗔𝗗𝗥𝗔 ➹𝟏
-│
-│👑 ➤ 
-│⚜️ ➤ 
-│⚜️ ➤ 
-│⚜️ ➤ 
-│     
-│    𝗘𝗦𝗖𝗨𝗔𝗗𝗥𝗔 ➹𝟐
-│
-│👑 ➤ 
-│⚜️ ➤ 
-│⚜️ ➤ 
-│⚜️ ➤ 
-│
-│    𝗘𝗦𝗖𝗨𝗔𝗗𝗥𝗔 ➹𝟑
-│
-│👑 ➤ 
-│⚜️ ➤ 
-│⚜️ ➤ 
-│⚜️ ➤ 
-│
-│    𝗘𝗦𝗖𝗨𝗔𝗗𝗥𝗔 ➹𝟒
-│
-│👑 ➤ 
-│⚜️ ➤ 
-│⚜️ ➤ 
-│⚜️ ➤ 
-│
-│    𝗘𝗦𝗖𝗨𝗔𝗗𝗥𝗔 ➹𝟓
-│
-│👑 ➤ 
-│⚜️ ➤ 
-│⚜️ ➤ 
-│⚜️ ➤ 
-│
-│    𝗘𝗦𝗖𝗨𝗔𝗗𝗥𝗔 ➹𝟔
-│
-│👑 ➤ 
-│⚜️ ➤ 
-│⚜️ ➤ 
-│⚜️ ➤ 
-│
-│ㅤʚ 𝐒𝐔𝐏𝐋𝐄𝐍𝐓𝐄𝐒:
-│⚜️ ➤ 
-│⚜️ ➤
-│⚜️ ➤ 
-│⚜️ ➤ 
-│⚜️ ➤ 
-│⚜️ ➤ 
-╰─────────────╯
+`✦ - - ${lenguajeGB['smsGI1']()} - - ✦
 
+⇢ ${lenguajeGB['smsGI2']()}
+・ ${groupMetadata.id}
 
+⇢ ${lenguajeGB['smsGI3']()}
+・ ${groupMetadata.subject}
+
+⇢ ${lenguajeGB['smsGI4']()}
+・ ${groupMetadata.desc?.toString() || lenguajeGB['smsGI5']()}
+
+⇢ ${lenguajeGB['smsGI6']()}
+・ ${participants.length} ${lenguajeGB['smsGI7']()}
+
+⇢ ${lenguajeGB['smsGI8']()}
+・ @${owner.split('@')[0]}
+
+⇢ ${lenguajeGB['smsGI9']()}
+${listAdmin}
+
+*《 - - - - - - - 𓃠 ${vs} - - - - - - - 》*
 `.trim()
   
 await conn.sendFile(m.chat, pp, 'error.jpg', text, m, false, { mentions: [...groupAdmins.map(v => v.id), owner] })   
@@ -72,6 +32,6 @@ await conn.sendFile(m.chat, pp, 'error.jpg', text, m, false, { mentions: [...gro
 }
 handler.help = ['infogrup']
 handler.tags = ['group']
-handler.command = /^(guerra|guerradeclanes))$/i
+handler.command = /^(guerra|gro?upinfo|info(gro?up|gc))$/i
 handler.group = true
 export default handler
