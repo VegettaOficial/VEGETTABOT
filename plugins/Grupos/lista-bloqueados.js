@@ -14,6 +14,6 @@ let handler = async (m, { conn }) => {
 	})
 }
 
-handler.command = ['bloqueados', 'bloqueadoslista', 'listablock', 'blocklist', 'listblock', 'listabloqueados'] 
+handler.command = ['bloqueados', 'bloqueadoslista', 'listablock', 'blocklist', 'listabloqueados'] 
 
 export default handler
