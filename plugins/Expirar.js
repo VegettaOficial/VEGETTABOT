@@ -6,7 +6,7 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
     if (m.isGroup) who = args[1] ? args[1] : m.chat
     else who = args[1]
 
-    var nMinutes = 20000 * args[0]
+    var nMinutes = 86400000 * args[0]
     var now = new Date() * 1
     if (now < global.db.data.chats[who].expired) global.db.data.chats[who].expired += nMinutes
     else global.db.data.chats[who].expired = now + nMinutes
@@ -20,7 +20,9 @@ handler.rowner = true
 export default handler
 
 function msToDate(ms) {
+  let d = isNaN(ms) ? '--' : Math.floor(ms / 86400000)
+  let h = isNaN(ms) ? '--' : Math.floor(ms / 3600000) % 24
   let m = isNaN(ms) ? '--' : Math.floor(ms / 60000) % 60
   let s = isNaN(ms) ? '--' : Math.floor(ms / 1000) % 60
   return [d, ' *Días*\n ', h, ' *Horas*\n ', m, ' *Minutos*\n ', s, ' *Segundos* '].map(v => v.toString().padStart(2, 0)).join('')
-    }
+}
