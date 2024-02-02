@@ -9,9 +9,9 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
     var nDays = 86400000 * args[0]
     var now = new Date() * 1
     
-    m.reply(`Su alquiler expira en 
+    m.reply(`🕔 El tiempo restante de la prueba gratis de Elitebotglobal es :  
     
-    ${msToDate(global.db.data.chats[who].expired - now)}
+ ${msToDate(global.db.data.chats[who].expired - now)}
 
   Despues el bot saldrá automáticamente del grupo`) 
     
