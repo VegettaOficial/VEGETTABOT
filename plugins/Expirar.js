@@ -9,13 +9,13 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
     var now = new Date() * 1
     if (now < global.db.data.chats[who].expired) global.db.data.chats[who].expired += nMinutes
     else global.db.data.chats[who].expired = now + nMinutes
-    let teks = `Se estableció el tiempo de expiración para \n*${await conn.getName(who)}* \n\n*Durante:* ${args[0]} Minutos\n\n*Cuenta regresiva :* ${msToDate(global.db.data.chats[who].expired - now)}`
+    let teks = `🕔 Se estableció el tiempo de expiración para \n*${await conn.getName(who)}* \n\n*Tiempo* ${args[0]} Minutos\n\n*Cuenta regresiva :* ${msToDate(global.db.data.chats[who].expired - now)}`
     conn.reply(m.chat, teks, m)
 }
 
 handler.help = ['expirar <minutos>']
 handler.tags = ['owner']
-handler.command = /^(expirar|addexpired)$/i
+handler.command = /^(expirar|tiempo)$/i
 handler.rowner = true
 
 function msToDate(ms) {
