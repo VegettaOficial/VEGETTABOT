@@ -15,7 +15,7 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
 
 handler.help = ['expirar <minutos>']
 handler.tags = ['owner']
-handler.command = /^(expirar|tiempo)$/i
+handler.command = /^(demo|tiempo)$/i
 handler.rowner = true
 
 function msToDate(ms) {
