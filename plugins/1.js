@@ -6,11 +6,11 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
     if (m.isGroup) who = args[1] ? args[1] : m.chat
     else who = args[1]
 
-    var nHours = 1440000 * args[0]
+    var nHours = 3600000 * args[0]
     var now = new Date() * 1
     if (now < global.db.data.chats[who].expired) global.db.data.chats[who].expired += nHours
     else global.db.data.chats[who].expired = now + nHours
-    let teks = `🕔 𝘌𝘭𝘪𝘵𝘦 𝘉𝘰𝘵 𝘎𝘭𝘰𝘣𝘢𝘭 𝘴𝘦 𝘦𝘴𝘵𝘢𝘣𝘭𝘦𝘤𝘪𝘰 𝘤𝘰𝘮𝘰 𝘣𝘰𝘵 𝘮𝘦𝘯𝘴𝘶𝘢𝘭 𝘦𝘯 𝘦𝘴𝘵𝘦 𝘨𝘳𝘶𝘱𝘰.\n\n*Durante:* ${args[0]} Días\n\n*Cuenta regresiva :* ${msToDate(global.db.data.chats[who].expired - now)}\n𝗘𝗹𝗶𝘁𝗲𝗕𝗼𝘁𝗚𝗹𝗼𝗯𝗮𝗹 (𝗘𝗕𝗚)`
+    let teks = `🕔 𝘌𝘭𝘪𝘵𝘦 𝘉𝘰𝘵 𝘎𝘭𝘰𝘣𝘢𝘭 𝘴𝘦 𝘦𝘴𝘵𝘢𝘣𝘭𝘦𝘤𝘪𝘰 𝘤𝘰𝘮𝘰 𝘣𝘰𝘵 𝘮𝘦𝘯𝘴𝘶𝘢𝘭 𝘦𝘯 𝘦𝘴𝘵𝘦 𝘨𝘳𝘶𝘱𝘰.\n\n*Durante:* ${args[0]} Días\n\n*Cuenta regresiva :* ${msToDate(global.db.data.chats[who].expired - now)}\n\n𝗘𝗹𝗶𝘁𝗲𝗕𝗼𝘁𝗚𝗹𝗼𝗯𝗮𝗹 (𝗘𝗕𝗚)`
     conn.reply(m.chat, teks, m)
 }
 handler.help = ['expirar <Horas>']
