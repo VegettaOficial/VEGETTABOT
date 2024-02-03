@@ -13,9 +13,9 @@ const groups = Object.entries(conn.chats).filter(([jid, chat]) => jid.endsWith('
     const isParticipant = participants.some((u) => conn.decodeJid(u.id) === conn.user.jid)
     
   await conn.fetchBlocklist().then(async (data) => {
-    let txt = `*≡ Lista de bloqueados*\n\n*Total :* ${groupMetadata.subject}\n`;
+    let txt = `*≡ Lista de bloqueados*\n\n*Total :* ${data.length}\n\n┌─⊷\n`;
     for (const i of data) {
-      txt += `▢ @${i.split('@')[0]}\n◉ Grupos: \n`;
+      txt += `▢ @${i.split('@')[0]}\n◉ Grupos: ${await conn.getName(jid)}\n`;
     }
     txt += '└───────────';
     return conn.reply(m.chat, txt, m, {mentions: await conn.parseMention(txt)});
