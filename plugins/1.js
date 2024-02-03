@@ -1,6 +1,6 @@
 
 let handler = async (m, { conn, args, usedPrefix, command }) => {
-    if (!args[0] || isNaN(args[0])) throw `⚠️ 𝘐𝘯𝘨𝘳𝘦𝘴𝘢 𝘭𝘰𝘴 horas 𝘲𝘶𝘦 𝘲𝘶𝘪𝘦𝘳𝘦𝘴 𝘲𝘶𝘦 𝘦𝘴𝘵𝘦́ 𝘦𝘯 𝘦𝘴𝘵𝘦 𝘨𝘳𝘶𝘱𝘰.\n\n» 𝘌𝘫𝘦𝘮𝘱𝘭𝘰:\n${usedPrefix + command} 30`
+    if (!args[0] || isNaN(args[0])) throw `⚠️ 𝘐𝘯𝘨𝘳𝘦𝘴𝘢 𝘭𝘢𝘴 𝘩𝘰𝘳𝘢𝘴 𝘲𝘶𝘦 𝘲𝘶𝘪𝘦𝘳𝘦𝘴 𝘲𝘶𝘦 𝘦𝘴𝘵𝘦́ 𝘦𝘯 𝘦𝘴𝘵𝘦 𝘨𝘳𝘶𝘱𝘰.\n\n» 𝘌𝘫𝘦𝘮𝘱𝘭𝘰:\n${usedPrefix + command} 30`
 
     let who
     if (m.isGroup) who = args[1] ? args[1] : m.chat
@@ -10,7 +10,7 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
     var now = new Date() * 1
     if (now < global.db.data.chats[who].expired) global.db.data.chats[who].expired += nHours
     else global.db.data.chats[who].expired = now + nHours
-    let teks = `🕔 𝘌𝘭𝘪𝘵𝘦 𝘉𝘰𝘵 𝘎𝘭𝘰𝘣𝘢𝘭 𝘴𝘦 𝘦𝘴𝘵𝘢𝘣𝘭𝘦𝘤𝘪𝘰 𝘤𝘰𝘮𝘰 𝘣𝘰𝘵 𝘮𝘦𝘯𝘴𝘶𝘢𝘭 𝘦𝘯 𝘦𝘴𝘵𝘦 𝘨𝘳𝘶𝘱𝘰.\n\n*Durante:* ${args[0]} Días\n\n*Cuenta regresiva :* ${msToDate(global.db.data.chats[who].expired - now)}\n\n𝗘𝗹𝗶𝘁𝗲𝗕𝗼𝘁𝗚𝗹𝗼𝗯𝗮𝗹 (𝗘𝗕𝗚)`
+    let teks = `🕔 Se activo la prueba gratis de Elite Bot Global, disfruta la variedad de comandos de Elite Bot con la palabra .menu \n\n» *Tiempo :* ${args[0]} Horas\n\n*Cuenta regresiva :*\n ${msToDate(global.db.data.chats[who].expired - now)}\n\n𝗘𝗹𝗶𝘁𝗲𝗕𝗼𝘁𝗚𝗹𝗼𝗯𝗮𝗹 (𝗘𝗕𝗚)`
     conn.reply(m.chat, teks, m)
 }
 handler.help = ['expirar <Horas>']
