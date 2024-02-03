@@ -7,7 +7,7 @@ const handler = async (m, { conn }) => {
       let blockedUser = global.db.data.blockedUsers && global.db.data.blockedUsers[i] ? global.db.data.blockedUsers[i] : [];
       let uniqueGroups = [...new Set(blockedUser)]; // Eliminar duplicados
       let groupNames = await Promise.all(uniqueGroups.map(groupId => conn.getName(groupId)));
-      txt += `👤 @${i.split("@")[0]}\n✦ 𝗚𝗿𝘂𝗽𝗼: ${groupNames.join(', ')}\n`;
+      txt += `👤 @${i.split("@")[0]}\n✦ 𝗚𝗿𝘂𝗽𝗼: ${groupNames.join(', ')}\n\n`;
     }
 
     conn.reply(m.chat, txt, m, { mentions: await conn.parseMention(txt) });
