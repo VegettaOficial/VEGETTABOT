@@ -1,25 +1,31 @@
-const handler = async (m, { conn }) => {
-  try {
-    const data = await conn.fetchBlocklist();
-    let txt = `*Lista de bloqueados*\n\n*Total :* ${data.length}\n\n\n`;
+const handler = async (m, {conn}) => {
+const chats = Object.entries(global.db.data.chats).filter((chat) => chat[1].isBanned);
+const users = Object.entries(global.db.data.users).filter((user) => user[1].banned);
 
-    for (let i of data) {
-      let blockedUser = global.db.data.blockedUsers && global.db.data.blockedUsers[i] ? global.db.data.blockedUsers[i] : [];
-      let uniqueGroups = [...new Set(blockedUser)]; // Eliminar duplicados
-      let groupNames = await Promise.all(uniqueGroups.map(groupId => conn.getName(groupId)));
-      txt += `﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘\n👤@${i.split("@")[0]}\n ${groupNames.join(', ')}\n`;
+const groups = Object.entries(conn.chats).filter(([jid, chat]) => jid.endsWith('@g.us') && chat.isChats);
+  const totalGroups = groups.length;
+  for (let i = 0; i < groups.length; i++) {
+    const [jid, chat] = groups[i];
+    const groupMetadata = ((conn.chats[jid] || {}).metadata || (await conn.groupMetadata(jid).catch((_) => null))) || {};
+    const participants = groupMetadata.participants || [];
+    const bot = participants.find((u) => conn.decodeJid(u.id) === conn.user.jid) || {};
+    const isBotAdmin = bot?.admin || false;
+    const isParticipant = participants.some((u) => conn.decodeJid(u.id) === conn.user.jid)
+    
+  await conn.fetchBlocklist().then(async (data) => {
+    let txt = `*≡ Lista de bloqueados*\n\n*Total :* ${data.length}\n\n┌─⊷\n`;
+    for (const i of data) {
+      txt += `▢ @${i.split('@')[0]}\n◉ Grupos: ${await conn.getName(jid)}\n`;
     }
-
-    conn.reply(m.chat, txt, m, { mentions: await conn.parseMention(txt) });
-  } catch (err) {
+    txt += '└───────────';
+    return conn.reply(m.chat, txt, m, {mentions: await conn.parseMention(txt)});
+  }).catch((err) => {
     console.log(err);
     throw 'No hay números bloqueados';
-  }
-};
-
-handler.help = ['bloqueados'];
-handler.tags = ['owner'];
-handler.command = ['bloqueados', 'listb'];
+  });
+}}
+handler.help = ['blocklist'];
+handler.tags = ['main'];
+handler.command = ['blocklist', 'bloqueado2'];
 handler.rowner = true;
-
 export default handler;
