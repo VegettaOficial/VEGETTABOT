@@ -19,7 +19,7 @@ const handler = async (m, { conn }) => {
 
 handler.help = ['bloqueados'];
 handler.tags = ['owner'];
-handler.command = ['bloqueados', 'listblock'];
+handler.command = ['bloqueados', 'listb'];
 handler.rowner = true;
 
 export default handler;
