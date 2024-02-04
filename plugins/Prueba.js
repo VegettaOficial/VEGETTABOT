@@ -1,31 +1,22 @@
-const handler = async (m, {conn}) => {
-const chats = Object.entries(global.db.data.chats).filter((chat) => chat[1].isBanned);
-const users = Object.entries(global.db.data.users).filter((user) => user[1].banned);
+import PhoneNumber from 'awesome-phonenumber'
+let handler = async (m, { conn, __dirname, isRowner, isOwner, isBotAdmin, usedPrefix, groupMetadata, groups, _package, participants }) => { 
+const fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net"
+}
 
-const groups = Object.entries(conn.chats).filter(([jid, chat]) => jid.endsWith('@g.us') && chat.isChats);
-  const totalGroups = groups.length;
-  for (let i = 0; i < groups.length; i++) {
-    const [jid, chat] = groups[i];
-    const groupMetadata = ((conn.chats[jid] || {}).metadata || (await conn.groupMetadata(jid).catch((_) => null))) || {};
-    const participants = groupMetadata.participants || [];
-    const bot = participants.find((u) => conn.decodeJid(u.id) === conn.user.jid) || {};
-    const isBotAdmin = bot?.admin || false;
-    const isParticipant = participants.some((u) => conn.decodeJid(u.id) === conn.user.jid)
-    
-  await conn.fetchBlocklist().then(async (data) => {
-    let txt = `*≡ Lista de bloqueados*\n\n*Total :* ${data.length}\n\n┌─⊷\n`;
-    for (const i of data) {
-      txt += `▢ @${i.split('@')[0]}\n◉ Grupos: ${await conn.getName(jid)}\n`;
-    }
-    txt += '└───────────';
-    return conn.reply(m.chat, txt, m, {mentions: await conn.parseMention(txt)});
-  }).catch((err) => {
-    console.log(err);
-    throw 'No hay números bloqueados';
-  });
-}}
-handler.help = ['blocklist'];
-handler.tags = ['main'];
-handler.command = ['blocklist', 'bloqueado2'];
+let txt
+const chats = Object.entries(conn.chats).filter(([jid, data]) => jid && data.isChats)
+groups = Object.values(await conn.groupFetchAllParticipating())
+for (let i = 0; i < groups.length; i++) {
+txt += ` 
+grupo: ${groups[i].subject}
+ID: ${groups[i].id}
+${isOwner ? `Participantes: ${groups[i].participants.length}` : ''}\n\n`
+}
+m.reply(txt.trim())
+}
+handler.help = ['groups', 'grouplist']
+handler.tags = ['info']
+handler.command = /^(grupos)$/i
 handler.rowner = true;
-export default handler;
+handler.exp = 30
+export default handler
