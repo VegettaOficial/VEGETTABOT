@@ -8,9 +8,8 @@ const chats = Object.entries(conn.chats).filter(([jid, data]) => jid && data.isC
 groups = Object.values(await conn.groupFetchAllParticipating())
 for (let i = 0; i < groups.length; i++) {
 txt += ` 
-grupo: ${groups[i].subject}
-ID: ${groups[i].id}
-${isOwner ? `Participantes: ${groups[i].participants.length}` : ''}\n\n`
+*GRUPO*: ${groups[i].subject}
+*ID:* ${groups[i].id}\n`
 }
 m.reply(txt.trim())
 }
