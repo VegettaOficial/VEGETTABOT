@@ -7,9 +7,9 @@ const fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "stat
 let txt
 const chats = Object.entries(conn.chats).filter(([jid, data]) => jid && data.isChats)
 groups = Object.values(await conn.groupFetchAllParticipating())
+txt = `ESTOY EN ESTOS GRUPOS ✅\n`
 for (let i = 0; i < groups.length; i++) {
 txt += ` 
-👤@${i.split("@")[0]}\n
 *GRUPO*: ${groups[i].subject}
 *ID:* ${groups[i].id}\n`
 }
