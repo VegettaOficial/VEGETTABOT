@@ -510,7 +510,7 @@ await conn.sendMessage(m.chat, { image: gataImg.getRandom(), gifPlayback: false,
 } catch (error) {
 try{
 await conn.sendFile(m.chat, imagen5, 'menu.jpg', menu, fkontak, false, { mentions: [m.sender, global.conn.user.jid] })
-m.react('📚') 
+
 } catch (error) {
 return 
 }}}} 
