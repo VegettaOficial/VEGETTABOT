@@ -1,5 +1,5 @@
 let handler = async (m, { conn, text, usedPrefix, command }) => {
-  if (!text) throw `${lenguajeGB['smsAvisoMG']()}𝙄𝙉𝙂𝙍𝙀𝙎𝙀 𝙐𝙉 𝙏𝙀𝙓𝙏𝙊`
+  if (!text) throw `Y EL TEXTO?`
   try {
     await conn.updateProfileName(text)
     m.reply('LISTO!')
@@ -10,7 +10,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
 }
 handler.help = ['setbotname <teks>']
 handler.tags = ['owner']
-handler.command = /^(setbotname)$/i
+handler.command = /^(setbotname|cambianombre)$/i
 
 handler.owner = true
 
