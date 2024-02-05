@@ -26,7 +26,7 @@ months: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto
 }
 lugarFecha.locale('es', formatoFecha)
 const horarioFecha = lugarFecha.format('dddd,DD [de] MMMM [del] YYYY│[Hora:]HH:mm A').replace(/^\w/, (c) => c.toUpperCase())
-
+m.react('🔰')
 let menu = `
 *¡Hola! ⭐ @${m.sender.split("@")[0]}*
 
