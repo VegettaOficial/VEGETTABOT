@@ -2,13 +2,14 @@ let handler = async (m, { isPrems, conn }) => {
 let time = global.db.data.users[m.sender].lastcofre + 0 // 36000000 10 Horas //86400000 24 Horas
 if (new Date - global.db.data.users[m.sender].lastcofre < 0) throw `[❗𝐈𝐍𝐅𝐎❗] 𝚈𝙰 𝚁𝙴𝙲𝙻𝙰𝙼𝙰𝚂𝚃𝙴 𝚃𝚄 𝙲𝙾𝙵𝚁𝙴\𝚗𝚅𝚄𝙴𝙻𝚅𝙴 𝙴𝙽 *${msToTime(time - new Date())}* 𝙿𝙰𝚁𝙰 𝚅𝙾𝙻𝚅𝙴𝚁 𝙰 𝚁𝙴𝙲𝙻𝙰𝙼𝙰𝚁`
 
-let img = 'https://telegra.ph/file/23b5f66aff9500d260275.jpg' 
+let img = 'https://telegra.ph/file/71c23ae6c6e1fbc899e8e.jpg' 
 let texto = `📕 ¡LA #AGENDASEMANAL ESTÁ AQUÍ! 📕
-La Ira y #ElCaos se enfrentan en FF esta semana. 🤜💥🤛
 
-😈 Libera tu Demonio Interior con el aspecto del Desconocido y aumenta tu colección Selecto equipando la mochila y pared gloo. 
+👉 Traemos de TODO para pasar la temporada de #AmorRoyale con Dúo 🤝, como Lobo Solitario 🐺 o en #ElCaos 👹 . 
 
-😡Además, ¡adéntrate en los Sueños de Ira del #PaseBooyahMejorado y explora sus nuevos beneficios el 1ro de febrero!
+🔫 El arsenal del Desconocido llega para liberar tu demonio interior y los nuevos aspectos de febrero aterrizan junto con MUCHOS emotes de temporada ⏩ 🌹💗💔
+
+¿Cuál de ellos equiparás para la batalla? 💬
 `
 
 const fkontak = {
