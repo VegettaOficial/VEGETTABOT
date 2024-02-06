@@ -12,7 +12,7 @@ const handler = async (m, {conn, args, usedPrefix, command}) => {
     const mime = (q.msg || q).mimetype || q.mediaType || '';
     if (/webp|image|video/g.test(mime)) {
       const img = await q.download?.();
-      if (!img) throw `*Que imagen o vídeo hago sticker?🧐*`;
+      if (!img) throw `¡𝘌𝘺 , 𝘳𝘦𝘴𝘱𝘰𝘯𝘥𝘦 𝘢 𝘶𝘯𝘢 𝘪𝘮𝘢𝘨𝘦𝘯!`;
       let out;
       try {
         stiker = await sticker(img, false, global.packname, global.author);
@@ -36,7 +36,7 @@ const handler = async (m, {conn, args, usedPrefix, command}) => {
     if (!stiker) stiker = e;
   } finally {
     if (stiker) conn.sendFile(m.chat, stiker, 'sticker.webp', '', m);
-    else throw '*Que imagen o vídeo hago sticker?🧐*';
+    else throw '¡𝘌𝘺 , 𝘳𝘦𝘴𝘱𝘰𝘯𝘥𝘦 𝘢 𝘶𝘯𝘢 𝘪𝘮𝘢𝘨𝘦𝘯!';
   }
 };
 handler.help = ['sfull'];
