@@ -24,5 +24,5 @@ handler.help = ['google <búsqueda>'];
 handler.tags = ['tools', 'search'];
 handler.command = /^googlef?$/i;
 handler.star = 1
-handler.register = true 
+handler.register = false 
 export default handler;
