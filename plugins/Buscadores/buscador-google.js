@@ -6,7 +6,7 @@ const fetch = (await import('node-fetch')).default;
 const text = args.join` `;
 if (!text) return conn.reply(m.chat, '*Ingresa lo que deseas buscar en Google.*', m);
 await conn.sendMessage(m.chat, {
-        text: ` *↻ Espera @${m.sender.split`@`[0]}, soy lenta. . .*.`,
+        text: ` *↻ Espera humano @${m.sender.split`@`[0]}, estoy procesando tu pedido.`,
         contextInfo: { 
           mentionedJid: [m.sender],
         }
