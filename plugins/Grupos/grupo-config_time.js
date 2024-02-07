@@ -1,5 +1,3 @@
-
-
 let handler = async (m, { conn, isAdmin, isOwner, args, usedPrefix, command }) => {
   if (!(isAdmin || isOwner)) {
 	  global.dfail('admin', m, conn)
@@ -54,4 +52,4 @@ function clockString(ms) {
   let s = Math.floor(ms / 1000) % 60
   console.log({ms,h,m,s})
   return [h, m, s].map(v => v.toString().padStart(2, 0) ).join(':')
-						      }
+}
