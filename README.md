@@ -28,14 +28,14 @@ apt update -y && yes | apt upgrade && pkg install -y bash wget mpv && wget -O - 
 // PARÁMETROS QUE PUEDE SER MODIFICADOS --> "[...]"
 "wget -O - https://raw.githubusercontent.com/[usuario]/[repositorio]/[rama]/elite.sh | bash"
 ```
-#### MODIFICAR ARCHIVO [`gata.sh`](https://github.com/GataNina-Li/GataBot-MD/blob/master/gata.sh)
+#### MODIFICAR ARCHIVO [`elite.sh`](https://github.com/GataNina-Li/GataBot-MD/blob/master/gata.sh)
 ```js
 //LÍNEAS A MODIFICAR
 205 --> "git clone https://github.com/[user]/[repositorio].git"
-//Ejemplo: git clone https://github.com/GataNina-Li/GataBot-MD.git
+//Ejemplo: git clone https://github.com/PROYECTOEBG/ELITE-BOT.git
 
 209 --> "cd [repositorio]"
-//Ejemplo: cd GataBot-MD
+//Ejemplo: cd ELITE-BOT
 
 //Una vez hecho estos cambios ejecute los nuevos comandos en Termux
 ```
