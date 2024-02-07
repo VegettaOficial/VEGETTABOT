@@ -38,8 +38,8 @@ let handler = async (m, { conn, isAdmin, isOwner, args, usedPrefix, command }) =
         }, timeoutset)
   }
   }
-handler.help = ['grouptime <abrir/cerrar> <horas>']
-handler.tags = ['group']
+handler.help = ['grupo <abrir/cerrar> <horas>']
+handler.tags = ['grupo']
 handler.command = /^(grupo|gctime)$/i
 
 handler.botAdmin = true
