@@ -40,25 +40,7 @@ apt update -y && yes | apt upgrade && pkg install -y bash wget mpv && wget -O - 
 //Una vez hecho estos cambios ejecute los nuevos comandos en Termux
 ```
 -----
-### 🪄 (OPCIÓN 2) INSTALACIÓN MANUAL POR TERMUX - GITHUB 
-> **Note** Comandos para instalar de forma manual
-```bash
-termux-setup-storage
-```
-```bash
-apt update && apt upgrade && pkg install -y git nodejs ffmpeg imagemagick yarn
-```
-```bash
-git clone https://github.com/GataNina-Li/GataBot-MD && cd GataBot-MD
-```
-```bash
-yarn install && npm install
-```
-```bash
-npm start
-```
-> **Warning** Si aparece (Y/I/N/O/D/Z) [default=N] ? use la letra "y" + "ENTER" para continuar con la instalación 
-------------------
+
 ----
 ### 🚀 USAR GATABOT 24/7 EN TERMUX 
 > Ejecutar estos comandos dentro de la carpeta GataBot-MD
