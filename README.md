@@ -26,7 +26,7 @@ apt update -y && yes | apt upgrade && pkg install -y bash wget mpv && wget -O - 
 "wget -O - https://raw.githubusercontent.com/PROYECTOEBG/ELITE-BOT/master/elite.sh | bash"
 
 // PARÁMETROS QUE PUEDE SER MODIFICADOS --> "[...]"
-"wget -O - https://raw.githubusercontent.com/[usuario]/[repositorio]/[rama]/gata.sh | bash"
+"wget -O - https://raw.githubusercontent.com/[usuario]/[repositorio]/[rama]/elite.sh | bash"
 ```
 #### MODIFICAR ARCHIVO [`gata.sh`](https://github.com/GataNina-Li/GataBot-MD/blob/master/gata.sh)
 ```js
