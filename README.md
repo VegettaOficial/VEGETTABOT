@@ -39,7 +39,6 @@ apt update -y && yes | apt upgrade && pkg install -y bash wget mpv && wget -O - 
 
 //Una vez hecho estos cambios ejecute los nuevos comandos en Termux
 ```
------
 
 ----
 ### 🚀 24/7 EN TERMUX EBG
