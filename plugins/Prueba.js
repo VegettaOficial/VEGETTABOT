@@ -15,7 +15,7 @@ let handler = async (m, { conn, isAdmin, isOwner, args, usedPrefix, command }) =
 
   setTimeout(async () => {
     await conn.groupSettingUpdate(m.chat, 'not_announcement');
-    conn.reply(m.chat, '*El grupo se ha abierto, ahora todos los miembros pueden enviar mensajes!*');
+    conn.reply(m.chat, '"El que persevera alcanza"\n- Steve Jobs');
   }, timeoutset);
 };
 
