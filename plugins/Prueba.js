@@ -11,7 +11,7 @@ let handler = async (m, { conn, isAdmin, isOwner, args, usedPrefix, command }) =
 
   let timeoutset = 86400000 * args[0] / 24;
   await conn.groupSettingUpdate(m.chat, 'announcement');
-  m.reply(`*Grupo cerrado durante ${args[0]} horas*`);
+  m.reply(`❱❱ 𝗢𝗥𝗗𝗘𝗡𝗘𝗦 𝗥𝗘𝗖𝗜𝗕𝗜𝗗𝗔𝗦 ❰❰\n Este grupo se abrira en:\n*» ${args[0]} horas*`);
 
   setTimeout(async () => {
     await conn.groupSettingUpdate(m.chat, 'not_announcement');
