@@ -5,7 +5,7 @@ let handler = async (m, { conn, isAdmin, isOwner, args, usedPrefix, command }) =
   }
 
   if (args[0] === undefined || isNaN(args[0])) {
-    m.reply('*FORMATO ERRONEO!!*\n\n*Ejemplo de uso:* *' + usedPrefix + command + ' 1*\n*Para cerrar el grupo durante una hora.*');
+    m.reply('🕔 𝘐𝘯𝘨𝘳𝘦𝘴𝘢 𝘭𝘢 𝘩𝘰𝘳𝘢 𝘲𝘶𝘦 𝘥𝘦𝘴𝘦𝘢𝘴 𝘲𝘶𝘦 𝘌𝘭𝘪𝘵𝘦 𝘉𝘰𝘵 𝘢𝘣𝘳𝘢 𝘵𝘶 𝘨𝘳𝘶𝘱𝘰.\n» 𝘌𝘫𝘦𝘮𝘱𝘭𝘰:\n.abrirgrupoen 2');
     throw false;
   }
 
