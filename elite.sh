@@ -17,9 +17,9 @@ echo -e "\e[35m
 COMMENT
 
 echo -e "\033[01;93mPreparando instalación...\nPreparing installation...\n\033[0m"
-mp3_array=("install_automatic1.mp3" "install_automatic2.mp3" "install_automatic3.mp3" "install_automatic4.mp3" "install_automatic5.mp3" "install_automatic6.mp3" "install_automatic7.mp3" "install_automatic8.mp3" "install_automatic9.mp3" "install_automatic10.mp3" "install_automatic11.mp3" "install_automatic12.mp3")
+mp3_array=("2pac.mp3" "Ando.mp3" "Bellakat.mp3" "Chupon.mp3" "Flownatural.mp3" "Fuglee.mp3" "Inocente.mp3" "Karool.mp3" "Luna.mp3" "Normal.mp3")
 random_mp3=${mp3_array[$RANDOM % ${#mp3_array[@]}]}
-if wget -q https://github.com/PROYECTOEBG/GataBot-MD/src/music/"$random_mp3"; then
+if wget -q https://github.com/GataNina-Li/GataBot-MD/raw/master/musicSH/"$random_mp3"; then
 echo -e "\033[01;32mDescarga exitosa. Reproduciendo sonido de intro...\nDownload successful. Playing intro sound...\n\033[0m"
 while true; do
 mpv --no-terminal "$random_mp3" &
