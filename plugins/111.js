@@ -40,7 +40,7 @@ let handler = async (m, { conn, isAdmin, isOwner, args, usedPrefix, command }) =
   }
 handler.help = ['grup abrir <horas>|grupohora cerrar <horas>']
 handler.tags = ['group']
-handler.command = /^(grup|gptime)$/i
+handler.command = /^(group|gptime)$/i
 
 handler.botAdmin = true
 handler.group = true 
