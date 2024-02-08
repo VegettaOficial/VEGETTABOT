@@ -38,7 +38,7 @@ let handler = async (m, { conn, isAdmin, isOwner, args, usedPrefix, command }) =
         }, timeoutset)
   }
   }
-handler.help = ['grup abrir <horas>|grupohora cerrar <horas>']
+handler.help = ['group cerrar <horas>|grupohora abrir <horas>']
 handler.tags = ['group']
 handler.command = /^(group|gptime)$/i
 
