@@ -25,9 +25,9 @@ if (isClose === 'announcement'){
 conn.sendButton(m.chat, `${lenguajeGB['smsAvisoEG']()}𝙎𝙊𝙇𝙊 𝙇𝙊𝙎 𝘼𝘿𝙈𝙄𝙉𝙎 𝙋𝙐𝙀𝘿𝙀𝙉 𝙀𝙎𝘾𝙍𝙄𝘽𝙄𝙍 𝙀𝙉 𝙀𝙎𝙏𝙀 𝙂𝙍𝙐𝙋𝙊!!`, `𝙂𝙍𝙐𝙋𝙊 𝘾𝙀𝙍𝙍𝘼𝘿𝙊\n${wm}`, pp, [['𝙈𝙤𝙢𝙚𝙣𝙩𝙤 𝘼𝙙𝙢𝙞𝙣 😎', '.s'], ['𝙑𝙤𝙡𝙫𝙚𝙧 𝙖𝙡 𝙈𝙚𝙣𝙪́ | 𝘽𝙖𝙘𝙠 𝙩𝙤 𝙈𝙚𝙣𝙪 ☘️', `/menu`]], m)
 }  
  }
-handler.help = ['group open / close', 'grupo abrir / cerrar']
-handler.tags = ['group']
-handler.command = /^(group|grupo)$/i
+handler.help = ['grupo open / close', 'grupo abrir / cerrar']
+handler.tags = ['grupo']
+handler.command = /^(grupo)$/i
 handler.admin = true
 handler.botAdmin = true
 handler.exp = 200
