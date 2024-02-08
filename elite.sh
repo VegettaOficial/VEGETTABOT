@@ -19,7 +19,7 @@ COMMENT
 echo -e "\033[01;93mPreparando instalación...\nPreparing installation...\n\033[0m"
 mp3_array=("2pac.mp3" "Ando.mp3" "Bellakat.mp3" "Chupon.mp3" "Flownatural.mp3" "Fuglee.mp3" "Inocente.mp3" "Karool.mp3" "Luna.mp3" "Normal.mp3")
 random_mp3=${mp3_array[$RANDOM % ${#mp3_array[@]}]}
-if wget -q https://github.com/GataNina-Li/GataBot-MD/raw/master/musicSH/"$random_mp3"; then
+if wget -q https://github.com/BOTGATITO/BotGatito/raw/master/musicSH/"$random_mp3"; then
 echo -e "\033[01;32mDescarga exitosa. Reproduciendo sonido de intro...\nDownload successful. Playing intro sound...\n\033[0m"
 while true; do
 mpv --no-terminal "$random_mp3" &
