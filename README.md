@@ -43,7 +43,7 @@ apt update -y && yes | apt upgrade && pkg install -y bash wget mpv && wget -O - 
 ----
 ### 🌎 ELITE BOT TERMUX 24/7
 > CONTROL + Z
-> cd ELITEB-BOT (REPOSITORIO)
+//> cd ELITEB-BOT (REPOSITORIO)
 ```bash
 termux-wake-lock && npm i -g pm2 && pm2 start index.js && pm2 save && pm2 logs 
 ``` 
