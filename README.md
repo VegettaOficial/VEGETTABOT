@@ -45,6 +45,8 @@ apt update -y && yes | apt upgrade && pkg install -y bash wget mpv && wget -O - 
 > Ejecutar estos comandos dentro de la carpeta GataBot-MD
 ```bash
 termux-wake-lock && npm i -g pm2 && pm2 start index.js && pm2 save && pm2 logs 
+```
+En temux presionar CTROL + Z Y cd ELITE-BOT
 ``` 
 #### ⬇️ Opciones Disponibles
 > **Warning** Esto eliminará todo el historial que hayas establecido con PM2:
