@@ -5,35 +5,35 @@ let handler = async (m, { conn, isAdmin, isOwner, args, usedPrefix, command }) =
   }
   let isClose = {
 	  'open': 'not_announcement',
-	  'buka': 'not_announcement',
+	  'abrir': 'not_announcement',
       'on': 'not_announcement',
 	  '1': 'not_announcement',
 	  'close': 'announcement',
-	  'tutup': 'announcement',
+	  'cerrar': 'announcement',
       'off': 'announcement',
       '0': 'announcement',
   }[(args[0] || '')]
   if (isClose === undefined) {
-	  let caption = 
+	  let caption = `
 *FORMATO ERRONEO!!*
  
- ${usedPrefix + command} open 1*
- ${usedPrefix + command} close 1*
- *Ejemplo de uso:* *${usedPrefix + command} close 1* 
+ ${usedPrefix + command} abrir 1*
+ ${usedPrefix + command} cerrar 1*
+ *Ejemplo de uso:* *${usedPrefix + command} cerrar 1* 
  Para que el grupo este cerrado una hora.*
 
-
+`
       m.reply(caption)
 	  throw false
   }
   let timeoutset = 86400000 * args[1] / 24
   await conn.groupSettingUpdate(m.chat, isClose).then(async _=> {
-	  m.reply(❱❱ 𝗢𝗥𝗗𝗘𝗡𝗘𝗦 𝗥𝗘𝗖𝗜𝗕𝗜𝗗𝗔𝗦 ❰❰\nEste grupo estara ${isClose == 'announcement' ? 'cerrado' : 'abierto'} ${args[1] ? \n*» Durante: ${clockString(timeoutset)} Horas* : ''})
+	  m.reply(` *Grupo ${isClose == 'announcement' ? 'cerrado' : 'abierto'} ${args[1] ? `durante*${clockString(timeoutset)}*` : ''}`)
   })
   if (args[1]) {
 	 setTimeout(async () => {
-            await conn.groupSettingUpdate(m.chat, ${isClose == 'announcement' ? 'not_announcement' : 'announcement'}).then(async _=>{
-		    conn.reply(m.chat, ${isClose == 'not_announcement' ? '*El grupo ha sido cerrado, ahora solo los administradores pueden enviar mensajes!*' : '*El grupo se ha abierto, ahora todos los miembros pueden enviar mensajes!*'}!)
+            await conn.groupSettingUpdate(m.chat, `${isClose == 'announcement' ? 'not_announcement' : 'announcement'}`).then(async _=>{
+		    conn.reply(m.chat, `${isClose == 'not_announcement' ? '*El grupo ha sido cerrado, ahora solo los administradores pueden enviar mensajes!*' : '*El grupo se ha abierto, ahora todos los miembros pueden enviar mensajes!*'}!`)
 	    })
         }, timeoutset)
   }
@@ -52,4 +52,4 @@ function clockString(ms) {
   let s = Math.floor(ms / 1000) % 60
   console.log({ms,h,m,s})
   return [h, m, s].map(v => v.toString().padStart(2, 0) ).join(':')
-		  }
+}
