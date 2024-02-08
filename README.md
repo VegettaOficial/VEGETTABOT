@@ -42,8 +42,7 @@ apt update -y && yes | apt upgrade && pkg install -y bash wget mpv && wget -O - 
 
 ----
 ### 🌎 ELITE BOT TERMUX 24/7
-> CONTROL + Z
-//> cd ELITEB-BOT (REPOSITORIO)
+> Debe ya estar vinculado con el código QR, despues poner en la consola del termux (CONTROL + Z) enter y despues escribir (cd ELITEB-BOT) ⬅️ REPOSITORIO
 ```bash
 termux-wake-lock && npm i -g pm2 && pm2 start index.js && pm2 save && pm2 logs 
 ``` 
