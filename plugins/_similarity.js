@@ -1,25 +1,28 @@
-import didyoumean from 'didyoumean'
-import similarity from 'similarity'
+let handler = async (m, { conn, isAdmin, isOwner, args, usedPrefix, command }) => {
+  if (!(isAdmin || isOwner)) {
+    global.dfail('admin', m, conn);
+    throw false;
+  }
 
-export async function before(m, { conn, match, usedPrefix, command }) {
- 
-if ((usedPrefix = (match[0] || '')[0])) {
-let noPrefix = m.text.replace(usedPrefix, '')
-let args = noPrefix.trim().split .slice(1)
-let text = args.join 
-let help = Object.values(plugins).filter(v => v.help && !v.disabled).map(v => v.help).flat(1)
-if (help.includes(noPrefix)) return
-let mean = didyoumean(noPrefix, help)
-let sim = similarity(noPrefix, mean)
-let som = sim * 100
-let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
-let name = await conn.getName(who)
-let caption = 🚫 @${who.split('@')[0]} EL COMANDO NO EXISTE TAL VEZ QUISISTE PONER : 
+  if (args[0] === undefined || isNaN(args[0])) {
+    m.reply('🕔 𝘐𝘯𝘨𝘳𝘦𝘴𝘢 𝘭𝘢 𝘩𝘰𝘳𝘢 𝘲𝘶𝘦 𝘥𝘦𝘴𝘦𝘢𝘴 𝘲𝘶𝘦 𝘌𝘭𝘪𝘵𝘦 𝘉𝘰𝘵 cierre 𝘵𝘶 𝘨𝘳𝘶𝘱𝘰.\n\n» 𝘌𝘫𝘦𝘮𝘱𝘭𝘰:\n.cerrargrupoen 2');
+    throw false;
+  }
 
- • *${usedPrefix + mean}*
- • *Similitud:* _${parseInt(som)}%_
-if (mean) conn.reply(m.chat, caption, m, { mentions: [who]})
-}
+  let timeoutset = 86400000 * args[0] / 24;
+  await conn.groupSettingUpdate(m.chat, 'not_announcement').catch(() => {});
+  m.reply(`❱❱ 𝗢𝗥𝗗𝗘𝗡𝗘𝗦 𝗥𝗘𝗖𝗜𝗕𝗜𝗗𝗔𝗦 ❰❰\n Este grupo se cerrará en:\n*» ${args[0]} horas*`);
 
-}
-//export const disabled = true
+  setTimeout(async () => {
+    await conn.groupSettingUpdate(m.chat, 'announcement').catch(() => {});
+    conn.reply(m.chat, '"El que persevera alcanza"\n- Steve Jobs');
+  }, timeoutset);
+};
+
+handler.help = ['cerrargrupoen <horas>'];
+handler.tags = ['group'];
+handler.command = /^(cerrargrupoen)$/i;
+handler.botAdmin = true;
+handler.group = true;
+
+export default handler;
