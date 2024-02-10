@@ -40,7 +40,7 @@ apt update -y && yes | apt upgrade && pkg install -y bash wget mpv && wget -O - 
 //Una vez hecho estos cambios ejecute los nuevos comandos en Termux
 ```
 
-- #### `⚙️ ACTIVAR EN CASO QUE SE DETENGA TERMUX`
+- #### ⚙️ ACTIVAR EN CASO QUE SE DETENGA TERMUX
 > 𝙴𝚂𝙲𝚁𝙸𝙱𝙴 𝙴𝚂𝚃𝙾𝚂 𝙲𝙾𝙼𝙰𝙽𝙳𝙾𝚂 𝚄𝙽𝙾 𝙿𝙾𝚁 𝚄𝙽𝙾:
 ```bash
 > cd
@@ -48,10 +48,10 @@ apt update -y && yes | apt upgrade && pkg install -y bash wget mpv && wget -O - 
 > npm start
 ```
 
-- #### `⚙️ OBTENER OTRO CÓDIGO QR`
+- #### ⚙️ OBTENER OTRO CÓDIGO QR
 > 𝙴𝚂𝙲𝚁𝙸𝙱𝙴 𝙴𝚂𝚃𝙾𝚂 𝙲𝙾𝙼𝙰𝙽𝙳𝙾𝚂 𝚄𝙽𝙾 𝙿𝙾𝚁 𝚄𝙽𝙾:
 ```bash
-> cd CuriosityBot-MD
+> cd ELITE-BOT
 > rm -rf sessions
 > npm start
 ```
