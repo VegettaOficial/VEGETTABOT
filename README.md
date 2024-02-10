@@ -40,19 +40,20 @@ apt update -y && yes | apt upgrade && pkg install -y bash wget mpv && wget -O - 
 //Una vez hecho estos cambios ejecute los nuevos comandos en Termux
 ```
 
-- #### ⚙️ ACTIVAR EN CASO QUE SE DETENGA TERMUX
-> 𝙴𝚂𝙲𝚁𝙸𝙱𝙴 𝙴𝚂𝚃𝙾𝚂 𝙲𝙾𝙼𝙰𝙽𝙳𝙾𝚂 𝚄𝙽𝙾 𝙿𝙾𝚁 𝚄𝙽𝙾:
+### `—◉ ☑️ ACTIVAR EN CASO DE APAGARSE EN TERMUX ☑️`
 ```bash
-> cd
+ESCRIBE LOS SIGUIENTES COMANDOS UNO POR UNO:
 > cd ELITE-BOT
 > npm start
 ```
 
-- #### ⚙️ OBTENER OTRO CÓDIGO QR
-> 𝙴𝚂𝙲𝚁𝙸𝙱𝙴 𝙴𝚂𝚃𝙾𝚂 𝙲𝙾𝙼𝙰𝙽𝙳𝙾𝚂 𝚄𝙽𝙾 𝙿𝙾𝚁 𝚄𝙽𝙾:
+### `—◉ 𝐎𝐁𝐓𝐄𝐍𝐄𝐑 𝐎𝐓𝐑𝐎 𝐂𝐎𝐃𝐈𝐆𝐎 𝐐𝐑` <img src="https://github.com/DIEGO-OFC/Shadow-Bot-MD/blob/main/galeria/qrcode_30531084_.png" height="30px">
+
+- DETENER EL BOT DANDO CLICK EN EL SIMBOLO CTROL EN TERMUX MAS LA LETRA Z EN SU TECLADO MOVIL HASTA QUE SALGA ALGO EN VERDE SIMILAR A ELITE-BOT-TERMUX $  
 ```bash
+ESCRIBE LOS SIGUIENTES COMANDOS UNO POR UNO:
 > cd ELITE-BOT
-> rm -rf sessions
+> rm -rf GataBotSession
 > npm start
 ```
 ----
