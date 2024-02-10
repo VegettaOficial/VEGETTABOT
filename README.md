@@ -40,6 +40,21 @@ apt update -y && yes | apt upgrade && pkg install -y bash wget mpv && wget -O - 
 //Una vez hecho estos cambios ejecute los nuevos comandos en Termux
 ```
 
+- #### `🚩𝖠𝖼𝗍𝗂𝗏𝖺𝗋 𝖤𝗇 𝖢𝖺𝗌𝗈 𝖣𝖾 𝖣𝖾𝗍𝖾𝗇𝖾𝗋𝗌𝖾 𝖤𝗇 𝖳𝖾𝗋𝗆𝗎𝗑`
+> 𝙴𝚂𝙲𝚁𝙸𝙱𝙴 𝙴𝚂𝚃𝙾𝚂 𝙲𝙾𝙼𝙰𝙽𝙳𝙾𝚂 𝚄𝙽𝙾 𝙿𝙾𝚁 𝚄𝙽𝙾:
+```bash
+> cd
+> cd CuriosityBot-MD
+> npm start
+```
+
+- #### `🚩 𝖮𝖻𝗍𝖾𝗇𝖾𝗋 𝖮𝗍𝗋𝗈 𝖢𝗈𝖽𝗂𝗀𝗈 𝖰𝖱`
+> 𝙴𝚂𝙲𝚁𝙸𝙱𝙴 𝙴𝚂𝚃𝙾𝚂 𝙲𝙾𝙼𝙰𝙽𝙳𝙾𝚂 𝚄𝙽𝙾 𝙿𝙾𝚁 𝚄𝙽𝙾:
+```bash
+> cd CuriosityBot-MD
+> rm -rf sessions
+> npm start
+```
 ----
 ### 🌎 ELITE BOT TERMUX 24/7
 > Debe ya estar vinculado con el código QR, despues poner en la consola del termux (CONTROL + Z) enter y despues escribir (cd ELITE-BOT) ⬅️ REPOSITORIO, después enter y poner el siguiente comando ⬇️
