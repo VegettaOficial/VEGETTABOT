@@ -43,6 +43,7 @@ apt update -y && yes | apt upgrade && pkg install -y bash wget mpv && wget -O - 
 ### `—◉ ☑️ ACTIVAR EN CASO DE APAGARSE EN TERMUX ☑️`
 ```bash
 ESCRIBE LOS SIGUIENTES COMANDOS UNO POR UNO:
+> cd
 > cd ELITE-BOT
 > npm start
 ```
