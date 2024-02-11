@@ -11,7 +11,7 @@ let handler = async (m, {
     if (a[12]) throw "Too many options, Format\n" + usedPrefix + command + " hello |si|no"
     // Check for duplicate options in the poll.
     if (checkDuplicate(a)) throw "Duplicate options in the message!"
-    let cap = "*Polling Request By* " + m.name + "\n*Message:* " + text.split("|")[0]
+    let cap = "*ENCUESTA REALIZADA POR:* " + m.name + "\n*Mensaje:* " + text.split("|")[0]
 
    
     const pollMessage = {
