@@ -26,9 +26,15 @@ let handler = async (m, {
     })
 }
 
-handler.help = ["poll question|option|option"]
-handler.tags = ["group"]
-handler.command = /^encues(l((l?ing|ls)|l)|ta?)$/i
+//handler.help = ["poll question|option|option"]
+//handler.tags = ["group"]
+//handler.command = /^encues(l((l?ing|ls)|l)|ta?)$/i
+
+handler.help = ['encuesta <Horas>']
+handler.tags = ['owner']
+handler.command = /^(encuesta|encuestas)$/i
+export default handler
+
 
 export default handler
 
