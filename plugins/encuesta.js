@@ -26,7 +26,7 @@ let handler = async (m, {
     })
 }
 
-handler.help = ["poll question option|option"]
+handler.help = ["poll question |option|option"]
 handler.tags = ["group"]
 handler.command = /^(encuesta)$/i
 
