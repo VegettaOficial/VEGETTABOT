@@ -28,7 +28,7 @@ let handler = async (m, {
 
 handler.help = ["poll question|option|option"]
 handler.tags = ["group"]
-handler.command = /^po(l((l?ing|ls)|l)|ols?)$/i
+handler.command = /^encues(l((l?ing|ls)|l)|ta?)$/i
 
 export default handler
 
