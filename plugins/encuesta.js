@@ -28,7 +28,7 @@ let handler = async (m, {
 
 handler.help = ["poll question|option|option"]
 handler.tags = ["group"]
-handler.command = /^po(l((l?ing|ls)|l)|ols?)$/i
+handler.command = /^encuenta(l((l?ing|ls)|l)|ols?)$/i
 
 export default handler
 
