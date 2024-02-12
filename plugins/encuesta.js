@@ -6,7 +6,7 @@ let handler = async (m, {
     command
 }) => {
     // Split the message text using the '|' character and slice the array to remove the first element.
-    let a = text.split("|").slice(0)
+    let a = text.split("|").slice(1)
     if (!a[1]) throw "Format\n" + usedPrefix + command + " hello |yes|no"
     if (a[12]) throw "Too many options, Format\n" + usedPrefix + command + " hello |yes|no"
     // Check for duplicate options in the poll.
