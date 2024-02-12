@@ -5,7 +5,7 @@ let handler = async (m, {
     args,
     command
 }) => {
-    let question = text.replace('EBG').trim()
+    let question = text.replace(/:.*/,'').trim()
     if (!question) {
         throw "𝘗𝘰𝘳 𝘧𝘢𝘷𝘰𝘳, 𝘩𝘢𝘻 𝘶𝘯𝘢 𝘱𝘳𝘦𝘨𝘶𝘯𝘵𝘢 𝘱𝘢𝘳𝘢 𝘭𝘢 𝘦𝘯𝘤𝘶𝘦𝘴𝘵𝘢. ✌🏻"
     }
