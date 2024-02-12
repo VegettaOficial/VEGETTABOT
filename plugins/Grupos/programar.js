@@ -37,6 +37,7 @@ let handler = async (m, { conn, isAdmin, isOwner, args, usedPrefix, command }) =
   handler.tags = ['group'];
   handler.command = /^programar$/i;
   handler.botAdmin = true;
+  handler.admin = true;
   handler.group = true;
 
   export default handler;
