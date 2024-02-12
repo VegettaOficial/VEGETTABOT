@@ -5,7 +5,7 @@ let handler = async (m, { conn, isAdmin, isOwner, args, usedPrefix, command }) =
     }
 
     if (!args[0]) {
-      m.reply(`Formato incorrecto.\nEjemplo de uso:\n${usedPrefix + command} 6AM|7AM|7n\nAbrir|cerrar|dias`);
+      m.reply(`Formato incorrecto.\nEjemplo de uso:\n${usedPrefix + command} 6AM|7AM|7\nAbrir|cerrar|dias`);
       throw false;
     }
 
