@@ -5,9 +5,9 @@ let handler = async (m, {
     args,
     command
 }) => {
-    let question = text.replace(/:.*/,'').trim()
+    let question = text.replace(/:.*/,'EBG').trim()
     if (!question) {
-        throw "Por favor, haz una pregunta para la encuesta"
+        throw "𝘗𝘰𝘳 𝘧𝘢𝘷𝘰𝘳, 𝘩𝘢𝘻 𝘶𝘯𝘢 𝘱𝘳𝘦𝘨𝘶𝘯𝘵𝘢 𝘱𝘢𝘳𝘢 𝘭𝘢 𝘦𝘯𝘤𝘶𝘦𝘴𝘵𝘢. ✌🏻"
     }
 
     const pollMessage = {
