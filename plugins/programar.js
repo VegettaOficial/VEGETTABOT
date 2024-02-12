@@ -5,14 +5,14 @@ let handler = async (m, { conn, isAdmin, isOwner, args, usedPrefix, command }) =
     }
 
     if (!args[0]) {
-      m.reply(`No hay suficientes argumentos. Ejemplo de uso: ${usedPrefix + command} 6AM|7AM|7`);
+      m.reply(`Formato incorrecto.\nEjemplo de uso:\n${usedPrefix + command} 6AM|7AM|7\Abrir|cerrar|dias`);
       throw false;
     }
 
     let [horaApertura, horaCierre, dias] = args[0].split('|').map(e => e.trim());
 
     if (!horaApertura || !horaCierre || !dias || isNaN(dias)) {
-      m.reply(`Formato incorrecto. Ejemplo de uso: ${usedPrefix + command} 6AM|7AM|7`);
+      m.reply(`Formato incorrecto.\nEjemplo de uso:\n${usedPrefix + command} 6AM|7AM|7\Abrir|cerrar|dias`);
       throw false;
     }
 
