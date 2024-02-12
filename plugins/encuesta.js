@@ -12,7 +12,7 @@ let handler = async (m, {
 
     const pollMessage = {
         name: question,
-        values: ["Sí", "No"],
+        values: ["Confirmo", "Negado"],
         multiselect: false,
         selectableCount: 1
     }
