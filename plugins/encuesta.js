@@ -7,8 +7,8 @@ let handler = async (m, {
 }) => {
     // Split the message text using the '|' character and slice the array to remove the first element.
     let a = text.split("|").slice(1)
-    if (!a[1]) throw "Error\n" + usedPrefix + command + " Quieren pizza|si|no"
-    if (a[12]) throw "Error\n" + usedPrefix + command + " Quieren pizza|si|no"
+    if (!a[1]) throw "Ejemplo de uso\n" + usedPrefix + command + " Quieren pizza|si|no"
+    if (a[12]) throw "Ejemplo de uso\n" + usedPrefix + command + " Quieren pizza|si|no"
     // Check for duplicate options in the poll.
     if (checkDuplicate(a)) throw "Duplicate options in the message!"
     let cap = "*Encuesta hecha por:* " + m.name + "\n*Mensaje:* " + text.split("|")[0]
