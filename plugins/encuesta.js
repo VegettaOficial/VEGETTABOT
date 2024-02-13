@@ -1,18 +1,20 @@
-
 let handler = async (m, {
     conn,
     text,
     args,
-    command
+    command,
+    sender
 }) => {
+
     let question = text.replace(/:.*/,'').trim()
     if (!question) {
-        throw "𝘗𝘰𝘳 𝘧𝘢𝘷𝘰𝘳, 𝘩𝘢𝘻 𝘶𝘯𝘢 𝘱𝘳𝘦𝘨𝘶𝘯𝘵𝘢 𝘱𝘢𝘳𝘢 𝘭𝘢 𝘦𝘯𝘤𝘶𝘦𝘴𝘵𝘢. ✌🏻"
+        throw "Por favor, haz una pregunta para la encuesta"
     }
-
+let who = m.quoted ? m.quoted.sender : m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
+let cap = `*Encuesta hecha por:* @${who.split('@')[0]}*\n*Mensaje:* ${text}`
     const pollMessage = {
-        name: question,
-        values: ["si", "no"],
+        name: cap,
+        values: ["Sí", "No"],
         multiselect: false,
         selectableCount: 1
     }
