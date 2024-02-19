@@ -20,14 +20,7 @@ const handler = async (m, {conn, command, participants, usedPrefix, text}) => {
       await conn.reply(group, `*╔══❰ 𝐂𝐎𝐌𝐔𝐍𝐈𝐂𝐀𝐃𝐎 ❱══╗*\n\n` + teks4, {mentions: usersTag2}, {quoted: fkontak});
     }, delay);
   }
-  for (const user of chats2) {
-    await new Promise((resolve) => setTimeout(resolve, 2000)); // 2 segundos
-    await conn.reply(user, `*╔══❰ 𝐂𝐎𝐌𝐔𝐍𝐈𝐂𝐀𝐃𝐎 ❱══╗*\n\n` + teks4, fkontak, null);
-    totalPri2++;
-    if (totalPri2 >= 500000) {
-      break;
-    }
-  }
+
   const end2 = new Date().getTime();
   const totalPrivate2 = chats2.length;
   const totalGroups2 = groups2.length;
