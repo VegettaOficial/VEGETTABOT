@@ -2,14 +2,16 @@ let handler = async (m, { isPrems, conn }) => {
 let time = global.db.data.users[m.sender].lastcofre + 0 // 36000000 10 Horas //86400000 24 Horas
 if (new Date - global.db.data.users[m.sender].lastcofre < 0) throw `[❗𝐈𝐍𝐅𝐎❗] 𝚈𝙰 𝚁𝙴𝙲𝙻𝙰𝙼𝙰𝚂𝚃𝙴 𝚃𝚄 𝙲𝙾𝙵𝚁𝙴\𝚗𝚅𝚄𝙴𝙻𝚅𝙴 𝙴𝙽 *${msToTime(time - new Date())}* 𝙿𝙰𝚁𝙰 𝚅𝙾𝙻𝚅𝙴𝚁 𝙰 𝚁𝙴𝙲𝙻𝙰𝙼𝙰𝚁`
 
-let img = 'https://telegra.ph/file/71c23ae6c6e1fbc899e8e.jpg' 
+let img = 'https://telegra.ph/file/17ffe819abcd884409f3e.jpg' 
 let texto = `📕 ¡LA #AGENDASEMANAL ESTÁ AQUÍ! 📕
 
-👉 Traemos de TODO para pasar la temporada de #AmorRoyale con Dúo 🤝, como Lobo Solitario 🐺 o en #ElCaos 👹 . 
+Elegancia, poder y #Potencia están por llegar. 👇
 
-🔫 El arsenal del Desconocido llega para liberar tu demonio interior y los nuevos aspectos de febrero aterrizan junto con MUCHOS emotes de temporada ⏩ 🌹💗💔
+🎩 El Cuello de Tortuga Negro vuelve para elevar tu estilo al siguiente nivel.
+💥 MÁS rango, daño y velocidad de disparo te esperan con las poderosas Woodpecker.
+⏫ Potencia regresa con un NUEVO aspecto masculino, emote y MÁS. 
 
-¿Cuál de ellos equiparás para la batalla? 💬
+✨ ¡Regrésalos a todos al lobby con estilo!
 `
 
 const fkontak = {
