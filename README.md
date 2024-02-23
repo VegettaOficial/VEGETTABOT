@@ -9,7 +9,7 @@
 </p>
 </div>
 
-### 🌟 (OPCIÓN 1) INSTALACIÓN AUTOMÁTICA 🫰
+### 🌟 (OPCIÓN 1) INSTALACIÓN AUTOMÁTICA 👑
 [![blog](https://img.shields.io/badge/Instalacion-Automatica-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtu.be/ZA7ZKB8Mo9k?si=u6puIzNEQGvJTBZG)
 > **Note** Comandos para instalar de forma automática en Termux  
 ```bash
