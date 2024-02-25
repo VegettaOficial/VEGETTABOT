@@ -1,18 +1,21 @@
-import { pinterest } from '@bochilteam/scraper'
-let handler = async(m, { conn, text, usedPrefix, command }) => {
-if (!text) throw `${mg} 𝙐𝙎𝙀 𝘿𝙀 𝙇𝘼 𝙎𝙄𝙂𝙐𝙄𝙀𝙉𝙏𝙀 𝙈𝘼𝙉𝙀𝙍𝘼\n*${usedPrefix + command} Gata*\n\n𝙐𝙎𝙀 𝙏𝙃𝙀 𝘾𝙊𝙈𝙈𝘼𝙉𝘿 𝙇𝙄𝙆𝙀 𝙏𝙃𝙄𝙎\n*${usedPrefix + command} Cat*` 
-const json = await pinterest(text)
-await conn.sendFile(m.chat, json.getRandom(), 'error.jpg', `
-╰⊱💚⊱ *𝙀́𝙓𝙄𝙏𝙊 | 𝙎𝙐𝘾𝘾𝙀𝙎𝙎* ⊱💚⊱╮`.trim(), m)
-  
-  conn.sendHydrated(m.chat, `💞 𝙍𝙚𝙨𝙪𝙡𝙩𝙖𝙙𝙤 | 𝙍𝙚𝙨𝙪𝙡𝙩: ${text}`, `𝙋𝙞𝙣𝙩𝙚𝙧𝙚𝙨𝙩 | ${wm}`, null, md, '𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿', null, null, [
-['🔄 𝙎𝙞𝙜𝙪𝙞𝙚𝙣𝙩𝙚 | 𝙉𝙚𝙭𝙩', `/pinterest ${text}`],
-['🔍 𝙂𝙤𝙤𝙜𝙡𝙚 ', `#image ${text}`],
-['🐈 𝙈𝙚𝙣𝙪', `.menu`],  
-], m)
-                    }
-handler.help = ['pinterest <keyword>']
-handler.tags = ['internet']
-handler.command = /^(pinterest|dlpinterest|pinterestdl)$/i
-handler.exp = 25
+import { spin } from '../lib/scrape.js'
+
+let handler = async (m, { conn, args, usedPrefix, command }) => {
+
+    if (!args[0]) throw `**Este comando para descargar videos de pinterest con enlace*\n\nejemplo:\n${usedPrefix + command} https://id.pinterest.com/pin/27162403992537372/*`
+    if (!args[0].match(/https:\/\/.*pinterest.com\/pin|pin.it/gi)) throw `*¡Enlace incorrecto! Este comando para descargar videos de pinterest con enlace*\n\nejemplo:\n${usedPrefix + command} https://id.pinterest.com/pin/27162403992537372/*`
+    await spin(args[0]).then(async res => {
+        let pin = JSON.stringify(res)
+        let json = JSON.parse(pin)
+        if (!json.status) throw `No se puede descargar`
+        await conn.sendButton(m.chat, json.data.url, `*Mythia Batford*`, m)
+    })
+
+}
+handler.help = ['pinterestvideo'].map(v => v + ' <url>')
+handler.tags = ['downloader']
+handler.command = /^pinterestvideo$/i
+
+handler.limit = true
+
 export default handler
