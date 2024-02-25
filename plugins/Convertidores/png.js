@@ -5,7 +5,7 @@ let handler = async (m, { conn }) => {
             return await conn.reply(m.chat, 'Debes responder a una imagen para convertirla a PNG.', m);
         }
 
-        // Descargar la imagen
+        // Descargar la imagenn
         let imageBuffer = await conn.downloadMediaMessage(m.quoted);
 
         // Convertir a base64 y agregar encabezado de datos PNG
