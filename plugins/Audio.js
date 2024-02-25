@@ -110,7 +110,7 @@ Error`, edit: key}, {quoted: m});
 }};
 handler.help = ['audio <url>']
 handler.tags = ['dl']
-handler.command = /^(kevin))$/i;
+handler.command = /^(audio|txmp3|dlmp3|kev|getaud|yt(a|mp3))$/i;
 export default handler
 
 const getBuffer = async (url, options) => {
