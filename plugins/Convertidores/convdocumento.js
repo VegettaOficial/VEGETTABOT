@@ -25,6 +25,6 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
 
 handler.help = ['convdocumento <audio/video>']
 handler.tags = ['tools']
-handler.command = ['convdocumento']
+handler.command = ['documento']
 
 export default handler
