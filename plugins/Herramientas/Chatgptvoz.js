@@ -115,14 +115,14 @@ const audio10 = await tts(akuariapiresult1.text, idioma);
 await conn.sendMessage(m.chat, {audio: audio10, fileName: 'error.mp3', mimetype: 'audio/mpeg', ptt: true}, {quoted: m});                           
 } catch {
 }}}}}}}}}}}
-handler.command = /^(openaivoz|chatgptvoz|iavoz|alexavoz|robotvoz|openai2voz|chatgpt2voz|ia2voz|robot2voz|Mysticvoz|MysticBotvoz|gptvoz|ai_voz|ai_voce)$/i;
+handler.command = /^(openaivoz|chatgptvoz|iavoz|aivoice|robotvoz|openai2voz|chatgpt2voz|ia2voz|robot2voz)$/i;
 export default handler;
 
 async function tts(text = 'error', lang = 'es') {
 return new Promise((resolve, reject) => {
 try {
 const tts = gtts(lang);
-const filePath = join(global.__dirname(import.meta.url), '../../tmp', (1 * new Date) + '.wav');
+const filePath = join(global.__dirname(import.meta.url), '../tmp', (1 * new Date) + '.wav');
 tts.save(filePath, text, () => {
 resolve(readFileSync(filePath));
 unlinkSync(filePath);
@@ -131,5 +131,4 @@ unlinkSync(filePath);
 reject(e);
 }
 });
-    }
-                         
+}
