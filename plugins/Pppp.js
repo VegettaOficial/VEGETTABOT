@@ -5,7 +5,7 @@ import { join } from 'path'
 let handler = async function (m, { conn, __dirname }) {
     const pp = './src/avatar_contact.png'
     let _package = JSON.parse(await promises.readFile(join(__dirname, '../package.json')).catch(_ => ({}))) || {}
-    const { self, autoread , restrict, antiPrivate, antiSpam} = global.db.data.settings[conn.user.jid] || {}
+    const { self, autoread , restrict, antiPrivate, antiSpam, welcome} = global.db.data.settings[conn.user.jid] || {}
     let text = `
 *PERFIL DEL BOT*
 
@@ -18,6 +18,7 @@ let handler = async function (m, { conn, __dirname }) {
  ${restrict ? '✅' : '❎'} Restrict
  ${antiPrivate ? '✅' : '❎'} Antiprivado
  ${antiSpam ? '✅' : '❎'} AntiSpam
+ ${welcome ? '✅' : '❎'} Bienvenida y despedida 
 
  *Informacion:*
 
