@@ -21,8 +21,8 @@ let handler = async function (m, { conn, __dirname }) {
 
  *Informacion:*
 
- *Creador:* ${_package.creator}
- *Numero del creador:* ${_package.creatornumero}
+ *Creador:* Jeffo
+ *Numero del creador:* +593993370003
 
 `.trim()
     conn.sendFile(m.chat, pp, 'pp.jpg', text, m)
