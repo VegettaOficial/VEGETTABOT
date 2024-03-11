@@ -1,5 +1,3 @@
-
-
 //import db from '../lib/database.js'
 import { promises } from 'fs'
 import { join } from 'path'
@@ -20,7 +18,7 @@ let handler = async function (m, { conn, __dirname }) {
  ${restrict ? '✅' : '❎'} Restricciones
  ${antiPrivate ? '✅' : '❎'} Antiprivado
  ${antiSpam ? '✅' : '❎'} AntiSpam
- ${welcome ? '✅ 𝗙𝗨𝗡𝗖𝗜𝗢𝗡 𝗔𝗖𝗧𝗜𝗩𝗔𝗗𝗔' : '❎  𝗙𝗨𝗡𝗖𝗜𝗢𝗡 𝗗𝗘𝗦𝗔𝗖𝗧𝗜𝗩𝗔𝗗𝗔'} | welcome 
+ ${welcome ? '✅' : '❎'} Bienvenida
 
  *Informacion:*
 
