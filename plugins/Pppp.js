@@ -18,7 +18,6 @@ let handler = async function (m, { conn, __dirname }) {
  ${restrict ? '✅' : '❎'} Restrict
  ${antiPrivate ? '✅' : '❎'} Antiprivado
  ${antiSpam ? '✅' : '❎'} AntiSpam
- ${modoia ? '✅' : '❎'} Bienvenidas y despedidas 
 
  *Informacion:*
 
