@@ -18,7 +18,7 @@ let handler = async function (m, { conn, __dirname }) {
  ${restrict ? '✅' : '❎'} Restrict
  ${antiPrivate ? '✅' : '❎'} Antiprivado
  ${antiSpam ? '✅' : '❎'} AntiSpam
- ${welcome ? '✅' : '❎'} Bienvenida y despedida 
+ ${welcome ? '✅ 𝗙𝗨𝗡𝗖𝗜𝗢𝗡 𝗔𝗖𝗧𝗜𝗩𝗔𝗗𝗔' : '❎  𝗙𝗨𝗡𝗖𝗜𝗢𝗡 𝗗𝗘𝗦𝗔𝗖𝗧𝗜𝗩𝗔𝗗𝗔'} | welcome 
 
  *Informacion:*
 
