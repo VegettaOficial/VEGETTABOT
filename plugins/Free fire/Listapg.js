@@ -1,6 +1,6 @@
 var handler = async (m, { conn, participants, groupMetadata, args, text }) => {
 
-const pp = './src/4vs4clk.png'
+const pp = './src/porn.png'
 const groupAdmins = participants.filter(p => p.admin)
 const listaAdmins = groupAdmins.map((v, i) => ``).join('\n')
 const owner = groupMetadata.owner || groupAdmins.find(p => p.admin === 'superadmin')?.id || m.chat.split`-`[0] + '@s.whatsapp.net'
@@ -12,7 +12,7 @@ let texto = `╭──────⚔──────╮
    4𝗩𝗦4 INFINITO 
 ╰──────⚔──────╯
 
-🕓 𝗛𝗢𝗥𝗔:
+${yo}
 📑 𝗥𝗘𝗚𝗟𝗔𝗦: 𝗡𝗨𝗘𝗦𝗧𝗥𝗔𝗦 
 
 ╭─────────────╮
@@ -34,7 +34,7 @@ conn.sendFile(m.chat, pp, 'error.jpg', texto, m, false, { mentions: [...groupAdm
 }
 handler.help = ['admins']
 handler.tags = ['grupo']
-handler.command = /^(pg)$/i
+handler.command = /^(listapgnuestra)$/i
 handler.group = true
 
 export default handler
