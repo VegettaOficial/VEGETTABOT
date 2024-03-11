@@ -1,36 +1,50 @@
 //import db from '../lib/database.js'
-import { promises } from 'fs'
-import { join } from 'path'
 
-let handler = async function (m, { conn, __dirname }) {
-    const pp = './src/avatar_contact.png'
-    let _package = JSON.parse(await promises.readFile(join(__dirname, '../package.json')).catch(_ => ({}))) || {}
-    const { self, autoread , restrict, antiPrivate, welcome, sWelcome, antiSpam} = global.db.data.settings[conn.user.jid] || {}
+let handler = async (m, { conn, participants, groupMetadata }) => {
+    const pp = await conn.profilePictureUrl(m.chat, 'image').catch(_ => null) || './src/avatar_contact.png'
+    const { isBanned, welcome, detect, sWelcome, sBye, sPromote, sDemote, antiLink, antitoxic, modoadmin, antiLink2, onlyLatinos, nsfw, delete: del } = global.db.data.chats[m.chat]
+    const groupAdmins = participants.filter(p => p.admin)
+    const listAdmin = groupAdmins.map((v, i) => `${i + 1}. @${v.id.split('@')[0]}`).join('\n')
+    const owner = groupMetadata.owner || groupAdmins.find(p => p.admin === 'superadmin')?.id || m.chat.split`-`[0] + '@s.whatsapp.net'
     let text = `
-*PERFIL DEL BOT*
-
-*Version:* ${_package.version}
-
-*Configuración:*
-
- ${self ? '✅' : '❎'} Self
- ${autoread ? '✅' : '❎'} Autoread
- ${restrict ? '✅' : '❎'} Restricciones
- ${antiPrivate ? '✅' : '❎'} Antiprivado
- ${antiSpam ? '✅' : '❎'} AntiSpam
+*INFO DE GRUPO*
+*ID:*
+    ${groupMetadata.id}
+*Nombre* : 
+ ${groupMetadata.subject}
+*Miembros*:
+ ${participants.length}
+*Dueño de Grupo:*
+ @${owner.split('@')[0]}
+*Admins:*
+ ${listAdmin}
+*Configuración de grupo:*
+ ${isBanned ? '✅' : '❎'} Baneado
  ${welcome ? '✅' : '❎'} Bienvenida
+ ${detect ? '✅' : '❎'} Detector
+ ${del ? '❎' : '✅'} Anti Delete
+ ${antiLink ? '✅' : '❎'} Anti Link WhatsApp
+ ${antiLink2 ? '✅' : '❎'} Anti Link Multi plataformas
+ ${antitoxic ? '❎' : '✅'} Anti Toxic
+ ${modoadmin ? '✅' : '❎'} Modoadmin
+ ${nsfw ? '✅' : '❎'} Modo adulto (nsfw)
+ ${onlyLatinos ? '✅' : '❎'} Modo latinos
 
- *Informacion:*
 
- *Creador:* ${_package.creator}
- *Numero del creador:* ${_package.creatornumero}
+*Configuración de mensajes:*
+ Bienvenida: ${sWelcome}
+ Despedida: ${sBye}
+ Promovidos: ${sPromote}
+ Degradados: ${sDemote}
 
+*Descripción*:
+   • ${groupMetadata.desc?.toString() || 'desconocido'}
 `.trim()
-    conn.sendFile(m.chat, pp, 'pp.jpg', text, m)
+    conn.sendFile(m.chat, pp, 'pp.jpg', text, m, false, { mentions: [...groupAdmins.map(v => v.id), owner] })
 }
 
-handler.help = ['infobot']
-handler.tags = ['main']
+handler.help = ['infogp']
+handler.tags = ['group']
 handler.command = ['infobot'] 
 handler.group = true
 
