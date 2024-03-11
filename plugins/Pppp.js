@@ -15,9 +15,10 @@ let handler = async function (m, { conn, __dirname }) {
 
  ${self ? '✅' : '❎'} Self
  ${autoread ? '✅' : '❎'} Autoread
- ${restrict ? '✅' : '❎'} Restricciones
+ ${restrict ? '✅' : '❎'} Restrict
  ${antiPrivate ? '✅' : '❎'} Antiprivado
  ${antiSpam ? '✅' : '❎'} AntiSpam
+ ${welcome ? '✅' : '❎'} Bienvenidas y despedidas 
 
  *Informacion:*
 
