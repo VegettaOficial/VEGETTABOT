@@ -20,7 +20,7 @@ if (!text) throw`️${lenguajeGB['smsAvisoMG']()}${mid.smsMalused7}\n${usedPrefi
   conn.sendMessage(m.chat, {image: {url: img}, caption: ads + res}, {quoted: m});
 };
 handler.command = ['cuevana', 'pelisplus'];
-handler.level = 2
+handler.level = 0
 export default handler;
 
 const safeLoad = async (url, options = {}) => {
