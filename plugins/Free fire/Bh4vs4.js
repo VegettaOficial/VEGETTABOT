@@ -4,39 +4,32 @@ global.dfail('Admin', m, conn)
 throw false
 }
 let pesan = args.join` `
-let oi = `👸🏻 *VERSUS FEMENINO* 👸🏻  ${pesan}`
+let oi = `${pesan}`
 let teks = `${oi}\n`
-teks += `HORA: 🇲🇽  🇨🇴
-MODALIDAD:
-4vs4 
-Jugadoras :
+teks += `╭──────⚔──────╮
+   4𝗩𝗦4 INFINITO 
+╰──────⚔──────╯
 
-🧚🏻‍♀️ 
+🕓 𝗛𝗢𝗥𝗔:
+📑 𝗥𝗘𝗚𝗟𝗔𝗦: 
 
-🧚🏻‍♀️  
-
-🧚🏻‍♀️
-
-🧚🏻‍♀️  
-
-Suplentes 
-
-🧚🏻‍♂️
-
-🧚🏻‍♂️
-
-Donadoras de salas
-
-🧜🏻‍♀️
-
-NOTA: SI NO PUEDEN ASISTIR AL VS AVISAR 1 HORA ANTES PARA REEMPLAZAR O SERAN SANCIONADOS.
-
-  *🦋DE NO AVISAR 3 VECES Q COMETA ESTA FALTA SERA EXPULSADA.*
-
+╭─────────────╮
+│ 𝗘𝗦𝗖𝗨𝗔𝗗𝗥𝗔 
+│🧚🏻‍♀️ ➤ 
+│🧚🏻‍♀️ ➤  
+│🧚🏻‍♀️ ➤ 
+│🧚🏻‍♀️ ➤ 
+╰─────────────╯
+╭─────────────╮
+│ 𝗦𝗨𝗣𝗟𝗘𝗡𝗧𝗘𝗦 
+│🧚🏻‍♀️ ➤  
+│🧚🏻‍♀️ ➤ 
+╰─────────────╯
+  
 `
 conn.sendMessage(m.chat, { text: teks, mentions: participants.map(a => a.id) }, )
 }
 handler.help = ['smsf20 <mesaje>','fem20 <mesaje>']
 handler.tags = ['group']
-handler.command = /^(4vs4bh)$/i
+handler.command = /^(listapg)$/i
 export default handler
