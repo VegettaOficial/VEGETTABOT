@@ -1,51 +1,35 @@
-//import db from '../lib/database.js'
+import MessageType from '@whiskeysockets/baileys'
+import { generateWAMessageFromContent } from '@whiskeysockets/baileys'
 
-let handler = async (m, { conn, participants, groupMetadata }) => {
-    const pp = await conn.profilePictureUrl(m.chat, 'image').catch(_ => null) || './src/avatar_contact.png'
-    const { isBanned, welcome, detect, sWelcome, sBye, sPromote, sDemote, antiLink, antitoxic, modoadmin, antiLink2, onlyLatinos, nsfw, delete: del } = global.db.data.chats[m.chat]
-    const groupAdmins = participants.filter(p => p.admin)
-    const listAdmin = groupAdmins.map((v, i) => `${i + 1}. @${v.id.split('@')[0]}`).join('\n')
-    const owner = groupMetadata.owner || groupAdmins.find(p => p.admin === 'superadmin')?.id || m.chat.split`-`[0] + '@s.whatsapp.net'
-    let text = `
-*INFO DE GRUPO*
-*ID:*
-    ${groupMetadata.id}
-*Nombre* : 
- ${groupMetadata.subject}
-*Miembros*:
- ${participants.length}
-*Dueño de Grupo:*
- @${owner.split('@')[0]}
-*Admins:*
- ${listAdmin}
-*Configuración de grupo:*
- ${isBanned ? '✅' : '❎'} Baneado
- ${welcome ? '✅' : '❎'} Bienvenida
- ${detect ? '✅' : '❎'} Detector
- ${del ? '❎' : '✅'} Anti Delete
- ${antiLink ? '✅' : '❎'} Anti Link WhatsApp
- ${antiLink2 ? '✅' : '❎'} Anti Link Multi plataformas
- ${antitoxic ? '❎' : '✅'} Anti Toxic
- ${modoadmin ? '✅' : '❎'} Modoadmin
- ${nsfw ? '✅' : '❎'} Modo adulto (nsfw)
- ${onlyLatinos ? '✅' : '❎'} Modo latinos
+let handler = async (m, { conn, text, participants }) => {
+  let users = participants.map(u => conn.decodeJid(u.id))
+  let q = m.quoted ? m.quoted : m
+  let c = m.quoted ? m.quoted : m.msg
 
+  let content = {
+    [c.mtype]: c.toJSON()
+  }
 
-*Configuración de mensajes:*
- Bienvenida: ${sWelcome}
- Despedida: ${sBye}
- Promovidos: ${sPromote}
- Degradados: ${sDemote}
+  if (c.msgType === MessageType.extendedText || c.msgType === MessageType.text) {
+    content = {
+      extendedTextMessage: {
+        text: c.text
+      }
+    }
+  }
 
-*Descripción*:
-   • ${groupMetadata.desc?.toString() || 'desconocido'}
-`.trim()
-    conn.sendFile(m.chat, pp, 'pp.jpg', text, m, false, { mentions: [...groupAdmins.map(v => v.id), owner] })
+  const msg = conn.cMod(m.chat, generateWAMessageFromContent(m.chat, content, {
+    quoted: m,
+    userJid: conn.user.id
+  }), text || q.text, conn.user.jid, { mentions: users })
+
+  await conn.relayMessage(m.chat, msg.message, { messageId: msg.key.id })
 }
 
-handler.help = ['infogp']
+handler.help = ['mencionar']
 handler.tags = ['group']
-handler.command = ['infobot'] 
+handler.command = ['men', 'notify']
 handler.group = true
+handler.admin = true
 
 export default handler
