@@ -28,7 +28,7 @@ let handler = async (m, { conn, text, participants }) => {
 
 handler.help = ['mencionar']
 handler.tags = ['group']
-handler.command = ['men', 'notify']
+handler.command = ['men', '']
 handler.group = true
 handler.admin = true
 
