@@ -31,7 +31,7 @@ ${storytime.text}`, m);
   }
 };
 handler.tags = ['frases'];
-handler.command = handler.help = ['consejo', 'fraseromantica', 'historiaromantica'];
+handler.command = handler.help = ['consejo', 'fraseromantica'];
 export default handler;
 
 async function cerpen(category) {
