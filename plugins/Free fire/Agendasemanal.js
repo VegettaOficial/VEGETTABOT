@@ -5,13 +5,17 @@ if (new Date - global.db.data.users[m.sender].lastcofre < 0) throw `[❗𝐈𝐍
 let img = 'https://telegra.ph/file/daf0bc0fc3c1e4c471c5c.jpg' 
 let texto = `📕 ¡LA #AGENDASEMANAL ESTÁ AQUÍ! 📕
 
-Elegancia, poder y #Potencia están por llegar. 👇
+📢 Abran paso al REY 👑 Pelea por la corona con una nueva barba para tomar el trono del emote Máquina del Tesoro Imperial. 
 
-🎩 El Cuello de Tortuga Negro vuelve para elevar tu estilo al siguiente nivel.
-💥 MÁS rango, daño y velocidad de disparo te esperan con las poderosas Woodpecker.
-⏫ Potencia regresa con un NUEVO aspecto masculino, emote y MÁS. 
+🔨 También adueñarte del Whac-A-Mole y no olvides comer frutas y verduras con el regreso de una MP5 peligrosa. 🐰🥕
 
-✨ ¡Regrésalos a todos al lobby con estilo!
+¿Listo para reinar Bermuda? 
+#CelebraciónDePascua
+
+
+
+
+
 `
 
 const fkontak = {
