@@ -16,9 +16,9 @@ const handler = async (m, {conn, args: [effect], text: txt, usedPrefix, command,
    if (typeof res == 'number') throw res == -1 ? `*[❗𝐈𝐍𝐅𝐎❗] 𝙴𝙻 𝙴𝙵𝙴𝙲𝚃𝙾 ${effect} 𝙽𝙾 𝙴𝚂𝚃𝙰 𝙴𝙽 𝙻𝙰 𝙻𝙸𝚂𝚃𝙰 𝙳𝙴 𝙴𝙵𝙴𝙲𝚃𝙾𝚂*` : `*[❗𝐈𝐍𝐅𝐎❗] 𝙴𝙻 𝚄𝚂𝙾 𝙲𝙾𝚁𝚁𝙴𝙲𝚃𝙾 𝙳𝙴𝙻 𝙲𝙾𝙼𝙰𝙽𝙳𝙾 𝙴𝚂 ${usedPrefix + command} ${effect} ${new Array(res).fill('texto').map((v, i) => v + (i ? i + 1 : '')).join('|')}*`;
   await conn.sendMessage(m.chat, {image: {url: res.image}, caption: `𝙀𝙇𝙄𝙏𝙀 𝘽𝙊𝙏\n𝙀𝙁𝙀𝘾𝙏𝙊 𝙐𝙏𝙄𝙇𝙄𝙕𝘼𝘿𝙊 : *${effect}*`}, {quoted: m});  
 };
-//handler.help = ['logos'];
-//handler.tags = ['nulis'];
-//handler.command = /^(logo)$/i;
+handler.help = ['logos'];
+handler.tags = ['nulis'];
+handler.command = /^(logo)$/i;
 export default handler;
 
 var effects = [
