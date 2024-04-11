@@ -11,7 +11,7 @@ export async function before(m, {isOwner, isROwner}) {
 
 > Serás bloqueado/a
 
-Contáctacte mi creador si quieres comprar Élite Bot Global, no es gratis y no hagas perder el tiempo que paso ocupado haciendo megocios $$.
+Contáctacte mi creador si quieres comprar Élite Bot Global, no es gratis y no hagas perder el tiempo que paso ocupado haciendo negocios $$.
 » Wa.me/593993370003`,
       false,
       {mentions: [m.sender]}
