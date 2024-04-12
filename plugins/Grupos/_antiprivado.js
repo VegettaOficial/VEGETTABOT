@@ -7,11 +7,12 @@ export async function before(m, {isOwner, isROwner}) {
 
   if (bot.antiPrivate && !isOwner && !isROwner) {
     await m.reply(
-      `Hijo de su ... madre no le escribas al bot !!!
+      `Hijo de su ... madre no le escribas a EliteBot !!!
+      Tu número será mandado a soporte por leyes de EBG, en el transcurso de estos días.
 
 > Serás bloqueado/a
 
-Contáctacte mi creador si quieres comprar Élite Bot Global, no es gratis y no hagas perder el tiempo que paso ocupado haciendo negocios $$.
+Contáctacte con mi creador si quieres comprar Élite Bot Global, no es gratis.
 » Wa.me/593993370003`,
       false,
       {mentions: [m.sender]}
