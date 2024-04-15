@@ -1,4 +1,4 @@
-import axios from 'axios'
+/*import axios from 'axios'
 let handler = async(m, { conn, usedPrefix, command }) => {
 let cristiano = (await axios.get(`https://raw.githubusercontent.com/BOTGATITO/BotGatito/master/src/JSON/Tiktokhot.json`)).data  
 let ronaldo = await cristiano[Math.floor(cristiano.length * Math.random())]
@@ -7,4 +7,4 @@ conn.sendFile(m.chat, ronaldo, 'error.jpg', `» 𝙃𝙊𝙏 𝙏𝙄𝙆 𝙏�
 handler.help = ['cristianoronaldo', 'cr7']
 handler.tags = ['internet']
 handler.command = /^(hottiktok|hotstiktok|tiktokhot)$/i
-export default handler
+export default handler*/
