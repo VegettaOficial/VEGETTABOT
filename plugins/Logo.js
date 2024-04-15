@@ -22,8 +22,8 @@ handler.command = /^(tiktokhot)$/i;
 export default handler;
 
 global.tiktokhot = [
- 'https://telegra.ph/file/3fae29ee8a4cc3cca0b39.jpg',
-	'https://telegra.ph/file/4adcd128f450aa182582b.jpg',
+ 'https://telegra.ph/file/7266c4a284d0a2df54589.mp4',
+	'https://telegra.ph/file/40c07f641420a80b0f8cf.mp4',
 
 ];
 
