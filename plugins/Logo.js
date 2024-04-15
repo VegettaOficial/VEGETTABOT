@@ -77,7 +77,7 @@ global.tiktokhot = [
 'https://telegra.ph/file/ac406425eb258a544ef33.jpg',
 'https://telegra.ph/file/bdafea34070578ab78f99.jpg',
 'https://telegra.ph/file/f3066ea047ea65481d85c.jpg',		
-];
+];*/
 
 
 /*global.vegueta = [
@@ -117,4 +117,4 @@ global.tiktokhot = [
 'https://telegra.ph/file/66bf0ed4877f3bb020c8b.jpg',
 'https://telegra.ph/file/1e9ac6af424b703113174.jpg',	
 'https://telegra.ph/file/f57ec36082a2b191f61eb.jpg',
-];
+];*/
