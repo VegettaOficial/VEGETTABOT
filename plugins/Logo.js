@@ -5,7 +5,7 @@ const handler = async (m, {conn, command, usedPrefix}) => {
 		  
     case 'tiktokhot':
       const url = await goku[Math.floor(Math.random() * tiktokhot.length)];
-      conn.sendMessage(m.chat, {image: {url: url}, caption: `» 𝙆𝘼𝙆𝘼𝙍𝙊𝙏𝙊 ☢️`}, {quoted: m});
+      conn.sendMessage(m.chat, {video: {url: url}, caption: `» 𝙆𝘼𝙆𝘼𝙍𝙊𝙏𝙊 ☢️`}, {quoted: m});
       break;
   /*  case 'dragonbz':
       const url2 = await dragonbz[Math.floor(Math.random() * dragonbz.length)];
