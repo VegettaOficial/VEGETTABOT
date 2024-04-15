@@ -1,7 +1,7 @@
 let handler  = async (m, { conn, usedPrefix, command }) => {
 let res = await tiktokhot[Math.floor(Math.random() * tiktokhot.length)]
 await m.react('😈')
-conn.sendMessage(m.chat, { video: { url: res }, caption: `PAJEROO` }, { quoted: m })}
+conn.sendMessage(m.chat, { video: { url: res }, caption: `» 𝙃𝙊𝙏 𝙏𝙄𝙆 𝙏𝙊𝙆 🔥` }, { quoted: m })}
 handler.help = ['tiktokhot']
 handler.tags = ['random']
 handler.command = /^(tiktokhot)$/i
