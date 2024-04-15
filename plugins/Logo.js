@@ -12,5 +12,6 @@ global.tiktokhot = [
   "https://telegra.ph/file/daa050ed7baa88ac2d4b8.mp4",
   "https://telegra.ph/file/ed3117a8ed94cfa96f9b2.mp4",
 "https://telegra.ph/file/cd493e2a01bc573f94638.mp4",
+  "https://telegra.ph/file/f18ec6e0a33f97c3d8710.mp4",
 "https://telegra.ph/file/79816642cc73eb500d2fe.mp4"
 ]
