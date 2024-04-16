@@ -8,10 +8,10 @@ let handler = async (m) => {
   let media = await q.download()
   let isTele = /image\/(png|jpe?g|gif)|video\/mp4/.test(mime)
   let link = await (isTele ? uploadImage : uploadFile)(media)
-  m.reply(`▢ ${media.length} Byte(s) 
+  m.reply(`𝗣𝗘𝗦𝗢 𝗗𝗘𝗟 𝗔𝗥𝗖𝗛𝗜𝗩𝗢 📁\n${media.length} Byte(s) 
 
-• ${isTele ? '(Sin fecha de caducidad)' : '(Desconocido)'} 
-• *URL :* ${link}
+⭐ ${isTele ? '𝖲𝖨𝖭 𝖥𝖤𝖢𝖧𝖠 𝖣𝖤 𝖢𝖠𝖣𝖴𝖢𝖨𝖣𝖠𝖣' : '(Desconocido)'} 
+🌎 𝖫𝖨𝖭𝖪:\n"${link}",
   `)
 }
 handler.help = ['tourl']
