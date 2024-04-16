@@ -11,7 +11,7 @@ export default handler*/
 
 let handler  = async (m, { conn, usedPrefix, command }) => {
 let res = await tiktokmusic[Math.floor(Math.random() * tiktokmusic.length)]
-await m.react('😈')
+await m.react('🎶')
 conn.sendMessage(m.chat, { video: { url: res }, caption: `» 𝙈𝙐𝙎𝙄𝘾 𝙏𝙄𝙆 𝙏𝙊𝙆 🎵` }, { quoted: m })}
 handler.help = ['tiktokmusic']
 handler.tags = ['random']
