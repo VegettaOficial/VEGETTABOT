@@ -1,7 +1,7 @@
 let handler  = async (m, { conn, usedPrefix, command }) => {
 let res = await tiktokfrases[Math.floor(Math.random() * tiktokfrases.length)]
-await m.react('⛱️')
-conn.sendMessage(m.chat, { video: { url: res }, caption: `» 𝙍𝘼𝙉𝘿𝙊𝙈𝙎 𝙏𝙄𝙆 𝙏𝙊𝙆 ⛱️` }, { quoted: m })}
+await m.react('😁')
+conn.sendMessage(m.chat, { video: { url: res }, caption: `» 𝙍𝘼𝙉𝘿𝙊𝙈𝙎 𝙏𝙄𝙆 𝙏𝙊𝙆 😬` }, { quoted: m })}
 handler.help = ['tiktokfrases']
 handler.tags = ['random']
 handler.command = /^(tiktokrandom)$/i
