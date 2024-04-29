@@ -10,6 +10,6 @@ const handler = async (m, {command, conn}) => {
   }
   };
 handler.help = ['puta'];
-handler.command = ['xvideos'];
+//handler.command = ['xvideos'];
 handler.tags = ['nsfw'];
 export default handler;
