@@ -1,83 +1,78 @@
-let handler = async (m, {
-    conn, usedPrefix, participants
-  }) => {
-    conn.level = global.db.data.users[m.sender]
-    conn.fight = conn.fight ? conn.fight : {}
-    const delay = time => new Promise(res => setTimeout(res, time));
-  
-    if (typeof conn.fight[m.sender] != "undefined" && conn.fight[m.sender] == true) return m.reply(`No puedes pelear de nuevo porque ya estás en una pelea.`)
-  
-    let peleando = "https://i.ibb.co/9nNfz7m/OIG1.jpg"
-  
-    let users = participants.map(u => u.id)
-    var oponente
-    oponente = users[Math.floor(users.length * Math.random())]
-    while (typeof global.db.data.users[oponente] == "undefined" || oponente == m.sender) {
-        oponente = users[Math.floor(users.length * Math.random())]
-    }
-  
-    let duracionPelea = getRandom(1, 10)
-    let msg = `*Tú* (nivel ${global.db.data.users[m.sender].level}) desafías a *${conn.getName(oponente)}* (nivel ${global.db.data.users[oponente].level}) y están en medio de una pelea intensa.\n\nEspera ${duracionPelea} minutos más y veremos quién gana.`
-    conn.sendMessage(m.chat, { image: { url: peleando }, caption: msg }, { quoted: m })
-  
-    conn.fight[m.sender] = true
-  
-    await delay(1000 * 60 * duracionPelea)
-  
-    let razonesPerder = ['Novato',
-        'Débil',
-        'Menos habilidoso',
-        'Perdiste por ser débil',
-        'Derrota humillante'
-    ]
-    let razonesGanar = ['Fuerte',
-        'Pro',
-        'Maestro del juego',
-        'Leyenda del juego',
-        'Extremadamente Pro',
-        'Peleador dedicado'
-    ]
-  
-    let oportunidades = []
-    for (let i = 0; i < global.db.data.users[m.sender].level; i++) oportunidades.push(m.sender)
-    for (let i = 0; i < global.db.data.users[oponente].level; i++) oportunidades.push(oponente)
-  
-    let puntosJugador = 0
-    let puntosOponente = 0
-    for (let i = 0; i < 10; i++) {
-        let ventaja = getRandom(0, oportunidades.length - 1)
-        if (oportunidades[ventaja] == m.sender) puntosJugador += 1
-        else puntosOponente += 1
-    }
-  
-    if (puntosJugador > puntosOponente) {
-        let premio = (puntosJugador - puntosOponente) * 10000
-        global.db.data.users[m.sender].dolares += premio
-        global.db.data.users[m.sender].ticket += 1
-        let msg1 = `*${conn.getName(m.sender)}* [${puntosJugador * 10}] - [${puntosOponente * 10}] *${conn.getName(oponente)}*\n\n*Tú* (nivel ${global.db.data.users[m.sender].level}) GANASTE contra *${conn.getName(oponente)}* (nivel ${global.db.data.users[oponente].level}) porque eres ${razonesGanar[getRandom(0, razonesGanar.length - 1)]}\n\nPremio: $${premio.toLocaleString()}\n+1 dolares`
-        conn.sendMessage(m.chat, { image: { url: peleando }, caption: msg1 }, { quoted: m })
-    } else if (puntosJugador < puntosOponente) {
-        let multa = (puntosOponente - puntosJugador) * 100000
-        global.db.data.users[m.sender].dolares -= multa
-        global.db.data.users[m.sender].ticket += 1
-        let msg2 = `*${conn.getName(m.sender)}* [${puntosJugador * 10}] - [${puntosOponente * 10}] *${conn.getName(oponente)}*\n\n*Tú* (nivel ${global.db.data.users[m.sender].level}) PERDISTE contra *${conn.getName(oponente)}* (nivel ${global.db.data.users[oponente].level}) porque eres ${razonesPerder[getRandom(0, razonesPerder.length - 1)]}\n\nTu dinero disminuyó en $${multa.toLocaleString()}\n+1 dolares`
-        conn.sendMessage(m.chat, { image: { url: peleando }, caption: msg2 }, { quoted: m })
-    } else {
-        let msg3 = `*${conn.getName(m.sender)}* [${puntosJugador * 10}] - [${puntosOponente * 10}] *${conn.getName(oponente)}*\n\nLa pelea terminó en empate, ¡no recibes nada! 😂`
-        conn.sendMessage(m.chat, { image: { url: peleando }, caption: msg3 }, { quoted: m })
-    }
-  
-    delete conn.fight[m.sender]
+const handler = async (m, { conn, text }) => {
+  const playerId = m.sender;
+  const duelOutcome = Math.random() < 0.5 ? 'victoria' : 'derrota';
+
+  const playerName = await getPlayerName(playerId);
+  const opponentName = await getOpponentName();
+
+  let resultMessage = '';
+  let earnedMoney = 0;
+  let imageURL = '';
+
+  if (duelOutcome === 'victoria') {
+    const victoryMessages = [
+      `¡Enhorabuena, ${playerName}! Has demostrado tu destreza en el épico duelo vaquero contra ${opponentName}. 🏆`,
+      `La habilidad de ${playerName} en el duelo vaquero no tiene rival. ¡Otro triunfo para ti! 🤠`,
+      `Con valentía y destreza, ${playerName} ha ganado el duelo contra ${opponentName}. ¡Fantástico! 🌟`,
+      `¡Victoria para ${playerName} en el duelo vaquero! Has dejado a ${opponentName} boquiabierto. 🎉`,
+      `El oeste temblará al enterarse de la victoria de ${playerName} sobre ${opponentName}. ¡Increíble duelo! 🌄`,
+      `Bravo, ${playerName} ha emergido victorioso en el polvoriento duelo vaquero contra ${opponentName}. 🤠🔥`,
+      `¡Increíble destreza, ${playerName}! Has ganado el duelo vaquero desafiando a ${opponentName}. 🌵💪`,
+      `La leyenda del oeste crece con la victoria de ${playerName} en el duelo contra ${opponentName}. 🌟🔫`,
+      `¡Triunfo resonante! ${playerName} se erige como el vaquero dominante tras vencer a ${opponentName}. 🏇🎊`,
+      `Con puntería precisa, ${playerName} ha ganado el duelo vaquero frente a ${opponentName}. ¡Espectacular! 🌄🤠`
+    ];
+
+    resultMessage = victoryMessages[Math.floor(Math.random() * victoryMessages.length)];
+
+    // Ganar dinero aleatorio entre 1 y 50
+    earnedMoney = Math.floor(Math.random() * 50) + 1;
+    global.db.data.users[playerId].dolares += earnedMoney;
+
+    // URL de la imagen de ganador
+    imageURL = 'https://telegra.ph/file/7b9479c318cbf61ec671d.jpg';
+  } else {
+    const defeatMessages = [
+      `Lamentablemente, ${playerName}, el duelo te ha llevado a la derrota frente a ${opponentName}. 🤠 ¡Prepárate para la revancha!`,
+      `Parece que ${opponentName} ha superado a ${playerName} en este duelo vaquero. ¿La próxima vez será diferente?`,
+      `Aunque la lucha fue intensa, ${playerName} no logró vencer a ${opponentName} en el duelo vaquero. ¡Inténtalo de nuevo! 💪`,
+      `La sombra de la derrota ha caído sobre ${playerName} en el duelo contra ${opponentName}. ¡No te desanimes, hay más desafíos por delante! 🌅`,
+      `En este duelo vaquero, ${opponentName} se ha llevado la victoria, dejando a ${playerName} con ganas de revancha. 🌵 ¡Ánimo, vaquero!`,
+      `La astucia de ${opponentName} ha superado a ${playerName} en el duelo vaquero. ¡Prepárate para el próximo desafío! 🌄🤠`,
+      `Aunque la victoria escapó esta vez, la leyenda de ${playerName} continúa. ¡La revancha está a la vuelta de la esquina! 🌟🏇`,
+      `El duelo ha sido feroz, pero ${opponentName} emerge como el vaquero victorioso ante ${playerName}. ¡Próximo encuentro será épico! 🔫💔`,
+      `La polvareda se disipa revelando la derrota de ${playerName} ante ${opponentName}. ¡Ánimo, vaquero, el camino sigue adelante! 🌵💨`,
+      `En esta ocasión, ${opponentName} ha demostrado ser el vaquero más fuerte, dejando a ${playerName} con ganas de redención. 🌅🤠`
+    ];
+
+    resultMessage = defeatMessages[Math.floor(Math.random() * defeatMessages.length)];
+
+    // URL de la imagen de perdedor
+    imageURL = 'https://telegra.ph/file/f3b98ff2330302cfcd46e.jpg';
   }
-  handler.help = ['pelear']
-  handler.tags = ['game']
-  handler.command = ['pelea', 'pelear']
-  
-  export default handler;
-  
-  function getRandom(min, max) {
-    min = Math.ceil(min)
-    max = Math.floor(max)
-    return Math.floor(Math.random() * (max - min + 1)) + min
-  }
-  
+
+  const additionalInfo = `\n\n\nGracias por participar 🌵 Si deseas más desafíos, simplemente solicítalos. ${earnedMoney > 0 ? `\n\nHas ganado ${earnedMoney} dólares. 💰` : ''}`;
+
+  const finalMessage = `${resultMessage}\n\n${additionalInfo}`;
+
+  // Enviar mensaje con imagen
+  conn.sendFile(m.chat, imageURL, 'result.jpg', finalMessage, m);
+}
+
+const getPlayerName = async (playerId) => {
+  // Implementa la lógica para obtener el nombre del jugador según su ID.
+  // Por ahora, simplemente devuelve "Vaquero Anónimo".
+  return "Vaquero Anónimo";
+}
+
+const getOpponentName = async () => {
+  // Implementa la lógica para obtener el nombre del oponente.
+  // Por ahora, simplemente devuelve "Rival Misterioso".
+  return "Rival Misterioso";
+}
+
+handler.help = ['duelovaquero'];
+handler.tags = ['game'];
+handler.command = /^duelovaquero$/i;
+
+export default handler;
