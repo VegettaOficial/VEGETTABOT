@@ -1,78 +1,28 @@
-const handler = async (m, { conn, text }) => {
-  const playerId = m.sender;
-  const duelOutcome = Math.random() < 0.5 ? 'victoria' : 'derrota';
+let toM = a => '@' + a.split('@')[0]
+let handler = async (m, { isPrems, conn }) => {
+let time = global.db.data.users[m.sender].lastcofre + 0 // 36000000 10 Horas //86400000 24 Horas
+if (new Date - global.db.data.users[m.sender].lastcofre < 0) throw `[❗𝐈𝐍𝐅𝐎❗] 𝚈𝙰 𝚁𝙴𝙲𝙻𝙰𝙼𝙰𝚂𝚃𝙴 𝚃𝚄 𝙲𝙾𝙵𝚁𝙴\𝚗𝚅𝚄𝙴𝙻𝚅𝙴 𝙴𝙽 *${msToTime(time - new Date())}* 𝙿𝙰𝚁𝙰 𝚅𝙾𝙻𝚅𝙴𝚁 𝙰 𝚁𝙴𝙲𝙻𝙰𝙼𝙰𝚁`
 
-  const playerName = await getPlayerName(playerId);
-  const opponentName = await getOpponentName();
+let img = 'https://telegra.ph/file/da9da8b6f606e8490cfcc.jpg' 
+let texto = `*${toM(a)}, te toca `
 
-  let resultMessage = '';
-  let earnedMoney = 0;
-  let imageURL = '';
-
-  if (duelOutcome === 'victoria') {
-    const victoryMessages = [
-      `¡Enhorabuena, ${playerName}! Has demostrado tu destreza en el épico duelo vaquero contra ${opponentName}. 🏆`,
-      `La habilidad de ${playerName} en el duelo vaquero no tiene rival. ¡Otro triunfo para ti! 🤠`,
-      `Con valentía y destreza, ${playerName} ha ganado el duelo contra ${opponentName}. ¡Fantástico! 🌟`,
-      `¡Victoria para ${playerName} en el duelo vaquero! Has dejado a ${opponentName} boquiabierto. 🎉`,
-      `El oeste temblará al enterarse de la victoria de ${playerName} sobre ${opponentName}. ¡Increíble duelo! 🌄`,
-      `Bravo, ${playerName} ha emergido victorioso en el polvoriento duelo vaquero contra ${opponentName}. 🤠🔥`,
-      `¡Increíble destreza, ${playerName}! Has ganado el duelo vaquero desafiando a ${opponentName}. 🌵💪`,
-      `La leyenda del oeste crece con la victoria de ${playerName} en el duelo contra ${opponentName}. 🌟🔫`,
-      `¡Triunfo resonante! ${playerName} se erige como el vaquero dominante tras vencer a ${opponentName}. 🏇🎊`,
-      `Con puntería precisa, ${playerName} ha ganado el duelo vaquero frente a ${opponentName}. ¡Espectacular! 🌄🤠`
-    ];
-
-    resultMessage = victoryMessages[Math.floor(Math.random() * victoryMessages.length)];
-
-    // Ganar dinero aleatorio entre 1 y 50
-    earnedMoney = Math.floor(Math.random() * 50) + 1;
-    global.db.data.users[playerId].dolares += earnedMoney;
-
-    // URL de la imagen de ganador
-    imageURL = 'https://telegra.ph/file/7b9479c318cbf61ec671d.jpg';
-  } else {
-    const defeatMessages = [
-      `Lamentablemente, ${playerName}, el duelo te ha llevado a la derrota frente a ${opponentName}. 🤠 ¡Prepárate para la revancha!`,
-      `Parece que ${opponentName} ha superado a ${playerName} en este duelo vaquero. ¿La próxima vez será diferente?`,
-      `Aunque la lucha fue intensa, ${playerName} no logró vencer a ${opponentName} en el duelo vaquero. ¡Inténtalo de nuevo! 💪`,
-      `La sombra de la derrota ha caído sobre ${playerName} en el duelo contra ${opponentName}. ¡No te desanimes, hay más desafíos por delante! 🌅`,
-      `En este duelo vaquero, ${opponentName} se ha llevado la victoria, dejando a ${playerName} con ganas de revancha. 🌵 ¡Ánimo, vaquero!`,
-      `La astucia de ${opponentName} ha superado a ${playerName} en el duelo vaquero. ¡Prepárate para el próximo desafío! 🌄🤠`,
-      `Aunque la victoria escapó esta vez, la leyenda de ${playerName} continúa. ¡La revancha está a la vuelta de la esquina! 🌟🏇`,
-      `El duelo ha sido feroz, pero ${opponentName} emerge como el vaquero victorioso ante ${playerName}. ¡Próximo encuentro será épico! 🔫💔`,
-      `La polvareda se disipa revelando la derrota de ${playerName} ante ${opponentName}. ¡Ánimo, vaquero, el camino sigue adelante! 🌵💨`,
-      `En esta ocasión, ${opponentName} ha demostrado ser el vaquero más fuerte, dejando a ${playerName} con ganas de redención. 🌅🤠`
-    ];
-
-    resultMessage = defeatMessages[Math.floor(Math.random() * defeatMessages.length)];
-
-    // URL de la imagen de perdedor
-    imageURL = 'https://telegra.ph/file/f3b98ff2330302cfcd46e.jpg';
-  }
-
-  const additionalInfo = `\n\n\nGracias por participar 🌵 Si deseas más desafíos, simplemente solicítalos. ${earnedMoney > 0 ? `\n\nHas ganado ${earnedMoney} dólares. 💰` : ''}`;
-
-  const finalMessage = `${resultMessage}\n\n${additionalInfo}`;
-
-  // Enviar mensaje con imagen
-  conn.sendFile(m.chat, imageURL, 'result.jpg', finalMessage, m);
+const fkontak = {
+	"key": {
+    "participants":"0@s.whatsapp.net",
+		"remoteJid": "status@broadcast",
+		"fromMe": false,
+		"id": "Halo"
+	},
+	"message": {
+		"contactMessage": {
+			"vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD`
+		}
+	},
+	"participant": "0@s.whatsapp.net"
 }
-
-const getPlayerName = async (playerId) => {
-  // Implementa la lógica para obtener el nombre del jugador según su ID.
-  // Por ahora, simplemente devuelve "Vaquero Anónimo".
-  return "Vaquero Anónimo";
+await conn.sendFile(m.chat, img, 'img.jpg', texto, fkontak)
+global.db.data.users[m.sender].lastcofre = new Date * 1
 }
-
-const getOpponentName = async () => {
-  // Implementa la lógica para obtener el nombre del oponente.
-  // Por ahora, simplemente devuelve "Rival Misterioso".
-  return "Rival Misterioso";
-}
-
-handler.help = ['duelovaquero'];
-handler.tags = ['game'];
-handler.command = /^duelovaquero$/i;
-
-export default handler;
+handler.command = ['bhmap'] 
+handler.register = false 
+export default handler
