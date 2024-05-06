@@ -1,8 +1,14 @@
 import fetch from 'node-fetch';
-import {sticker, addExif} from '../../lib/sticker.js';
+import {sticker, addExif} from '../lib/sticker.js';
 import {Sticker} from 'wa-sticker-formatter';
+
 const handler = async (m, {conn, text, args, usedPrefix, command}) => {
-  if (!text) throw `*[❗] 𝙸𝙽𝙶𝚁𝙴𝚂𝙴 𝚄𝙽 𝚃𝙴𝚇𝚃𝙾*\n\n*—◉ 𝙴𝙹𝙴𝙼𝙿𝙻𝙾:*\n*◉ ${usedPrefix + command} Elite-Bot*`;
+  const datas = global
+  const idioma = datas.db.data.users[m.sender].language
+  const _translate = JSON.parse(fs.readFileSync(`./language/${idioma}.json`))
+  const tradutor = _translate.plugins.sticker_ttp_attp
+
+  if (!text) throw `${tradutor.texto1} ${usedPrefix + command} Mystic-Bot*`;
   const teks = encodeURI(text);
 
   if (command == 'attp') {
@@ -93,4 +99,4 @@ async function mp4ToWebp(file, stickerMetadata) {
   }};
   const res = await fetch('https://sticker-api.openwa.dev/convertMp4BufferToWebpDataUrl', {method: 'post', headers: {'Accept': 'application/json, text/plain, /', 'Content-Type': 'application/json;charset=utf-8'}, body: JSON.stringify(Format)});
   return Buffer.from((await res.text()).split(';base64,')[1], 'base64');
-}
+    }
