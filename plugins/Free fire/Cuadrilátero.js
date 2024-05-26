@@ -1,7 +1,7 @@
 const handler = async (m, {conn}) => {
   m.reply(global.terminos);
 };
-handler.command = /^(cuadrilatero|cuadrilátero)/i
+handler.command = /^(listacuadrilatero|listcuadrilátero)/i
 export default handler
 global.terminos = `*CUADRILATERO*
 ⤨⤨⤨⤨⤨⤨⤨⤨⤨⤨⤨⤨⤨⤨⤨⤨⤨
