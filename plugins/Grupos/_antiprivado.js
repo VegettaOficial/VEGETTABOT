@@ -7,16 +7,15 @@ export async function before(m, {isOwner, isROwner}) {
 
   if (bot.antiPrivate && !isOwner && !isROwner) {
     await m.reply(
-      `*Cabron no ves mi foto de perfil o eres ciego?*
-*Te vamos a mandar a suspender tu número en la base de datos de WhatsApp por infringir normas de EBG*.⚠️
+      `*Elite Bot Global es un bot mundial automatizado y tiene prohibido los mensajes a mi privado*
 
-> Si deseas comprar EliteBotGlobal contáctate con mis creadores, caso contrario anda despidiendote de tu número.
-
+      | Seras bloqueado 
 *Creador EBG:*
 👤 +593993370003
 
 Nota:
-Solo si tienes dinero en mano no me vengan a joder gente sin dinero.`,
+Llega a mi privado solo si tienes dinero para comprar el servicio.
+Cero sapos y cero niños ratas.`,
       false,
       {mentions: [m.sender]}
     );
