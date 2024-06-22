@@ -8,8 +8,8 @@ export async function before(m, {isOwner, isROwner}) {
   if (bot.antiPrivate && !isOwner && !isROwner) {
     await m.reply(
       `*Elite Bot Global es un bot mundial automatizado y tiene prohibido los mensajes a mi privado*
-
-      | Seras bloqueado 
+ | Seras bloqueado 
+ 
 *Creador EBG:*
 👤 +593993370003
 
