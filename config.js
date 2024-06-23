@@ -123,26 +123,26 @@ global.vs = "𝙀́𝙇𝙄𝙏𝙀 𝘽𝙊𝙏 𝙂𝙇𝙊𝘽𝘼𝙇";
 global.vsJB = "2.0";
 
 global.gt = "𝙀́𝙇𝙄𝙏𝙀 𝘽𝙊𝙏 𝙂𝙇𝙊𝘽𝘼𝙇";
-global.yt = "https://www.instagram.com/elitebotglobal?igsh=a2MyeXRpOXJndWlx";
-global.yt2 = "https://www.instagram.com/elitebotglobal?igsh=a2MyeXRpOXJndWlx";
-global.ig = "https://www.instagram.com/elitebotglobal?igsh=a2MyeXRpOXJndWlx";
-global.md = "https://www.instagram.com/elitebotglobal?igsh=a2MyeXRpOXJndWlx";
-global.fb = "https://www.instagram.com/elitebotglobal?igsh=a2MyeXRpOXJndWlx";
+global.yt = "";
+global.yt2 = "";
+global.ig = "";
+global.md = "";
+global.fb = "";
 
-global.nna = 'https://www.instagram.com/elitebotglobal?igsh=a2MyeXRpOXJndWlx' //UPDATE 
-global.nn2 = 'https://www.instagram.com/elitebotglobal?igsh=a2MyeXRpOXJndWlx' //UPDATE 2
-global.nna2 = 'https://www.instagram.com/elitebotglobal?igsh=a2MyeXRpOXJndWlx' //Help
-global.nn = 'https://www.instagram.com/elitebotglobal?igsh=a2MyeXRpOXJndWlx' //Grupo 1
-global.nnn = 'https://www.instagram.com/elitebotglobal?igsh=a2MyeXRpOXJndWlx' //Grupo 2
-global.nnnt = 'https://www.instagram.com/elitebotglobal?igsh=a2MyeXRpOXJndWlx' //Grupo 3
-global.nnntt = 'https://www.instagram.com/elitebotglobal?igsh=a2MyeXRpOXJndWlx' //Grupo 4
-global.nnnttt = 'https://www.instagram.com/elitebotglobal?igsh=a2MyeXRpOXJndWlx' //Grupo 5
-global.nnnttt1 = 'https://www.instagram.com/elitebotglobal?igsh=a2MyeXRpOXJndWlx' //Grupo 6 COL
-global.nnnttt2 = 'https://www.instagram.com/elitebotglobal?igsh=a2MyeXRpOXJndWlx' //Grupo 7 COL
-global.nnnttt3 = 'https://www.instagram.com/elitebotglobal?igsh=a2MyeXRpOXJndWlx' //Grupo 8 COL
-global.nnnttt4 = 'https://www.instagram.com/elitebotglobal?igsh=a2MyeXRpOXJndWlx' //Grupo 9 COL
-global.nnnttt5 = 'https://www.instagram.com/elitebotglobal?igsh=a2MyeXRpOXJndWlx' //A.T.M.M
-global.paypal = 'https://www.instagram.com/elitebotglobal?igsh=a2MyeXRpOXJndWlx'
+global.nna = '' //UPDATE 
+global.nn2 = '' //UPDATE 2
+global.nna2 = '' //Help
+global.nn = '' //Grupo 1
+global.nnn = '' //Grupo 2
+global.nnnt = '' //Grupo 3
+global.nnntt = '' //Grupo 4
+global.nnnttt = '' //Grupo 5
+global.nnnttt1 = '' //Grupo 6 COL
+global.nnnttt2 = '' //Grupo 7 COL
+global.nnnttt3 = '' //Grupo 8 COL
+global.nnnttt4 = '' //Grupo 9 COL
+global.nnnttt5 = '' //A.T.M.M
+global.paypal = ''
 global.asistencia = 'Wa.me/593993370003' //Dudas? escríbeme...
 
 //━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ ฅ^•ﻌ•^ฅ
