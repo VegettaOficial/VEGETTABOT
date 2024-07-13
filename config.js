@@ -28,7 +28,7 @@ global.botNumberCode = "" //Ejemplo: +59309090909
 global.confirmCode = ""
 
 global.mods = []
-global.prems = ["593993370003"]
+global.prems = [""]
 //key de violetics
 global.Key360 = ["964f-0c75-7afc"]
    
@@ -143,7 +143,7 @@ global.nnnttt3 = '' //Grupo 8 COL
 global.nnnttt4 = '' //Grupo 9 COL
 global.nnnttt5 = '' //A.T.M.M
 global.paypal = ''
-global.asistencia = 'Wa.me/593993370003' //Dudas? escríbeme...
+global.asistencia = '' //Dudas? escríbeme...
 
 //━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ ฅ^•ﻌ•^ฅ
 
