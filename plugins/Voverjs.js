@@ -1,64 +1,31 @@
-/* Creado/adaptado por Bruno Sobrino (https://github.com/BrunoSobrino) */
-
-import fetch from 'node-fetch';
-import axios from 'axios';
-import {load} from 'cheerio';
-const handler = async (m, {text, usedPrefix, command, conn}) => {
-if (!text) throw`️${lenguajeGB['smsAvisoMG']()}${mid.smsMalused7}\n${usedPrefix + command} El Gato con botas`
-  let aaaa;
-  let img;
-  try {
-    aaaa = await searchC(text);
-    img = 'https://cinefilosoficial.com/wp-content/uploads/2021/07/cuevana.jpg';
-  } catch {
-    aaaa = await searchP(text);
-    img = 'https://elcomercio.pe/resizer/RJM30xnujgfmaODGytH1rRVOrAA=/400x0/smart/filters:format(jpeg):quality(75)/arc-anglerfish-arc2-prod-elcomercio.s3.amazonaws.com/public/BJ2L67XNRRGHTFPKPDOEQ2AH5Y.jpg';
+export function before(m) {
+  const user = global.db.data.users[m.sender];
+  if (user.afk > -1) {
+    m.reply(`╭━─━─━─≪☣️≫─━─━─━╮
+┃𝙳𝙴𝙹𝙰𝚂𝚃𝙴 𝙳𝙴 𝙴𝚂𝚃𝙰 𝙰𝙵𝙺
+┃${user.afkReason ? '🔸️ *𝚁𝙰𝚉𝙾𝙽 :* ' + user.afkReason : ''}*
+┃🔸 *𝙴𝚂𝚃𝚄𝚅𝙾 𝙸𝙽𝙰𝙲𝚃𝙸𝚅𝙾 𝙳𝚄𝚁𝙰𝙽𝚃𝙴* ${(new Date - user.afk).toTimeString()}*
+╰━─━─━─≪☣️≫─━─━─━╯ `.trim());
+    user.afk = -1;
+    user.afkReason = '';
   }
-  if (aaaa == '') throw `️${lenguajeGB['smsAvisoFG']()}${mid.buscador10}`
-  const res = await aaaa.map((v) => `*🎬 • ${mid.smsYT1}:* ${v.title}\n*🍿 • ${mid.smsYT4}:* ${v.link}`).join`\n\n───────────────\n\n`;
-  const ads = `*💫 • ${mid.buscador11}*\nhttps://block-this.com/block-this-latest.apk\n\n≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣\n\n`
-  conn.sendMessage(m.chat, {image: {url: img}, caption: ads + res}, {quoted: m});
-};
-handler.command = ['cuevana', 'pelisplus'];
-handler.level = 0
-handler.register = false
-export default handler;
-
-const safeLoad = async (url, options = {}) => {
-  try {
-    const {data: pageData} = await axios.get(url, options);
-    const $ = load(pageData);
-    return $;
-  } catch (err) {
-    if (err.response) {
-      throw new Error(err.response.statusText);
+  const jids = [...new Set([...(m.mentionedJid || []), ...(m.quoted ? [m.quoted.sender] : [])])];
+  for (const jid of jids) {
+    const user = global.db.data.users[jid];
+    if (!user) {
+      continue;
     }
-    throw err;
+    const afkTime = user.afk;
+    if (!afkTime || afkTime < 0) {
+      continue;
+    }
+    const reason = user.afkReason || '';
+    m.reply(`💤 𝙽𝙾 𝙻𝙾𝚂 𝙴𝚃𝙸𝚀𝚄𝙴𝚃𝙴 💤
+𝙴𝚜𝚝𝚎 𝚞𝚜𝚞𝚊𝚛𝚒𝚘 𝚚𝚞𝚎 𝚖𝚎𝚗𝚌𝚒𝚘𝚗𝚊𝚜 𝚎𝚜𝚝𝚊 𝙰𝙵𝙺 
+
+*🔸 ${reason ? '𝙼𝙾𝚃𝙸𝚅𝙾 𝙳𝙴 𝙸𝙽𝙰𝙲𝚃𝙸𝚅𝙸𝙳𝙰𝙳 (𝙰𝙵𝙺): ' + reason : '𝙼𝙾𝚃𝙸𝚅𝙾 𝙳𝙴 𝙸𝙽𝙰𝙲𝚃𝙸𝚅𝙸𝙳𝙰𝙳 (𝙰𝙵𝙺): _𝙴𝙻 𝚄𝚂𝚄𝙰𝚁𝙸𝙾 𝙽𝙾 𝙴𝚂𝙿𝙴𝙲𝙸𝙵𝙸𝙲𝙾 𝚄𝙽 𝙼𝙾𝚃𝙸𝚅𝙾_'}*
+*🔸 𝚃𝙸𝙴𝙼𝙿𝙾 𝚃𝚁𝙰𝙽𝚂𝙲𝚄𝚁𝚁𝙸𝙳𝙾 𝙳𝙴 𝙸𝙽𝙰𝙲𝚃𝙸𝚅𝙸𝙳𝙰𝙳 (𝙰𝙵𝙺): ${(new Date - afkTime).toTimeString()}*
+  `.trim());
   }
-};
-
-async function searchC(query, numberPage = 1) {
-  const $ = await safeLoad(`https://cuevana3.mu/page/${numberPage}/`, {
-    params: {s: query}});
-  const resultSearch = [];
-  $('.results-post > article').each((_, e) => {
-    const element = $(e);
-    const title = element.find('header > h2').text();
-    const link = element.find('.lnk-blk').attr('href');
-    resultSearch.push({title: title, link: link});
-  });
-  return resultSearch;
-}
-
-async function searchP(query, numberPage = 1) {
-  const $ = await safeLoad(`https://pelisplushd.cx/search/`, {
-    params: {s: query, page: numberPage}});
-  const resultSearch = [];
-  $('a[class^=\'Posters\']').each((_, e) => {
-    const element = $(e);
-    const title = element.find('.listing-content > p').text();
-    const link = element.attr('href');
-    resultSearch.push({title: title, link: link});
-  });
-  return resultSearch;
+  return true;
 }
