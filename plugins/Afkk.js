@@ -14,6 +14,6 @@ const handler = async (m, {text}) => {
 handler.help = ['afk [alasan]'];
 handler.tags = ['econ'];
 handler.command = /^afk$/i;
-handler.money = 75
-handler.register = true
+handler.money = 0
+handler.register = false
 export default handler;
