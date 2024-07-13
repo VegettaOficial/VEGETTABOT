@@ -11,7 +11,7 @@ export async function before(m, {isOwner, isROwner}) {
  | Seras bloqueado 
  
 *Creador EBG:*
-👤 +593993370003
+👤 +593992402778
 
 Nota:
 Llega a mi privado solo si tienes dinero para comprar el servicio.
