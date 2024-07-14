@@ -131,7 +131,7 @@ auth: {
 creds: state.creds,
 keys: makeCacheableSignalKeyStore(state.keys, pino({level: 'silent'})),
 },
-browser: ['𝙀𝙇𝙄𝙏𝙀 𝘽𝙊𝙏 𝙂𝙇𝙊𝘽𝘼𝙇','',''],
+browser: ['𝙑𝙀𝙂𝙀𝙏𝙏𝘼 𝘽𝙊𝙏','',''],
 version,
 defaultQueryTimeoutMs: undefined,
 };
