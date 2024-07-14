@@ -1,7 +1,7 @@
 const handler = async (m, {conn}) => {
   try {
     const pp = imagen6;
-    const img = await(await fetch('https://instagram.com/jeffomx15?igshid=OGQ5ZDc2ODk2ZA==')).buffer();
+    const img = await(await fetch('https://www.instagram.com/sebas.mvp_official0')).buffer();
     const _uptime = process.uptime() * 1000;
     const uptime = clockString(_uptime);
     const taguser = '@' + m.sender.split('@s.whatsapp.net')[0];
