@@ -13,7 +13,7 @@ for (let mem of participants) {
    
 teks += `┃👤@${mem.id.split('@')[0]}\n`}
 teks += `\n` 
-teks += `*╰━* 𝙀𝙇𝙄𝙏𝙀 𝘽𝙊𝙏 𝙂𝙇𝙊𝘽𝘼𝙇
+teks += `*╰━* 𝙑𝙀𝙂𝙀𝙏𝙏𝘼 𝘽𝙊𝙏
 ▌│█║▌║▌║║▌║▌║▌║█`
 conn.sendMessage(m.chat, { text: teks, mentions: participants.map(a => a.id) }, )  
 }
