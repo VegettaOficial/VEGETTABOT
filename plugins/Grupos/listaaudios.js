@@ -11,7 +11,7 @@ global.db.data.users[m.sender].exp += 50
 if (chat.audios && m.text.match(/(bienven)/gi)) {
 let vn = './media/Bienvenido.mp3'
 this.sendPresenceUpdate('recording', m.chat)   
-conn.sendMessage(m.chat, { audio: { url: vn }, contextInfo: { "externalAdReply": { "title": wm, "body": ``, "previewType": "PHOTO", "thumbnailUrl": null,"thumbnail": imagen1, "sourceUrl": `𝙀𝙇𝙄𝙏𝙀 𝘽𝙊𝙏 𝙂𝙇𝙊𝘽𝘼𝙇`, "showAdAttribution": true}}, ptt: true, mimetype: 'audio/mpeg', fileName: `error.mp3` }, { quoted: m })}
+conn.sendMessage(m.chat, { audio: { url: vn }, contextInfo: { "externalAdReply": { "title": wm, "body": ``, "previewType": "PHOTO", "thumbnailUrl": null,"thumbnail": imagen1, "sourceUrl": `𝙑𝙀𝙂𝙀𝙏𝙏𝘼 𝘽𝙊𝙏`, "showAdAttribution": true}}, ptt: true, mimetype: 'audio/mpeg', fileName: `error.mp3` }, { quoted: m })}
 
 if (chat.audios && m.text.match(/(chao|adios|rip|eliminar|eliminenle|basura|pablo)/gi)) {    
 let vn = './media/basura.mp3'
