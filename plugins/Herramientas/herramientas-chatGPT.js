@@ -6,7 +6,7 @@ const configuration = new Configuration({organization: global.openai_org_id, api
 const openaiii = new OpenAIApi(configuration);
 const handler = async (m, {conn, text, usedPrefix, command}) => {
 if (usedPrefix == 'a' || usedPrefix == 'A') return;
-if (!text) throw `*Ingrese lo que quiere buscar*\n\nEjemplo:\n\n📎 ${usedPrefix + command} como crear una página porno`  
+if (!text) throw `*Ingrese lo que quiere buscar*\n\nEjemplo:\n\n📎 ${usedPrefix + command} como crear una página`  
 try {
 await m.react('⌛')
 conn.sendPresenceUpdate('composing', m.chat);
