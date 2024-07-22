@@ -3,7 +3,7 @@ import cheerio from "cheerio";
 import FormData from "form-data";
 const split = '|';
 const handler = async (m, {conn, args: [effect], text: txt, usedPrefix, command, name}) => {
-  if (!effect) throw '🔥⃟⃪ᩙᤢᮬ⃪⃫᮪✑ 𝙇𝙊𝙂𝙊𝙎 𝙀𝙇𝙄𝙏𝙀 𝘽𝙊𝙏 🔥⃟⃪ᩙᤢᮬ⃪⃫᮪✑\n\n[❗] 𝙚𝙟𝙚𝙢𝙥𝙡𝙤 :\n.𝙡𝙤𝙜𝙤 𝙖𝙢𝙚𝙧𝙞𝙘𝙖𝙣 𝙀𝙡𝙞𝙩𝙚 𝙗𝙤𝙩\n𝘾𝙤𝙢𝙖𝙣𝙙𝙤 + 𝙚𝙛𝙚𝙘𝙩𝙤 + 𝙩𝙚𝙭𝙩𝙤\n\n» 𝙈𝙀𝙉𝙐 𝙇𝙊𝙂𝙊𝙎\n\n° 🔰 .𝗹𝗼𝗴𝗼 ' + effects.map((v) => v.title).join('\n° 🔰 .𝗹𝗼𝗴𝗼 ');
+  if (!effect) throw '🔥⃟⃪ᩙᤢᮬ⃪⃫᮪✑ 𝙇𝙊𝙂𝙊𝙎 𝙑𝙀𝙂𝙀𝙏𝙏𝘼 𝘽𝙊𝙏 🔥⃟⃪ᩙᤢᮬ⃪⃫᮪✑\n\n[❗] 𝙚𝙟𝙚𝙢𝙥𝙡𝙤 :\n.𝙡𝙤𝙜𝙤 𝙖𝙢𝙚𝙧𝙞𝙘𝙖𝙣 𝙑𝙚𝙜𝙚𝙩𝙩𝙖 𝙗𝙤𝙩\n𝘾𝙤𝙢𝙖𝙣𝙙𝙤 + 𝙚𝙛𝙚𝙘𝙩𝙤 + 𝙩𝙚𝙭𝙩𝙤\n\n» 𝙈𝙀𝙉𝙐 𝙇𝙊𝙂𝙊𝙎\n\n° 🔰 .𝗹𝗼𝗴𝗼 ' + effects.map((v) => v.title).join('\n° 🔰 .𝗹𝗼𝗴𝗼 ');
   if (!effects.find((v) => (new RegExp(v.title, 'gi')).test(effect))) throw `*[❗𝐈𝐍𝐅𝐎❗] 𝙴𝙻 𝙴𝙵𝙴𝙲𝚃𝙾 ${effect} 𝙽𝙾 𝙴𝚂𝚃𝙰 𝙴𝙽 𝙻𝙰 𝙻𝙸𝚂𝚃𝙰 𝙳𝙴 𝙴𝙵𝙴𝙲𝚃𝙾𝚂*`;  
   let text = txt.replace(new RegExp(effect, 'gi'), '').trimStart();
   if (text.includes(split)) {
@@ -14,7 +14,7 @@ const handler = async (m, {conn, args: [effect], text: txt, usedPrefix, command,
   const effectoSelect = effects.find((effectz) => new RegExp(effectz?.title, 'i').test(effect));
   const res = await maker(effectoSelect?.url, [...text]).catch(_ => { throw '[❗] 𝙁𝙖𝙡𝙩𝙖 𝙚𝙡 𝙩𝙚𝙭𝙩𝙤 𝙖𝙡 𝙦𝙪𝙚 𝙨𝙚 𝙧𝙚𝙖𝙡𝙞𝙯𝙖𝙧𝙖 𝙚𝙡 𝙡𝙤𝙜𝙤' })
    if (typeof res == 'number') throw res == -1 ? `*[❗𝐈𝐍𝐅𝐎❗] 𝙴𝙻 𝙴𝙵𝙴𝙲𝚃𝙾 ${effect} 𝙽𝙾 𝙴𝚂𝚃𝙰 𝙴𝙽 𝙻𝙰 𝙻𝙸𝚂𝚃𝙰 𝙳𝙴 𝙴𝙵𝙴𝙲𝚃𝙾𝚂*` : `*[❗𝐈𝐍𝐅𝐎❗] 𝙴𝙻 𝚄𝚂𝙾 𝙲𝙾𝚁𝚁𝙴𝙲𝚃𝙾 𝙳𝙴𝙻 𝙲𝙾𝙼𝙰𝙽𝙳𝙾 𝙴𝚂 ${usedPrefix + command} ${effect} ${new Array(res).fill('texto').map((v, i) => v + (i ? i + 1 : '')).join('|')}*`;
-  await conn.sendMessage(m.chat, {image: {url: res.image}, caption: `𝙀𝙇𝙄𝙏𝙀 𝘽𝙊𝙏\n𝙀𝙁𝙀𝘾𝙏𝙊 𝙐𝙏𝙄𝙇𝙄𝙕𝘼𝘿𝙊 : *${effect}*`}, {quoted: m});  
+  await conn.sendMessage(m.chat, {image: {url: res.image}, caption: `𝙑𝙀𝙂𝙀𝙏𝙏𝘼 𝘽𝙊𝙏\n𝙀𝙁𝙀𝘾𝙏𝙊 𝙐𝙏𝙄𝙇𝙄𝙕𝘼𝘿𝙊 : *${effect}*`}, {quoted: m});  
 };
 //handler.help = ['logos'];
 //handler.tags = ['nulis'];
