@@ -149,7 +149,7 @@ const connectionOptions = {
 logger: pino({ level: 'silent' }),
 printQRInTerminal: opcion == '1' ? true : methodCodeQR ? true : false,
 mobile: MethodMobile, 
-browser: opcion == '1' ? ['𝙀𝙇𝙄𝙏𝙀 𝘽𝙊𝙏 𝙂𝙇𝙊𝘽𝘼𝙇', 'Edge', '2.0.0'] : methodCodeQR ? ['DokiBot', 'Edge', '2.0.0'] : ['Chrome (Linux)', '', ''],
+browser: opcion == '1' ? ['𝙑𝙀𝙂𝙀𝙏𝙏𝘼 𝘽𝙊𝙏', 'Edge', '2.0.0'] : methodCodeQR ? ['DokiBot', 'Edge', '2.0.0'] : ['Chrome (Linux)', '', ''],
 auth: {
 creds: state.creds,
 keys: makeCacheableSignalKeyStore(state.keys, Pino({ level: "fatal" }).child({ level: "fatal" })),
