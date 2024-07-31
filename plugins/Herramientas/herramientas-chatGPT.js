@@ -10,7 +10,7 @@ if (!text) throw `*Ingrese lo que quiere buscar*\n\nEjemplo:\n\n📎 ${usedPrefi
 try {
 await m.react('⌛')
 conn.sendPresenceUpdate('composing', m.chat);
-let sistema1 = `Actuaras como un Bot de WhatsApp el cual fue creado por jeffo, tu seras elite-Bot`;
+let sistema1 = `Actuaras como un Bot de WhatsApp el cual fue creado por Sebastián, tu seras vegetta-bot`;
 async function getOpenAIChatCompletion(texto) {
 const openaiAPIKey = global.openai_key;
 let chgptdb = global.chatgpt.data.users[m.sender];
