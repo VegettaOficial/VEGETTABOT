@@ -13,7 +13,7 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
     
  ${msToDate(global.db.data.chats[who].expired - now)}
 
-Despues Elite Bot se saldra automáticamente del grupo.`) 
+Despues VegettaBot se saldra automáticamente del grupo.`) 
     
 }
 handler.help = ['fechadeexpiracion']
