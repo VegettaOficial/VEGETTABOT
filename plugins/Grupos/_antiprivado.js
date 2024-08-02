@@ -7,10 +7,10 @@ export async function before(m, {isOwner, isROwner}) {
 
   if (bot.antiPrivate && !isOwner && !isROwner) {
     await m.reply(
-      `*Elite Bot Global es un bot mundial automatizado y tiene prohibido los mensajes a mi privado*
+      `*Vegetta Bot es un bot mundial automatizado y tiene prohibido los mensajes a mi privado*
  | Seras bloqueado 
  
-*Creador EBG:*
+*Creador VGT:*
 👤 +593992402778
 
 Nota:
